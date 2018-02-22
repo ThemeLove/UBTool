@@ -1,0 +1,454 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<channels>
+	<!-- param会合并到aksdk_plugin.xml中 -->
+	<!-- meta-data会合并到AndroidManifest.xml中 -->
+	<channel id="quick" name="QuickSDK" splash="true">
+	<param name="VAS_DEBUG" value="true"/>
+    <param name="VAS_GAMEID" value="1"/>
+    <param name="VAS_PLATFORMID" value="2"/>
+    <param name="VAS_CHANNELID" value="1"/>
+    <param name="VAS_SUBCHANNEL_ID" value="1"/>
+    <param name="PRODUCTCODE" value="70316131375283733656369901798445"/>
+    <param name="PRODUCTKEY" value="57629032"/>
+	</channel>
+
+	<channel id="pptv" name="PPTVSDK" suffix=".pptv" splash="true" icon="rb" >
+		<param name="GAMEID" value="xzqszl_m" />
+		<param name="VAS_DEBUG" value="false"/>
+	    <param name="VAS_GAMEID" value="1021"/>
+	    <param name="VAS_PLATFORMID" value="3"/>
+	    <param name="VAS_SUBPLATFORMID" value="0" />
+	    <param name="VAS_CHANNELID" value="1"/>
+	    <param name="VAS_SUBCHANNEL_ID" value="1"/>
+	    <meta-data value="269" name="PptvVasSdk_CID"/>
+	    <meta-data value="" name="PptvVasSdk_CCID"/>
+	    <meta-data value="false" name="PptvVasSdk_DebugMode"/>
+	</channel>
+	
+	<channel id="pptv6.0" name="PPTV6.0SDK" suffix=".pptv" splash="true" icon="rb" >
+		<param name="GAMEID" value="xzqszl_m" />
+		<param name="VAS_DEBUG" value="false"/>
+	    <param name="VAS_GAMEID" value="1021"/>
+	    <param name="VAS_PLATFORMID" value="3"/>
+	    <param name="VAS_SUBPLATFORMID" value="0" />
+	    <param name="VAS_CHANNELID" value="1"/>
+	    <param name="VAS_SUBCHANNEL_ID" value="1"/>
+	</channel>
+	
+
+	<channel id="gp" name="GPSDK" suffix=".guopan" splash="true" icon="rb" >
+		<param name="DEBUG" value="false" />
+		<param name="APPID" value="107410" />
+		<param name="APPKEY" value="6FV41A4OHYXCJR87" />
+		<param name="RATE" value="10" />
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="5" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+	    <meta-data name="com.baidu.lbsapi.API_KEY" value="DhNxS47YIr3CNdocGoAcy1ts" />
+	    <meta-data name="GP_SDK_BUGLY_SWITCH" value="ON" />
+	</channel>
+	
+	<channel id="gamecat" name="GameCatSDK" suffix=".yxm" splash="true" icon="rb">
+		<!-- <param name="AESKEY" value="eW91eGltYW8xMzAwMDFsdA=="/>测试 -->
+		<param name="AESKEY" value="eW91eGltYW8xMzAwMDF4cw==" /><!-- 线上 -->
+		<param name="DEBUG" value="false" />
+		<param name="GAMEID" value="pptv_xunzhaoqianshizhilv_2" />
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="1" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="GameCatAppKey" value="1300001" />
+		<meta-data name="GameCatChlId" value="1301" />
+		<meta-data name="com.alibaba.app.appkey" value="23513637" />
+		<meta-data name="com.alibaba.app.appsecret" value="db23e69e30ceb523b2ffff67135ef5aa" />
+	</channel>
+	
+	<channel id="tt" name="TTSDK" suffix=".tt" icon="rb">
+	    <param name="VAS_ORIENTATION" value="2" /><!-- 1为竖屏 2为横屏 -->
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="4" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+	</channel>
+	
+	<channel id="qmyx" name="QMYXSDK" suffix=".qmyx">
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="9" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="GAME_ID" value="100146" >
+        </meta-data>
+	</channel>
+	
+	<channel id="youlong" name="悦动SDK" suffix=".zzyd" >
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="10" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="introduction" value="0" />
+        <meta-data name="sourceid" value="99" />
+        <meta-data name="other" value="0" />
+	</channel>
+	
+	<channel id="aile" name="爱乐SDK" suffix=".aile" splash="true">
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="11" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="com.baidu.lbsapi.API_KEY" value="DhNxS47YIr3CNdocGoAcy1ts"/>  
+	    <meta-data name="HS_APPID" value="362608"/>
+	    <meta-data name="HS_CLIENTID" value="267"/>
+	    <meta-data name="HS_CLIENTKEY" value="931a7b8995bbb71a20ff087b723080e9"/>
+	</channel>
+	
+    <channel id="haomeng" name="游玩SDK" suffix=".hm" splash="true" icon="lb">
+	    <param name="APPID" value="1253"/> <!-- 渠道appid -->
+	    <param name="APPKEY" value="yWpx3hWQHFhSnTCj#1253#6KuRKuaAjLJ5sYRy"/>
+		<param name="RATE" value="10" />
+	    <param name="VAS_ORENTATION" value="0"/><!-- 0横 1竖 -->
+	    <param name="VAS_GAMEID" value="1212"/>
+	    <param name="VAS_PLATFORMID" value="51"/>
+	    <param name="VAS_SUBPLATFORMID" value="0"/>
+	    <param name="VAS_CHANNELID"     value="1"/>
+	    <param name="VAS_SUBCHANNEL_ID"  value="1"/>        
+    </channel>
+	
+	<channel id="bibi" name="哔哔游戏SDK" suffix=".bibi" splash="true" icon="rb">
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="12" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="HS_APPID" value="60116" />
+        <meta-data name="HS_CLIENTID" value="127" />
+        <meta-data name="HS_CLIENTKEY" value="e00a5d79c8057fb2609ddd8f6d3ae1f9" />
+        <meta-data name="HS_AGENT" value="default" />
+	</channel>
+	
+	<channel id="niuniu" name="牛牛SDK" suffix=".nn">
+		<param name="APPID" value="1039" />
+		<param name="APPKEY" value="76d680d5fa9350644750c9a5121edfd0" />
+		<param name="VAS_ORIENTATION" value="0" /><!-- 0横屏 1竖屏 -->
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="7" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />  
+		<meta-data name="NIUNIU_CHANNEL" value="66173"/>
+	</channel>
+	
+	<channel id="dianyou" name="点游SDK" suffix=".qmdy">
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="8" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" /> 
+		<meta-data name="com.dianyou.game.api.GAME_ID" value="3kq0gi18lm4=" />
+		<meta-data name="com.dianyou.game.api.APP_KEY" value="d026709ed1208cce" />
+		<meta-data name="com.dianyou.game.APP_SECRET" value="319d53d67aa8cf94c712212718e63d936e4d83321d6106a8" />   
+		<meta-data name="com.dianyou.game.switch.user.LOGIN_POPUP_WINDOW" value="true" />
+		<meta-data name="com.dianyou.game.float.EXIT_GAME" value="true" />
+	</channel>
+	
+	<channel id="yxf" name="游戏FanSDK" suffix=".yxf" splash="true" icon="rb">
+		<param name="VAS_ORIENTATION" value="0" /> <!-- 0横屏  1竖屏 -->
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="15" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />  
+		<meta-data name="com.baidu.lbsapi.API_KEY" value="T9qZTNuCXccVuV76gEfXUxt55jXPlqD9" />
+	    <meta-data name="YXF_APPID" value="372" />
+	    <meta-data name="YXF_GAMEID" value="1169" />
+	    <meta-data name="YXF_AGENT" value="default" /> 
+	</channel>
+	
+	<channel id="zhenku" name="真库SDK" suffix=".cnw" splash="true" icon="rb">
+		<param name="VAS_RATE" value="10" />
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="17" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="com.baidu.lbsapi.API_KEY" value="DhNxS47YIr3CNdocGoAcy1ts"/>  
+	    <meta-data name="HS_APPID" value="60159"/>  
+	    <meta-data name="HS_CLIENTID" value="167"/>  
+	    <meta-data name="HS_CLIENTKEY" value="7206c690b4ac7a859d0abcc36d7739f6"/>
+	</channel>
+	
+	<channel id="yunfeng" name="云峰SDK" suffix=".g37376">
+		<param name="VAS_ORIENTATION" value="0" /> <!-- 0横屏 1竖屏 -->
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="13" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="UMGAME_PID" value="92"/>
+        <meta-data name="UMGAME_APP_KEY" value="1638097d0494449c8aa61cacc7e5b409"/>    
+	</channel>
+	
+	<channel id="xuanyou" name="轩游SDK" suffix=".xuanyou" splash="true" icon="rb">
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="18" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" /> 
+		<meta-data name="HS_APPID" value="109"/>
+		<meta-data name="HS_CLIENTID" value="13"/>
+		<meta-data name="HS_CLIENTKEY" value="6fe5927d6d4fd1f6d9678abd6faa2f6f"/>   
+	</channel>
+	
+	<channel id="leyou" name="乐游SDK" suffix=".leyou" splash="true" icon="rb">
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="21" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />   
+		<meta-data name="MG_APPID" value="829" />
+	    <meta-data name="MG_GAMEID" value="829" />
+	    <meta-data name="MG_AGENT" value="default" />
+	    <meta-data name="MG_LOGOUT_VISIBLE" value="true" /> 
+	</channel>
+	
+	<channel id="lexiao" name="乐骁SDK" suffix=".lexiao" splash="true" icon="rb">
+		<param name="VAS_GAMEID" value="1021" />
+		<param name="VAS_PLATFORMID" value="26" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />    
+		<meta-data name="LEXIAOGAME_APPID" value="13" />
+        <meta-data name="debug_type" value="1" />
+    </channel>
+	
+	<channel id="jule" name="聚乐SDK" suffix=".htc" splash="true" icon="rb">
+		<param name="GAMECODE" value="" />
+		<param name="CP_GAME_NAME" value="" />
+		<param name="JOLO_PUBLIC_KEY" value="" />
+        <param name="CP_PRIVATE_KEY_PKCS8" value="" />
+		<param name="VAS_GAMEID" value="1114" />
+		<param name="VAS_PLATFORMID" value="25" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />  
+		<meta-data name="HTC_CHANNEL" value="htc" />  
+	</channel>
+	
+	<channel id="07073" name="07073SDK" suffix=".lqlqs">
+		<param name="PID" value="1572" />
+		<param name="GAMEID" value="1540" />
+		<param name="VAS_GAMEID" value="1114" />
+		<param name="VAS_PLATFORMID" value="14" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />    
+	</channel>
+	
+	<channel id="duoyou" name="多游SDK" suffix=".duoyou">
+	    <param name="VAS_ORIENTATION" value="0" /><!-- 0横屏 1竖屏 -->
+		<param name="VAS_GAMEID" value="1212" />
+		<param name="VAS_PLATFORMID" value="45" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="com.baidu.lbsapi.API_KEY" value="DhNxS47YIr3CNdocGoAcy1ts" />
+        <meta-data name="DY_APPID" value="53" />
+        <meta-data name="DY_GAMEID" value="53" />
+        <meta-data name="DY_AGENT" value="defalut" />
+	</channel>
+	
+	<channel id="youliang" name="有量SDK" suffix=".yl">
+		<param name="VAS_GAMEID" value="1128" />
+		<param name="VAS_PLATFORMID" value="22" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="YL_GAMEKEY" value="66d5a4a11ec685dafee2bc7694d9f02e" />
+		<meta-data name="YL_CHANNEL" value="\ 0103" />
+		<meta-data name="YL_DATA_URL_DEBUG" value="false" />    
+	</channel>
+	
+	<channel id="yule" name="禹乐SDK" suffix=".yule">
+	    <param name="VAS_ORIENTATION" value="0" /> <!-- 0横屏  1竖屏 -->
+		<param name="VAS_GAMEID" value="1099" />
+		<param name="VAS_PLATFORMID" value="6" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="YL_APPID" value="77" />
+        <meta-data name="YL_CLIENTID" value="77" />
+        <meta-data name="YL_CLIENTKEY" value="131b49c4581a74dc6035655c1a972e57" />
+        <meta-data name="AGENT" value="default" />
+	</channel>	
+	
+    <channel id="youyou" name="友游SDK" suffix=".yy" splash="false"  >
+		<param name="VAS_ORIENTATION" value="0" /> 
+		<param name="VAS_GAMEID" value="1047" />
+		<param name="VAS_PLATFORMID" value="35" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="YY_APPID" value="2068" />
+	</channel>
+	
+    <channel id="nnjh" name="牛牛超级SDK" suffix=".nnjh">
+	    <param name="APPID" value="1040"/>
+	    <param name="APPKEY" value="4e816013de176c4eb080a401753e8abb"/>
+	    <param name="GAMENAME" value="豪门足球风云"/>
+	    <param name="VAS_ORIENTATION" value="0"/>
+	    <param name="VAS_GAMEID" value="1123"/>
+	    <param name="VAS_PLATFORMID" value="40"/>
+	    <param name="VAS_SUBPLATFORMID" value="0"/>
+	    <param name="VAS_CHANNELID" value="1"/>
+	    <param name="VAS_SUBCHANNEL_ID" value="1"/>        
+    </channel>
+	
+	<channel id="dangle" name="当乐SDK" suffix=".dj" splash="true">
+	    <param name="MAIN_ACTIVITY_NAME" value="com.zqgame.zscq.AppActivity" />
+		<param name="MERCHANTID" value="1331" />
+		<param name="APPID" value="7313" />
+		<param name="APPKEY" value="dC2XPkf0" />
+		<param name="SERVER_SEQ_NUM" value="1" />
+		<param name="VAS_GAMEID" value="1114" />
+		<param name="VAS_PLATFORMID" value="36" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+	</channel>
+
+	<channel id="qishizs" name="QiShiZSSDK" suffix=".jjwan" splash="true" icon="rb">
+		<param name="GAMEID" value="hylr_m" />
+		<param name="QISHIZS_GAME_NAME" value="幻游猎人"/>
+		<param name="VAS_GAMEID" value="1115" />
+		<param name="VAS_PLATFORMID" value="23" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNELID" value="1" />
+		<meta-data name="JJW_GAMEID" value="1255524"/>
+	</channel>
+	
+	<channel id="xiantu" name="XianTuSDK"  splash="true" suffix=".xiantu" icon="rb">
+		<param name="XIANTU_GAMEID" value="938"/>
+		<param name="XIANTU_GAME_NAME" value="神话永恒"/>
+		<param name="XIANTU_APPID"  value="EB69B0E3955ABCDF1"/>
+		<param name="GAMEID" value="shyh_m"/>
+		<param name="VAS_GAMEID" value="1073"/>
+		<param name="VAS_PLATFORMID" value="27"/>
+		<param name="VAS_SUBPLATFORMID" value="0"/>
+		<param name="VAS_CHANNELID" value="1"/>
+		<param name="VAS_SUBCHANNELID" value="1"/>
+	</channel>
+	
+	<channel id="huiwan" name="HuiWanSDK" suffix=".hw"  icon="rb" >
+		<param name="GAMEID" value="rxsj_m" />
+	    <param name="VAS_GAMEID" value="1114"/>
+	    <param name="VAS_PLATFORMID" value="16"/>
+	    <param name="VAS_SUBPLATFORMID" value="0" />
+	    <param name="VAS_CHANNELID" value="1"/>
+	    <param name="VAS_SUBCHANNEL_ID" value="1"/>
+	    <meta-data name="HW_APPID"  value="23323142"/>
+		<meta-data name="HW_GAMEID" value="825"/>
+		<meta-data name="HW_AGENT"  value="default"/>
+	</channel>
+	
+	<channel id="qishizs" name="QiShiZSSDK" suffix=".jjwan" splash="true" icon="rb">
+		<param name="GAMEID" value="yqlfc_m"/>
+		<param name="QISHIZS_GAME_NAME" value="一起来飞车"/>
+		<param name="VAS_GAMEID" value="1047" />
+		<param name="VAS_PLATFORMID" value="23" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNELID" value="1" />
+		<meta-data name="JJW_GAMEID" value="1255521"/>
+	</channel>
+	
+	<channel id="mogu" name="MoGuSDK" suffix=".mogu" splash="true"  icon="rb">
+		<param name="MOGU_GAMEID" value="166"/>
+		<param name="MOGU_APPID"  value="7B52DBED6641EAFC4"/>
+		<param name="MOGU_GAME_NAME" value="朕的江山"/>
+		<param name="MOGU_SIGN_KEY" value="LQJUJyUaUjszOxQJOTI/PztWOCQ1CyE9NjYtES5fIBktMj8SPwRaATg2Clo="/>
+		<param name="MOGU_ADDRESS" value="http://u7858.com"/>
+		<param name="GAMEID" value="zdjs_m"/>
+		<param name="VAS_GAMEID" value="1027"/>
+		<param name="VAS_PLATFORMID" value="24"/>
+		<param name="VAS_SUBPLATFORMID" value="0"/>
+		<param name="VAS_CHANNELID" value="1"/>
+		<param name="VAS_SUBCHANNELID" value="1"/>
+		<meta-data name="paysdk_signkey" value="LQJUJyUaUjszOxQJOTI/PztWOCQ1CyE9NjYtES5fIBktMj8SPwRaATg2Clo="/>
+        <meta-data name="paysdk_ipaddress" value="http://u7858.com" />
+	</channel>
+	
+	<channel id="lehihi" name="LeHiHiSDK" suffix=".lhh" splash="false">
+		<param name="LEHIHI_PID" value="11453"/>
+		<param name="LEHIHI_APPKEY" value="8e8cdc16c5284be8c0f5ad0a9ebc0fca"/>
+		<param name="GAMEID" value="lhsl_m"/>
+		<param name="VAS_GAMEID" value="1075"/>
+		<param name="VAS_PLATFORMID" value="28"/>
+		<param name="VAS_SUBPLATFORMID" value="0"/>
+		<param name="VAS_CHANNELID" value="1"/>
+		<param name="VAS_SUBCHANNELID" value="1"/>
+	</channel>
+	
+	<channel id="sijiuyou" name="SiJiuYouSDK" suffix=".sj49you">
+		<param name="APPID"  value="655"/>
+		<param name="APPKEY" value="75489d5bc18df3bec489702a2998973b"/>
+		<param name="RATE"   value="10"/>
+		<param name="GAMEID" value="lmsg_m"/>
+		<param name="ORITATION" value="landscape"/>
+		<param name="VAS_GAMEID" value="1089"/>
+		<param name="VAS_PLATFORMID" value="20"/>
+	    <param name="VAS_SUBPLATFORMID" value="0" />
+	    <param name="VAS_CHANNELID" value="1"/>
+	    <param name="VAS_SUBCHANNEL_ID" value="1"/>
+	    <!-- 新增配置，markappid填游戏appid -->
+        <meta-data name="markappid" value="655" />
+        <!-- markname无需改动直接复制就行 -->
+        <meta-data name="markname" value="ly2" />
+	</channel>	
+	
+    <channel id="xingyun" name="星云SDK" suffix=".xy" splash="false"  >
+		<param name="VAS_PLATFORMID" value="30"/>
+		<meta-data name="IXSDK_APPID" value="300412"/>
+	<channel>
+	
+	<channel id="pptv6.1" name="PPTV6.1SDK" suffix=".pptv" splash="true" icon="rb" >
+	   <param name="VAS_PLATFORMID" value="3"/>
+	<channel>
+	
+	
+	<channel id="tianyuyou" name="天宇游SDK" suffix=".tyy" splash="true" icon="rb"  >
+		<param name="VAS_ORIENTATION" value="0" />
+		<param name="VAS_PLATFORMID" value="31"/>
+		<meta-data name="HS_APPID" value="60402" />
+		<meta-data name="HS_CLIENTID" value="405" />
+		<meta-data name="HS_CLIENTKEY" value="33dcfc02d578f2547d44fab86675da63" />
+		<meta-data name="HS_AGENT" value="default" />
+	<channel>
+	
+	<channel id="qidian" name="奇点SDK" suffix=".qd" splash="true" icon="rb">
+		<param name="GAME_EXCHANGE_RATE" value="10" /><!-- 游戏兑换比例 -->
+		<param name="GAME_CURRENCY_NAME" value="元宝" /><!-- 游戏虚拟币名称 -->
+		<param name="VAS_PLATFORMID" value="33" />
+		<meta-data name="HS_APPID" value="60131" />
+		<meta-data name="HS_CLIENTID" value="136" />
+		<meta-data name="HS_CLIENTKEY" value="3c5dc12f7c445a57432162146474d0c5" />
+
+
+	<channel id="pengyouwan" name="PengYouWanSDK"  suffix=".pyw.gs" splash="true" icon="rb">
+		<param name="PENGYOUWAN_GAMEKEY" value="e5dd1011"/>
+		<param name="GAMEID" value="djbqp_m"/>
+		<param name="VAS_GAMEID" value="1046"/>
+		<param name="VAS_PLATFORMID" value="19"/>
+		<param name="VAS_SUBPLATFORMID" value="0"/>
+		<param name="VAS_CHANNELID" value="1"/>
+		<param name="VAS_SUBCHANNELID" value="1"/>
+	<annel>
+		
+    
+</channels>

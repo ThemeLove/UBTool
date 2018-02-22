@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.themelove.assetpackageapk" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-N9002ZNUENG4">
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.umbrella.game.ubsdk.ui.UBSplashActivity"/>
+        <activity android:name="com.umbrella.game.ubsdk.ui.TESTActivity">
+            <intent-filter>
+                <date android:name="{PACKAGENAME}.ubsdk.test"/>
+                <action android:name="android.intent.action.View"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
