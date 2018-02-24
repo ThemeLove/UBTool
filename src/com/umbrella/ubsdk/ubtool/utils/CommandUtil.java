@@ -2,7 +2,8 @@ package com.umbrella.ubsdk.ubtool.utils;
 
 import java.io.File;
 
-import com.umbrella.ubsdk.tool.util.StreamGobbler;
+import com.umbrella.ubsdk.ubtool.bean.LoggerThread;
+
 
 public class CommandUtil {
     // 执行命令
@@ -13,9 +14,9 @@ public class CommandUtil {
     
     private static void showLog(Process process) throws Exception
     {
-        StreamGobbler errorGobbler = new StreamGobbler(process.getErrorStream(), "ERROR");
+        LoggerThread errorGobbler = new LoggerThread(process.getErrorStream(), "ERROR");
         errorGobbler.start();
-        StreamGobbler outGobbler = new StreamGobbler(process.getInputStream(), "STDOUT");
+        LoggerThread outGobbler = new LoggerThread(process.getInputStream(), "STDOUT");
         outGobbler.start();
         process.waitFor();
     }

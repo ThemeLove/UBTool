@@ -142,7 +142,7 @@ gameId | 游戏名称
 1391 | 凤武
 ------end-------
 请选择第1个要打包的游戏id
-已选择游戏 ：10001 | 游戏Demo----->已配置渠道如下：
+已选择游戏 ：10002 | sgbwdl----->已配置渠道如下：
 ================渠道列表================
 渠道号 | 渠道名称
 ------start-------
@@ -150,26 +150,26 @@ xiantu2 | XianTu-露娜物语
 vivo | vivo-露娜物语
 ------end-------
 请选择渠道，多个渠道以“,”分割
-第1个游戏：游戏Demo----->已选择渠道如下：
-[xiantu2 | XianTu-露娜物语, vivo | vivo-露娜物语]
+第1个游戏：sgbwdl----->已选择渠道如下：
+[vivo | vivo-露娜物语]
 
 请选择第2个要打包的游戏id
 所有游戏选择完毕!
 您要打的所有游戏包如下：
-游戏Demo----->对应渠道:[xiantu2,vivo]
+sgbwdl----->对应渠道:[vivo]
 
 开始循环多渠道打包：
-正在打包的游戏是：游戏Demo
-游戏Demo使用默认apktool版本：2-3-0
-成功获取到游戏母包：ubsdkdemo.apk
+正在打包的游戏是：sgbwdl
+sgbwdl使用默认apktool版本：2-3-0
+成功获取到游戏母包：sgbwdl.apk
 步骤一：清空工作目录work
 清空成功！
 步骤二：反编译游戏母包 到work/bak目录下
-解压APK，执行命令：java -jar -Xms512m -Xmx512m apktool2-3-0.jar d -f -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\bak E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\games\ubsdkdemo\ubsdkdemo.apk
-I: Using Apktool 2.3.0 on ubsdkdemo.apk
+解压APK，执行命令：java -jar -Xms512m -Xmx512m apktool2-3-0.jar d -f -o E:\UBSDK\UBTool\work\bak E:\UBSDK\UBTool\games\sgbwdl\sgbwdl.apk
+I: Using Apktool 2.3.0 on sgbwdl.apk
 I: Loading resource table...
 I: Decoding AndroidManifest.xml with resources...
-I: Loading resource table from file: C:\Users\lqs\AppData\Local\apktool\framework\1.apk
+I: Loading resource table from file: C:\Users\qingshanliao\AppData\Local\apktool\framework\1.apk
 I: Regular manifest package...
 I: Decoding file-resources...
 I: Decoding values */* XMLs...
@@ -179,796 +179,47 @@ I: Copying unknown files...
 I: Copying original files...
 反编译成功！
 步骤三：遍历渠道列表，循环打包：
-现在打的包是：游戏【10001|游戏Demo】对应的——————>>>>>>渠道【xiantu2】
+现在打的包是：游戏【10002|sgbwdl】对应的——————>>>>>>渠道【vivo】
 
 	1:拷贝work/bak----->work/temp目录
 	1：拷贝work/bak----->work/temp----->成功!
 	2:加载渠道配置文件config.xml
 	2:加载渠道配置文件config.xml----->成功!
 	3:根据渠道配置copy、merge渠道相关资源到temp目录
-		merge:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\xiantu2\manifest\landscape.xml----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\AndroidManifest.xml
-		merge:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\xiantu2\manifest\landscape.xml----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\AndroidManifest.xml----->成功！
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\xiantu2\libs----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\xiantu2\libs----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs----->成功！
+		merge:E:\UBSDK\UBTool\config\sdk\vivo\manifest\landscape.xml----->E:\UBSDK\UBTool\work\temp\AndroidManifest.xml
+		merge:E:\UBSDK\UBTool\config\sdk\vivo\manifest\landscape.xml----->E:\UBSDK\UBTool\work\temp\AndroidManifest.xml----->成功！
+		copy:E:\UBSDK\UBTool\config\sdk\vivo\libs----->E:\UBSDK\UBTool\work\temp\libs
+		copy:E:\UBSDK\UBTool\config\sdk\vivo\libs----->E:\UBSDK\UBTool\work\temp\libs----->成功！
 		copy：libs目录需要删除多余的jni目录
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\xiantu2\assets----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\assets
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\xiantu2\assets----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\assets----->成功！
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\xiantu2\res----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\res
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\xiantu2\res----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\res----->成功！
+		copy:E:\UBSDK\UBTool\config\sdk\vivo\assets----->E:\UBSDK\UBTool\work\temp\assets
+		copy:E:\UBSDK\UBTool\config\sdk\vivo\assets----->E:\UBSDK\UBTool\work\temp\assets----->成功！
+		copy:E:\UBSDK\UBTool\config\sdk\vivo\res----->E:\UBSDK\UBTool\work\temp\res
+		copy:E:\UBSDK\UBTool\config\sdk\vivo\res----->E:\UBSDK\UBTool\work\temp\res----->成功！
 	3:根据渠道配置copy、merge渠道相关资源到temp目录----->成功！
 	4.合并sdk角标到游戏图标
-	【游戏Demo】的iconName=ic_launcher.png
-	【游戏Demo】的drawable/mipmap目录为：
+	【sgbwdl】的iconName=ic_launcher.png
+	【sgbwdl】的drawable/mipmap目录为：
 	drawable
 	drawable-hdpi-v4
 	drawable-ldpi-v4
 	drawable-mdpi-v4
 	drawable-xhdpi-v4
-	成功获取到游戏：游戏Demo--->res目录下：drawable-hdpi-v4--->下的图标：ic_launcher.png
-	成功获取到渠道：xiantu2--->icon目录下：drawable-hdpi--->下的角标：rb.png
-	准备合并...
-	合并成功!
----------------------------
-	成功获取到游戏：游戏Demo--->res目录下：drawable-ldpi-v4--->下的图标：ic_launcher.png
-	成功获取到渠道：xiantu2--->icon目录下：drawable-ldpi--->下的角标：rb.png
-	准备合并...
-	合并成功!
----------------------------
-	成功获取到游戏：游戏Demo--->res目录下：drawable-mdpi-v4--->下的图标：ic_launcher.png
-	成功获取到渠道：xiantu2--->icon目录下：drawable-mdpi--->下的角标：rb.png
-	准备合并...
-	合并成功!
----------------------------
-	成功获取到游戏：游戏Demo--->res目录下：drawable-xhdpi-v4--->下的图标：ic_launcher.png
-	成功获取到渠道：xiantu2--->icon目录下：drawable-xhdpi--->下的角标：rb.png
-	准备合并...
-	合并成功!
----------------------------
-	4.合并sdk所有角标到游戏图标----->成功！
----------------------
-
-
-
-
-	5.拷贝渠道闪屏，并将其设置为启动页
-		5.1拷贝E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\xiantu2\splash\landscape.png----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\res\drawable-hdpi\ubsdk_splash.png
-		5.1拷贝E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\xiantu2\splash\landscape.png----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\res\drawable-hdpi\ubsdk_splash.png----->成功！
----------------------------
-
-
-		5.2动态修改游戏目录AndroidManifest.xml文件，将UBSplashActivity设置为启动页
-		mainActivity:org.dom4j.tree.DefaultElement@8807e25 [Element: <activity attributes: [org.dom4j.tree.DefaultAttribute@2a3046da [Attribute: name android:label value "@string/app_name"], org.dom4j.tree.DefaultAttribute@2a098129 [Attribute: name android:name value ".MainActivity"]]/>]
-		gameOldMainActivityFullName:.MainActivity
-		mainActivityIntentFilter:org.dom4j.tree.DefaultElement@198e2867 [Element: <intent-filter attributes: []/>]
-		mainAction:org.dom4j.tree.DefaultElement@12f40c25 [Element: <action attributes: [org.dom4j.tree.DefaultAttribute@3ada9e37 [Attribute: name android:name value "android.intent.action.MAIN"]]/>]
-		mainLauncher:org.dom4j.tree.DefaultElement@5cbc508c [Element: <category attributes: [org.dom4j.tree.DefaultAttribute@3419866c [Attribute: name android:name value "android.intent.category.LAUNCHER"]]/>]
-		ubSplashActivity:org.dom4j.tree.DefaultElement@63e31ee [Element: <activity attributes: [org.dom4j.tree.DefaultAttribute@68fb2c38 [Attribute: name android:name value "com.umbrella.game.ubsdk.ui.UBSplashActivity"]]/>]
-		5.2动态修改游戏目录AndroidManifest.xml文件，将UBSplashActivity设置为启动页----->成功！
------------------------
-
-
-	6.添加渠道sdk channel中配置的<meta-data>到AndroidManifest.xml中
-	6.添加渠道sdk channel中配置的<meta-data>到AndroidManifest.xml中----->成功！
------------------------
-
-
-	7.根据channel中的配置修改游戏AndroidManifest.xml中的包名
-	oldGamePackageName:com.themelove.assetpackageapk
-	newGamePackageName:com.themelove.assetpackageapk.xiantu
-		7.1替换新包名和替换{PACKAGENAME}
-		7.1替换新包名和替换{PACKAGENAME}----->成功
------------------------
-
-
-		7.2修改游戏smali目录中包名目录和其中smail文件中引入的旧包名----->新包名
-		oldGameSmaliPath:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali\com\themelove\assetpackageapk
-		tempSmali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\tempSmali
-		newGameSmaliPath:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali\com\themelove\assetpackageapk\xiantu
-		复制oldGameSmaliPath---->tempSmaliPath
-		复制成功！
-		复制tempSmaliPath---->newGameSmaliPath
-		复制成功！
------------------
-
-
-		遍历新包名的smali文件，替换每个文件的导包
-		替换成功！
------------------
-
-
-		7.2修改游戏smali目录中包名目录和其中smail文件中引入的旧包名----->新包名----->成功！
-	8.用aapt将资源文件编译成R.java文件到新的包名目录下
-	aaptCommand：E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\tools\aapt p -f -m -J E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\R -S E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\res -I E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\tools\android.jar -M E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\AndroidManifest.xml
-	8.用aapt将资源文件编译成R.java文件到新的包名目录下----->成功！
---------------
-
-
-	9.javac命令把RPath目录下生成的R.java编译成class文件,注意其为多层目录
-	RJava2ClassCommand:javac -source 1.7 -target 1.7 -encoding UTF-8 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\R\com\themelove\assetpackageapk\xiantu\R.java
-����: [options] δ�� -source 1.7 һ������������·��
-1 ������
-	9.javac命令把RPath目录下生成的R.java编译成class文件,注意其为多层目录----->成功！
------------------
-
-
-	10.将生成RDirPath目录压缩成游戏libs目录下的R.jar
-	RClass2JarCommand:jar cvf E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.jar *
-������嵥
-�������: com/(���� = 0) (��� = 0)(�洢�� 0%)
-�������: com/themelove/(���� = 0) (��� = 0)(�洢�� 0%)
-�������: com/themelove/assetpackageapk/(���� = 0) (��� = 0)(�洢�� 0%)
-�������: com/themelove/assetpackageapk/xiantu/(���� = 0) (��� = 0)(�洢�� 0%)
-�������: com/themelove/assetpackageapk/xiantu/R$attr.class(���� = 300) (��� = 221)(ѹ���� 26%)
-�������: com/themelove/assetpackageapk/xiantu/R$color.class(���� = 514) (��� = 334)(ѹ���� 35%)
-�������: com/themelove/assetpackageapk/xiantu/R$drawable.class(���� = 6630) (��� = 2480)(ѹ���� 62%)
-�������: com/themelove/assetpackageapk/xiantu/R$id.class(���� = 13349) (��� = 4746)(ѹ���� 64%)
-�������: com/themelove/assetpackageapk/xiantu/R$layout.class(���� = 2422) (��� = 990)(ѹ���� 59%)
-�������: com/themelove/assetpackageapk/xiantu/R$string.class(���� = 431) (��� = 301)(ѹ���� 30%)
-�������: com/themelove/assetpackageapk/xiantu/R$style.class(���� = 737) (��� = 439)(ѹ���� 40%)
-�������: com/themelove/assetpackageapk/xiantu/R$xml.class(���� = 351) (��� = 260)(ѹ���� 25%)
-�������: com/themelove/assetpackageapk/xiantu/R.class(���� = 762) (��� = 347)(ѹ���� 54%)
-	10.将生成RDirPath目录压缩成游戏libs目录下的R.jar----->成功！
--------------
-
-
-	11.将TEMP_PATH目录下libs目录中的jar包[渠道sdk中拷贝过来的和重新生成的R.jar]----->dex文件----->smali文件
-	libs目录下的jar包如下：
-	android-support-multidex.jar
-	android-support-v4.jar
-	concurrentlinkedhashmap-1.0.1.jar
-	paysdk.jar
-	R.jar
-	vassdk_2017524.jar
-	vassdk_xiantu2.jar
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.jar
-	android-support-multidex.jar------>dex成功！
-
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.dex 
-	dex----->smali成功！
-
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.jar
-	android-support-v4.jar------>dex成功！
-
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.dex 
-	dex----->smali成功！
-
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.jar
-	concurrentlinkedhashmap-1.0.1.jar------>dex成功！
-
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex 
-	dex----->smali成功！
-
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.jar
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.app.b) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.app.d) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.app.e) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.app.f) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.app.g) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.app.h) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.app.a.b) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.auth.a) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.auth.b) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.auth.c) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.auth.d) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.auth.e) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.auth.f) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.auth.g) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.a.d) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.a.e) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.c.b) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.c.d) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.j.f) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.j.g) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.j.l) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.j.m) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.k.b) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.k.c) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.sdk.k.e) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.android.a.a.a.c) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.android.a.a.a.e) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.android.a.a.a.f) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.android.a.a.a.d) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.android.a.a.a.i) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.android.a.a.a.n) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.android.a.a.a.o) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.b.g.b) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.b.h.c) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.c.a.a.b.c) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.c.a.a.c.c) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-warning: Ignoring InnerClasses attribute for an anonymous inner class
-(com.alipay.c.a.a.e.c) that doesn't come with an
-associated EnclosingMethod attribute. This class was probably produced by a
-compiler that did not target the modern .class file format. The recommended
-solution is to recompile the class from source, using an up-to-date compiler
-and without specifying any "-target" type options. The consequence of ignoring
-this warning is that reflective operations on this class will incorrectly
-indicate that it is *not* an inner class.
-	paysdk.jar------>dex成功！
-
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.dex 
-	dex----->smali成功！
-
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.jar
-	R.jar------>dex成功！
-
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.dex 
-	dex----->smali成功！
-
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.jar
-	vassdk_2017524.jar------>dex成功！
-
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.dex 
-	dex----->smali成功！
-
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.jar
-	vassdk_xiantu2.jar------>dex成功！
-
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.dex 
-	dex----->smali成功！
-
-	11.将TEMP_PATH目录下libs目录中的jar包[渠道sdk中拷贝过来的和重新生成的R.jar]----->dex文件----->smali文件----->成功！
-	12.首先创建未加密ubsdk_config_nomal.xml
-		12.1添加param参数
-		gameOldMainActivityFullName:.MainActivity
-		12.1添加param参数----->成功！
-
-		12.2添加plugin参数
-		12.2添加plugin参数----->成功！
-
-		12.3添加applications参数
-		12.3添加applications参数----->成功！
-
-	12.首先创建未加密ubsdk_config_nomal.xml----->成功！
-	13.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml
-	13.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml----->成功！
-	14.生成未签名的apk...
-	generateUnsignedApkCommand:java -jar apktool2-3-0.jar b -r -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\unsigned.apk E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp 
-I: Using Apktool 2.3.0
-I: Checking whether sources has changed...
-I: Smaling smali folder into classes.dex...
-I: Checking whether resources has changed...
-I: Building resources...
-I: Copying libs... (/libs)
-I: Building apk file...
-I: Copying unknown files/dir...
-	14.生成未签名的apk成功!
-
-
-	15.签名
-	generateSignedApkCommand:jarsigner -digestalg SHA1 -sigalg SHA1withRSA -keystore E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\keystore\vas\vas.keystore -storepass pptvvas -keypass pptvvas -signedjar E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\signed.apk E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\unsigned.apk vas.keystore
-jar ��ǩ����
-
-����: 
-δ�ṩ -tsa �� -tsacert, �� jar û��ʱ��������û��ʱ���, ����ǩ����֤��ĵ������� (2126-06-12) ���Ժ���κγ�������֮��, �û������޷���֤�� jar��
-	15.签名----->成功！
-
-
-	16.对签名apk生成优化！
-	generateFinalChannelApkCommand:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\tools\zipalign -v 4 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\signed.apk E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\xiantu2\ubsdkdemo\ubsdkdemo_xiantu2_2018-02-22-21-55.apk
-Verifying alignment of E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\xiantu2\ubsdkdemo\ubsdkdemo_xiantu2_2018-02-22-21-55.apk (4)...
-      50 META-INF/MANIFEST.MF (OK - compressed)
-    6924 META-INF/VAS_KEYS.SF (OK - compressed)
-   13895 META-INF/VAS_KEYS.RSA (OK - compressed)
-   15032 AndroidManifest.xml (OK - compressed)
-   17112 assets/mchcontrol (OK)
-  792776 assets/paysdk.jar (OK - compressed)
- 2120395 assets/paysdk_del_okio.jar (OK - compressed)
- 3220912 assets/ubsdk.dat (OK - compressed)
- 3221204 assets/ubsdk_config.xml (OK)
- 3222343 assets/ubsdk_config_nomal.xml (OK - compressed)
- 3222864 assets/vasconfig/channel.ini (OK)
- 3222916 classes.dex (OK - compressed)
- 3226209 libs/armeabi-v7a/libmchpaysdk.so (OK - compressed)
- 3234460 libs/armeabi/libmchpaysdk.so (OK - compressed)
- 3242744 res/drawable-hdpi-v4/dialog_bocop_loading_rotate_anim_img.png (OK)
- 3245068 res/drawable-hdpi-v4/get_pack.png (OK)
- 3247072 res/drawable-hdpi-v4/ic_launcher.png (OK)
- 3254436 res/drawable-hdpi-v4/icon_spinner_delete.png (OK)
- 3255656 res/drawable-hdpi-v4/icon_spinner_down_arrow.png (OK)
- 3256084 res/drawable-hdpi-v4/icon_spinner_listview_background.png (OK)
- 3256360 res/drawable-hdpi-v4/icon_spinner_user.png (OK)
- 3258132 res/drawable-hdpi-v4/image_icon_radiobutton_no.png (OK)
- 3259240 res/drawable-hdpi-v4/image_icon_radiobutton_yes.png (OK)
- 3260808 res/drawable-hdpi-v4/jftlogo.png (OK)
- 3263520 res/drawable-hdpi-v4/logo.png (OK)
- 3310028 res/drawable-hdpi-v4/mc_platform_login_lock.png (OK)
- 3310904 res/drawable-hdpi-v4/mc_platform_login_seleceted.png (OK)
- 3311568 res/drawable-hdpi-v4/mc_platform_login_unseleceted.png (OK)
- 3311812 res/drawable-hdpi-v4/mc_platform_login_user.png (OK)
- 3312620 res/drawable-hdpi-v4/mch_alert_exit_bg_focused.png (OK)
- 3314004 res/drawable-hdpi-v4/mch_alert_exit_bg_main.png (OK)
- 3316212 res/drawable-hdpi-v4/mch_alert_exit_bg_nofocused.png (OK)
- 3317680 res/drawable-hdpi-v4/mch_back_icon.png (OK)
- 3318148 res/drawable-hdpi-v4/mch_back_left60.png (OK)
- 3318616 res/drawable-hdpi-v4/mch_back_left_gray_60.png (OK)
- 3319712 res/drawable-hdpi-v4/mch_baidu_80x80.png (OK)
- 3322048 res/drawable-hdpi-v4/mch_bindphone_img_succ.png (OK)
- 3324640 res/drawable-hdpi-v4/mch_bindptb.png (OK)
- 3326620 res/drawable-hdpi-v4/mch_blue_60.png (OK)
- 3327652 res/drawable-hdpi-v4/mch_card_orange_60.png (OK)
- 3328284 res/drawable-hdpi-v4/mch_checkbox_pressed.png (OK)
- 3329688 res/drawable-hdpi-v4/mch_chong_orange_60.png (OK)
- 3331344 res/drawable-hdpi-v4/mch_choosepay_3030_check.png (OK)
- 3331832 res/drawable-hdpi-v4/mch_choosepay_3030_uncheck.png (OK)
- 3332316 res/drawable-hdpi-v4/mch_choosepay_close.png (OK)
- 3333116 res/drawable-hdpi-v4/mch_choosepay_close2.png (OK)
- 3335284 res/drawable-hdpi-v4/mch_choosepay_ico_ptb.png (OK)
- 3336744 res/drawable-hdpi-v4/mch_choosepay_ico_uncheck.png (OK)
- 3337776 res/drawable-hdpi-v4/mch_choosepay_money.png (OK)
- 3338928 res/drawable-hdpi-v4/mch_choosepay_select.png (OK)
- 3348296 res/drawable-hdpi-v4/mch_choosepay_unselect.png (OK)
- 3354584 res/drawable-hdpi-v4/mch_close.png (OK)
- 3355396 res/drawable-hdpi-v4/mch_close1.png (OK)
- 3356004 res/drawable-hdpi-v4/mch_close_receive.png (OK)
- 3356276 res/drawable-hdpi-v4/mch_commplit_100x100_blue.png (OK)
- 3358260 res/drawable-hdpi-v4/mch_float_ico.png (OK)
- 3363772 res/drawable-hdpi-v4/mch_float_ico_h.png (OK)
- 3369464 res/drawable-hdpi-v4/mch_float_menu_bg.9.png (OK)
- 3370576 res/drawable-hdpi-v4/mch_floating_pack.png (OK)
- 3371396 res/drawable-hdpi-v4/mch_floating_pers.png (OK)
- 3372020 res/drawable-hdpi-v4/mch_gray_arrow_left.png (OK)
- 3372684 res/drawable-hdpi-v4/mch_ico_80_hfb.png (OK)
- 3381364 res/drawable-hdpi-v4/mch_ico_80_jby.png (OK)
- 3383320 res/drawable-hdpi-v4/mch_ico_80_jby_red.png (OK)
- 3384520 res/drawable-hdpi-v4/mch_ico_80_ptb.png (OK)
- 3395868 res/drawable-hdpi-v4/mch_ico_80_wx.png (OK)
- 3404788 res/drawable-hdpi-v4/mch_ico_80_zfb.png (OK)
- 3408188 res/drawable-hdpi-v4/mch_logo.png (OK)
- 3435712 res/drawable-hdpi-v4/mch_logo_400x100.png (OK)
- 3487508 res/drawable-hdpi-v4/mch_pay.png (OK)
- 3489152 res/drawable-hdpi-v4/mch_person_60.png (OK)
- 3490388 res/drawable-hdpi-v4/mch_person_logo.png (OK)
- 3568500 res/drawable-hdpi-v4/mch_personal_info_per_bi.png (OK)
- 3569060 res/drawable-hdpi-v4/mch_personal_info_per_chgpwd_yz.png (OK)
- 3569552 res/drawable-hdpi-v4/mch_personal_info_per_edit.png (OK)
- 3570028 res/drawable-hdpi-v4/mch_personal_info_per_lock.png (OK)
- 3570436 res/drawable-hdpi-v4/mch_personal_info_per_pay.png (OK)
- 3571000 res/drawable-hdpi-v4/mch_personal_info_per_people.png (OK)
- 3571380 res/drawable-hdpi-v4/mch_platform_login_account_4040.png (OK)
- 3572596 res/drawable-hdpi-v4/mch_platform_login_password_4040.png (OK)
- 3573576 res/drawable-hdpi-v4/mch_play_img.png (OK)
- 5354164 res/drawable-hdpi-v4/mch_ptb.png (OK)
- 5355476 res/drawable-hdpi-v4/mch_qq_80x80.png (OK)
- 5359680 res/drawable-hdpi-v4/mch_selectptb_unselected.png (OK)
- 5359960 res/drawable-hdpi-v4/mch_step1_80x80_blue.png (OK)
- 5361556 res/drawable-hdpi-v4/mch_step2_80x80_blue.png (OK)
- 5363356 res/drawable-hdpi-v4/mch_step2_80x80_grey.png (OK)
- 5365208 res/drawable-hdpi-v4/mch_step3_80x80_blue.png (OK)
- 5367080 res/drawable-hdpi-v4/mch_step3_80x80_grey.png (OK)
- 5369008 res/drawable-hdpi-v4/mch_step4_80x80_blue.png (OK)
- 5370724 res/drawable-hdpi-v4/mch_step4_80x80_grey.png (OK)
- 5372488 res/drawable-hdpi-v4/mch_weibo_80x80.png (OK)
- 5374784 res/drawable-hdpi-v4/mch_weixin_80x80.png (OK)
- 5376596 res/drawable-hdpi-v4/mch_write_60x60.png (OK)
- 5377676 res/drawable-hdpi-v4/mch_wx_pay.png (OK)
- 5379136 res/drawable-hdpi-v4/mch_xlistview_down_arrow.png (OK)
- 5380440 res/drawable-hdpi-v4/mch_xlistview_up_arrow.png (OK)
- 5381752 res/drawable-hdpi-v4/my_img_authentication3x.png (OK)
- 5383620 res/drawable-hdpi-v4/my_img_authentication_already3x.png (OK)
- 5402460 res/drawable-hdpi-v4/my_img_authentication_prompt3x.png (OK)
- 5403332 res/drawable-hdpi-v4/my_img_authentication_success3x.png (OK)
- 5427564 res/drawable-hdpi-v4/pack_image_new.png (OK)
- 5437388 res/drawable-hdpi-v4/sec.png (OK)
- 5445068 res/drawable-hdpi-v4/topay.png (OK)
- 5448724 res/drawable-hdpi-v4/ttw_loading.png (OK)
- 5450220 res/drawable-hdpi-v4/ttw_quilogin_bg.9.png (OK)
- 5450852 res/drawable-hdpi-v4/u11.png (OK)
- 5454532 res/drawable-hdpi-v4/u12.png (OK)
- 5461220 res/drawable-hdpi-v4/u29.png (OK)
- 5468060 res/drawable-hdpi-v4/u43.png (OK)
- 5477280 res/drawable-hdpi-v4/u5.png (OK)
- 5478624 res/drawable-hdpi-v4/u55.png (OK)
- 5479248 res/drawable-hdpi-v4/yzx_green_leftbubble.9.png (OK)
- 5480340 res/drawable-hdpi-v4/yzx_green_rightbubble.9.png (OK)
- 5481424 res/drawable-hdpi-v4/yzx_person.png (OK)
- 5482324 res/drawable-hdpi/ubsdk_splash.png (OK)
- 5628120 res/drawable-ldpi-v4/ic_launcher.png (OK)
- 5630236 res/drawable-mdpi-v4/ic_launcher.png (OK)
- 5634132 res/drawable-xhdpi-v4/ic_launcher.png (OK)
- 5645812 res/drawable/color_cursor.xml (OK - compressed)
- 5646132 res/drawable/mc_choosepay_backgrount.xml (OK - compressed)
- 5646665 res/drawable/mc_choosepay_backgrount_pay.xml (OK - compressed)
- 5647202 res/drawable/mc_choosepay_backgrount_ptb.xml (OK - compressed)
- 5647743 res/drawable/mc_choosepay_backgrount_top.xml (OK - compressed)
- 5648259 res/drawable/mc_choosepay_backgrount_top_ptb.xml (OK - compressed)
- 5648766 res/drawable/mc_login_reg_phone_num.xml (OK - compressed)
- 5649165 res/drawable/mc_login_reg_phone_num_disable.xml (OK - compressed)
- 5649553 res/drawable/mc_personal_button_bg.xml (OK - compressed)
- 5650089 res/drawable/mc_personal_info_back_chgpwd.xml (OK - compressed)
- 5650624 res/drawable/mc_platform_dialog_back.xml (OK - compressed)
- 5651011 res/drawable/mc_platform_input_back.xml (OK - compressed)
- 5651388 res/drawable/mc_tip_dialog.xml (OK - compressed)
- 5651789 res/drawable/mch_alert_exit_custom_button_style.xml (OK - compressed)
- 5652148 res/drawable/mch_bindphone_bg_edt.xml (OK - compressed)
- 5652574 res/drawable/mch_bindphone_progressball.xml (OK - compressed)
- 5652970 res/drawable/mch_bindphone_progressball_line.xml (OK - compressed)
- 5653372 res/drawable/mch_bindphone_progressball_yellow.xml (OK - compressed)
- 5653760 res/drawable/mch_button_selector.xml (OK - compressed)
- 5654357 res/drawable/mch_button_selector_green.xml (OK - compressed)
- 5654949 res/drawable/mch_copy_code_bottom_shape.xml (OK - compressed)
- 5655317 res/drawable/mch_copy_packagecode_shape.xml (OK - compressed)
- 5655647 res/drawable/mch_copycode_button_shape.xml (OK - compressed)
- 5656195 res/drawable/mch_copycode_lable_shape.xml (OK - compressed)
- 5656737 res/drawable/mch_cricle_10dp_bg_white.xml (OK - compressed)
- 5657333 res/drawable/mch_cricle_5dp_bg_blue.xml (OK - compressed)
- 5657931 res/drawable/mch_cricle_5dp_bg_gray.xml (OK - compressed)
- 5658529 res/drawable/mch_cricle_5dp_bg_violet.xml (OK - compressed)
- 5659120 res/drawable/mch_hellocircle.xml (OK - compressed)
- 5659520 res/drawable/mch_hellocircle_blue.xml (OK - compressed)
- 5659920 res/drawable/mch_hellocircle_green.xml (OK - compressed)
- 5660319 res/drawable/mch_hellocircle_red.xml (OK - compressed)
- 5660721 res/drawable/mch_hellorectangle_blue.xml (OK - compressed)
- 5661127 res/drawable/mch_input_back_shape.xml (OK - compressed)
- 5661642 res/drawable/mch_input_updatepwd_shape.xml (OK - compressed)
- 5662156 res/drawable/mch_jft_customer_service.xml (OK - compressed)
- 5662557 res/drawable/mch_pay_type_selected_shape.xml (OK - compressed)
- 5663091 res/drawable/mch_paytype_select_style.xml (OK - compressed)
- 5663428 res/drawable/mch_receive_pack_dialog_code.xml (OK - compressed)
- 5663856 res/drawable/mch_tocerticate_btn_bg.xml (OK - compressed)
- 5664233 res/drawable/mch_tocerticate_btn_bg2.xml (OK - compressed)
- 5664554 res/drawable/mch_tocerticate_edt_bg.xml (OK - compressed)
- 5664918 res/drawable/progressbar.xml (OK - compressed)
- 5665481 res/layout-land/activity_mch_choose_pay.xml (OK - compressed)
- 5667526 res/layout/activity_communicate.xml (OK - compressed)
- 5668161 res/layout/activity_custom_loding_dialog_layout.xml (OK - compressed)
- 5669038 res/layout/activity_main.xml (OK - compressed)
- 5669640 res/layout/activity_mch_add_platform_money.xml (OK - compressed)
- 5671644 res/layout/activity_mch_certificate.xml (OK - compressed)
- 5672073 res/layout/activity_mch_choose_pay.xml (OK - compressed)
- 5674084 res/layout/activity_mch_choosepay.xml (OK - compressed)
- 5676278 res/layout/activity_mch_forgetpassword.xml (OK - compressed)
- 5679346 res/layout/activity_mch_game_record.xml (OK - compressed)
- 5680500 res/layout/activity_mch_money_record.xml (OK - compressed)
- 5681524 res/layout/activity_mch_packs.xml (OK - compressed)
- 5682126 res/layout/activity_mch_personal_info.xml (OK - compressed)
- 5684848 res/layout/activity_mch_personal_info_bindphone2.xml (OK - compressed)
- 5687395 res/layout/activity_mch_personal_info_chgpwd.xml (OK - compressed)
- 5688698 res/layout/activity_mch_personal_info_setuser.xml (OK - compressed)
- 5689989 res/layout/activity_mch_ptb_pay_info.xml (OK - compressed)
- 5691624 res/layout/activity_mch_social.xml (OK - compressed)
- 5692123 res/layout/activity_mylistview.xml (OK - compressed)
- 5692771 res/layout/activty_mch_jft_pay.xml (OK - compressed)
- 5694155 res/layout/dialog_mch_alert_exit_main.xml (OK - compressed)
- 5694968 res/layout/dialog_mch_alert_exit_main_light.xml (OK - compressed)
- 5695783 res/layout/dialog_mch_alert_main.xml (OK - compressed)
- 5696551 res/layout/dialog_mch_platform_login.xml (OK - compressed)
- 5698482 res/layout/dialog_mch_platform_quickregister.xml (OK - compressed)
- 5700222 res/layout/dialog_mch_platform_register.xml (OK - compressed)
- 5702034 res/layout/dialog_mch_receive_packs.xml (OK - compressed)
- 5702966 res/layout/dialog_mch_select_ptb_type.xml (OK - compressed)
- 5704615 res/layout/dialog_mch_tip_custom.xml (OK - compressed)
- 5705398 res/layout/dialog_mch_to_certificate.xml (OK - compressed)
- 5706204 res/layout/floating_mch_menu.xml (OK - compressed)
- 5707282 res/layout/item_jft.xml (OK - compressed)
- 5707866 res/layout/item_mch_addptb_record.xml (OK - compressed)
- 5708534 res/layout/item_mch_game_record.xml (OK - compressed)
- 5709075 res/layout/item_mch_packs.xml (OK - compressed)
- 5710137 res/layout/item_spinner_numbers.xml (OK - compressed)
- 5710704 res/layout/list.xml (OK - compressed)
- 5711277 res/layout/list_communicate.xml (OK - compressed)
- 5712056 res/layout/mc_tip_dialog.xml (OK - compressed)
- 5712616 res/layout/to_certificate_fragment.xml (OK - compressed)
- 5713572 res/layout/to_certificate_no_fragment.xml (OK - compressed)
- 5714963 res/layout/to_certificate_ok_fragment.xml (OK - compressed)
- 5715657 res/layout/util_mch_header.xml (OK - compressed)
- 5716331 res/layout/webview_mch_zfbpay.xml (OK - compressed)
- 5716734 res/layout/xlistview_mch_footer.xml (OK - compressed)
- 5717347 res/layout/xlistview_mch_header.xml (OK - compressed)
- 5718270 res/xml/filepaths.xml (OK - compressed)
- 5718480 resources.arsc (OK)
-Verification succesful
-	16.对签名apk生成优化----->成功!
-	【游戏Demo】----->【xiantu2】----->打包完成！
-
-
-
-现在打的包是：游戏【10001|游戏Demo】对应的——————>>>>>>渠道【vivo】
-
-	1:拷贝work/bak----->work/temp目录
-	1：拷贝work/bak----->work/temp----->成功!
-	2:加载渠道配置文件config.xml
-	2:加载渠道配置文件config.xml----->成功!
-	3:根据渠道配置copy、merge渠道相关资源到temp目录
-		merge:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\vivo\manifest\landscape.xml----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\AndroidManifest.xml
-		merge:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\vivo\manifest\landscape.xml----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\AndroidManifest.xml----->成功！
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\vivo\libs----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\vivo\libs----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs----->成功！
-		copy：libs目录需要删除多余的jni目录
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\vivo\assets----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\assets
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\vivo\assets----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\assets----->成功！
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\vivo\res----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\res
-		copy:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\vivo\res----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\res----->成功！
-	3:根据渠道配置copy、merge渠道相关资源到temp目录----->成功！
-	4.合并sdk角标到游戏图标
-	【游戏Demo】的iconName=ic_launcher.png
-	【游戏Demo】的drawable/mipmap目录为：
-	drawable
-	drawable-hdpi-v4
-	drawable-ldpi-v4
-	drawable-mdpi-v4
-	drawable-xhdpi-v4
-	成功获取到游戏：游戏Demo--->res目录下：drawable-hdpi-v4--->下的图标：ic_launcher.png
+	成功获取到游戏：sgbwdl--->res目录下：drawable-hdpi-v4--->下的图标：ic_launcher.png
 	成功获取到渠道：vivo--->icon目录下：drawable-hdpi--->下的角标：rb.png
 	准备合并...
 	合并成功!
 ---------------------------
-	成功获取到游戏：游戏Demo--->res目录下：drawable-ldpi-v4--->下的图标：ic_launcher.png
+	成功获取到游戏：sgbwdl--->res目录下：drawable-ldpi-v4--->下的图标：ic_launcher.png
 	成功获取到渠道：vivo--->icon目录下：drawable-ldpi--->下的角标：rb.png
 	准备合并...
 	合并成功!
 ---------------------------
-	成功获取到游戏：游戏Demo--->res目录下：drawable-mdpi-v4--->下的图标：ic_launcher.png
+	成功获取到游戏：sgbwdl--->res目录下：drawable-mdpi-v4--->下的图标：ic_launcher.png
 	成功获取到渠道：vivo--->icon目录下：drawable-mdpi--->下的角标：rb.png
 	准备合并...
 	合并成功!
 ---------------------------
-	成功获取到游戏：游戏Demo--->res目录下：drawable-xhdpi-v4--->下的图标：ic_launcher.png
+	成功获取到游戏：sgbwdl--->res目录下：drawable-xhdpi-v4--->下的图标：ic_launcher.png
 	成功获取到渠道：vivo--->icon目录下：drawable-xhdpi--->下的角标：rb.png
 	准备合并...
 	合并成功!
@@ -980,18 +231,18 @@ Verification succesful
 
 
 	5.拷贝渠道闪屏，并将其设置为启动页
-		5.1拷贝E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\vivo\splash\landscape.png----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\res\drawable-hdpi\ubsdk_splash.png
-		5.1拷贝E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\sdk\vivo\splash\landscape.png----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\res\drawable-hdpi\ubsdk_splash.png----->成功！
+		5.1拷贝E:\UBSDK\UBTool\config\sdk\vivo\splash\landscape.png----->E:\UBSDK\UBTool\work\temp\res\drawable-hdpi\ubsdk_splash.png
+		5.1拷贝E:\UBSDK\UBTool\config\sdk\vivo\splash\landscape.png----->E:\UBSDK\UBTool\work\temp\res\drawable-hdpi\ubsdk_splash.png----->成功！
 ---------------------------
 
 
 		5.2动态修改游戏目录AndroidManifest.xml文件，将UBSplashActivity设置为启动页
-		mainActivity:org.dom4j.tree.DefaultElement@2ac273d3 [Element: <activity attributes: [org.dom4j.tree.DefaultAttribute@71423665 [Attribute: name android:label value "@string/app_name"], org.dom4j.tree.DefaultAttribute@20398b7c [Attribute: name android:name value ".MainActivity"]]/>]
+		mainActivity:org.dom4j.tree.DefaultElement@47d384ee [Element: <activity attributes: [org.dom4j.tree.DefaultAttribute@2d6a9952 [Attribute: name android:label value "@string/app_name"], org.dom4j.tree.DefaultAttribute@22a71081 [Attribute: name android:name value ".MainActivity"]]/>]
 		gameOldMainActivityFullName:.MainActivity
-		mainActivityIntentFilter:org.dom4j.tree.DefaultElement@6fc6f14e [Element: <intent-filter attributes: []/>]
-		mainAction:org.dom4j.tree.DefaultElement@56235b8e [Element: <action attributes: [org.dom4j.tree.DefaultAttribute@3632be31 [Attribute: name android:name value "android.intent.action.MAIN"]]/>]
-		mainLauncher:org.dom4j.tree.DefaultElement@5abca1e0 [Element: <category attributes: [org.dom4j.tree.DefaultAttribute@2286778 [Attribute: name android:name value "android.intent.category.LAUNCHER"]]/>]
-		ubSplashActivity:org.dom4j.tree.DefaultElement@4e9ba398 [Element: <activity attributes: [org.dom4j.tree.DefaultAttribute@6d7b4f4c [Attribute: name android:name value "com.umbrella.game.ubsdk.ui.UBSplashActivity"]]/>]
+		mainActivityIntentFilter:org.dom4j.tree.DefaultElement@3930015a [Element: <intent-filter attributes: []/>]
+		mainAction:org.dom4j.tree.DefaultElement@629f0666 [Element: <action attributes: [org.dom4j.tree.DefaultAttribute@1bc6a36e [Attribute: name android:name value "android.intent.action.MAIN"]]/>]
+		mainLauncher:org.dom4j.tree.DefaultElement@1ff8b8f [Element: <category attributes: [org.dom4j.tree.DefaultAttribute@387c703b [Attribute: name android:name value "android.intent.category.LAUNCHER"]]/>]
+		ubSplashActivity:org.dom4j.tree.DefaultElement@224aed64 [Element: <activity attributes: [org.dom4j.tree.DefaultAttribute@c39f790 [Attribute: name android:name value "com.umbrella.game.ubsdk.ui.UBSplashActivity"]]/>]
 		5.2动态修改游戏目录AndroidManifest.xml文件，将UBSplashActivity设置为启动页----->成功！
 -----------------------
 
@@ -1003,16 +254,16 @@ Verification succesful
 
 	7.根据channel中的配置修改游戏AndroidManifest.xml中的包名
 	oldGamePackageName:com.themelove.assetpackageapk
-	newGamePackageName:com.themelove.assetpackageapk.xiantucom.themelove.assetpackageapk.vivo
+	newGamePackageName:com.themelove.assetpackageapk.vivo
 		7.1替换新包名和替换{PACKAGENAME}
 		7.1替换新包名和替换{PACKAGENAME}----->成功
 -----------------------
 
 
 		7.2修改游戏smali目录中包名目录和其中smail文件中引入的旧包名----->新包名
-		oldGameSmaliPath:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali\com\themelove\assetpackageapk
-		tempSmali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\tempSmali
-		newGameSmaliPath:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali\com\themelove\assetpackageapk\xiantucom\themelove\assetpackageapk\vivo
+		oldGameSmaliPath:E:\UBSDK\UBTool\work\temp\smali\com\themelove\assetpackageapk
+		tempSmali:E:\UBSDK\UBTool\work\temp\tempSmali
+		newGameSmaliPath:E:\UBSDK\UBTool\work\temp\smali\com\themelove\assetpackageapk\vivo
 		复制oldGameSmaliPath---->tempSmaliPath
 		复制成功！
 		复制tempSmaliPath---->newGameSmaliPath
@@ -1027,13 +278,13 @@ Verification succesful
 
 		7.2修改游戏smali目录中包名目录和其中smail文件中引入的旧包名----->新包名----->成功！
 	8.用aapt将资源文件编译成R.java文件到新的包名目录下
-	aaptCommand：E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\tools\aapt p -f -m -J E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\R -S E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\res -I E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\tools\android.jar -M E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\AndroidManifest.xml
+	aaptCommand：E:\UBSDK\UBTool\tools\aapt p -f -m -J E:\UBSDK\UBTool\work\temp\R -S E:\UBSDK\UBTool\work\temp\res -I E:\UBSDK\UBTool\tools\android.jar -M E:\UBSDK\UBTool\work\temp\AndroidManifest.xml
 	8.用aapt将资源文件编译成R.java文件到新的包名目录下----->成功！
 --------------
 
 
 	9.javac命令把RPath目录下生成的R.java编译成class文件,注意其为多层目录
-	RJava2ClassCommand:javac -source 1.7 -target 1.7 -encoding UTF-8 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\R\com\themelove\assetpackageapk\xiantucom\themelove\assetpackageapk\vivo\R.java
+	RJava2ClassCommand:javac -source 1.7 -target 1.7 -encoding UTF-8 E:\UBSDK\UBTool\work\temp\R\com\themelove\assetpackageapk\vivo\R.java
 ����: [options] δ�� -source 1.7 һ������������·��
 1 ������
 	9.javac命令把RPath目录下生成的R.java编译成class文件,注意其为多层目录----->成功！
@@ -1041,24 +292,21 @@ Verification succesful
 
 
 	10.将生成RDirPath目录压缩成游戏libs目录下的R.jar
-	RClass2JarCommand:jar cvf E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.jar *
+	RClass2JarCommand:jar cvf E:\UBSDK\UBTool\work\temp\libs\R.jar *
 ������嵥
 �������: com/(���� = 0) (��� = 0)(�洢�� 0%)
 �������: com/themelove/(���� = 0) (��� = 0)(�洢�� 0%)
 �������: com/themelove/assetpackageapk/(���� = 0) (��� = 0)(�洢�� 0%)
-�������: com/themelove/assetpackageapk/xiantucom/(���� = 0) (��� = 0)(�洢�� 0%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/(���� = 0) (��� = 0)(�洢�� 0%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/(���� = 0) (��� = 0)(�洢�� 0%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/vivo/(���� = 0) (��� = 0)(�洢�� 0%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/vivo/R$attr.class(���� = 368) (��� = 229)(ѹ���� 37%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/vivo/R$color.class(���� = 582) (��� = 339)(ѹ���� 41%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/vivo/R$drawable.class(���� = 6698) (��� = 2488)(ѹ���� 62%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/vivo/R$id.class(���� = 13417) (��� = 4755)(ѹ���� 64%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/vivo/R$layout.class(���� = 2490) (��� = 997)(ѹ���� 59%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/vivo/R$string.class(���� = 499) (��� = 310)(ѹ���� 37%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/vivo/R$style.class(���� = 805) (��� = 447)(ѹ���� 44%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/vivo/R$xml.class(���� = 419) (��� = 267)(ѹ���� 36%)
-�������: com/themelove/assetpackageapk/xiantucom/themelove/assetpackageapk/vivo/R.class(���� = 1068) (��� = 358)(ѹ���� 66%)
+�������: com/themelove/assetpackageapk/vivo/(���� = 0) (��� = 0)(�洢�� 0%)
+�������: com/themelove/assetpackageapk/vivo/R$attr.class(���� = 296) (��� = 219)(ѹ���� 26%)
+�������: com/themelove/assetpackageapk/vivo/R$color.class(���� = 510) (��� = 334)(ѹ���� 34%)
+�������: com/themelove/assetpackageapk/vivo/R$drawable.class(���� = 6626) (��� = 2478)(ѹ���� 62%)
+�������: com/themelove/assetpackageapk/vivo/R$id.class(���� = 13345) (��� = 4743)(ѹ���� 64%)
+�������: com/themelove/assetpackageapk/vivo/R$layout.class(���� = 2418) (��� = 989)(ѹ���� 59%)
+�������: com/themelove/assetpackageapk/vivo/R$string.class(���� = 427) (��� = 301)(ѹ���� 29%)
+�������: com/themelove/assetpackageapk/vivo/R$style.class(���� = 733) (��� = 438)(ѹ���� 40%)
+�������: com/themelove/assetpackageapk/vivo/R$xml.class(���� = 347) (��� = 259)(ѹ���� 25%)
+�������: com/themelove/assetpackageapk/vivo/R.class(���� = 744) (��� = 346)(ѹ���� 53%)
 	10.将生成RDirPath目录压缩成游戏libs目录下的R.jar----->成功！
 -------------
 
@@ -1072,32 +320,33 @@ Verification succesful
 	R.jar
 	vassdk_2017524.jar
 	vassdk_xiantu2.jar
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.jar
+-------------------------
+	jar---->dex:E:\UBSDK\UBTool\work\temp\libs\android-support-multidex.jar----->E:\UBSDK\UBTool\work\temp\libs\android-support-multidex.dex
+	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\UBSDK\UBTool\work\temp\libs\android-support-multidex.dex E:\UBSDK\UBTool\work\temp\libs\android-support-multidex.jar
 	android-support-multidex.jar------>dex成功！
 
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-multidex.dex 
+	dex----->smali:E:\UBSDK\UBTool\work\temp\libs\android-support-multidex.dex----->smali
+	dex2SmaliCommand:java -jar baksmali.jar -o E:\UBSDK\UBTool\work\temp\smali2 E:\UBSDK\UBTool\work\temp\libs\android-support-multidex.dex 
 	dex----->smali成功！
 
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.jar
+	jar---->dex:E:\UBSDK\UBTool\work\temp\libs\android-support-v4.jar----->E:\UBSDK\UBTool\work\temp\libs\android-support-v4.dex
+	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\UBSDK\UBTool\work\temp\libs\android-support-v4.dex E:\UBSDK\UBTool\work\temp\libs\android-support-v4.jar
 	android-support-v4.jar------>dex成功！
 
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\android-support-v4.dex 
+	dex----->smali:E:\UBSDK\UBTool\work\temp\libs\android-support-v4.dex----->smali
+	dex2SmaliCommand:java -jar baksmali.jar -o E:\UBSDK\UBTool\work\temp\smali2 E:\UBSDK\UBTool\work\temp\libs\android-support-v4.dex 
 	dex----->smali成功！
 
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.jar
+	jar---->dex:E:\UBSDK\UBTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.jar----->E:\UBSDK\UBTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex
+	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\UBSDK\UBTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex E:\UBSDK\UBTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.jar
 	concurrentlinkedhashmap-1.0.1.jar------>dex成功！
 
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex 
+	dex----->smali:E:\UBSDK\UBTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex----->smali
+	dex2SmaliCommand:java -jar baksmali.jar -o E:\UBSDK\UBTool\work\temp\smali2 E:\UBSDK\UBTool\work\temp\libs\concurrentlinkedhashmap-1.0.1.dex 
 	dex----->smali成功！
 
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.jar
+	jar---->dex:E:\UBSDK\UBTool\work\temp\libs\paysdk.jar----->E:\UBSDK\UBTool\work\temp\libs\paysdk.dex
+	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\UBSDK\UBTool\work\temp\libs\paysdk.dex E:\UBSDK\UBTool\work\temp\libs\paysdk.jar
 warning: Ignoring InnerClasses attribute for an anonymous inner class
 (com.alipay.sdk.app.b) that doesn't come with an
 associated EnclosingMethod attribute. This class was probably produced by a
@@ -1396,32 +645,32 @@ this warning is that reflective operations on this class will incorrectly
 indicate that it is *not* an inner class.
 	paysdk.jar------>dex成功！
 
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\paysdk.dex 
+	dex----->smali:E:\UBSDK\UBTool\work\temp\libs\paysdk.dex----->smali
+	dex2SmaliCommand:java -jar baksmali.jar -o E:\UBSDK\UBTool\work\temp\smali2 E:\UBSDK\UBTool\work\temp\libs\paysdk.dex 
 	dex----->smali成功！
 
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.jar
+	jar---->dex:E:\UBSDK\UBTool\work\temp\libs\R.jar----->E:\UBSDK\UBTool\work\temp\libs\R.dex
+	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\UBSDK\UBTool\work\temp\libs\R.dex E:\UBSDK\UBTool\work\temp\libs\R.jar
 	R.jar------>dex成功！
 
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\R.dex 
+	dex----->smali:E:\UBSDK\UBTool\work\temp\libs\R.dex----->smali
+	dex2SmaliCommand:java -jar baksmali.jar -o E:\UBSDK\UBTool\work\temp\smali2 E:\UBSDK\UBTool\work\temp\libs\R.dex 
 	dex----->smali成功！
 
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.jar
+	jar---->dex:E:\UBSDK\UBTool\work\temp\libs\vassdk_2017524.jar----->E:\UBSDK\UBTool\work\temp\libs\vassdk_2017524.dex
+	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\UBSDK\UBTool\work\temp\libs\vassdk_2017524.dex E:\UBSDK\UBTool\work\temp\libs\vassdk_2017524.jar
 	vassdk_2017524.jar------>dex成功！
 
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_2017524.dex 
+	dex----->smali:E:\UBSDK\UBTool\work\temp\libs\vassdk_2017524.dex----->smali
+	dex2SmaliCommand:java -jar baksmali.jar -o E:\UBSDK\UBTool\work\temp\smali2 E:\UBSDK\UBTool\work\temp\libs\vassdk_2017524.dex 
 	dex----->smali成功！
 
-	jar---->dex:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.jar----->E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.dex
-	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.dex E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.jar
+	jar---->dex:E:\UBSDK\UBTool\work\temp\libs\vassdk_xiantu2.jar----->E:\UBSDK\UBTool\work\temp\libs\vassdk_xiantu2.dex
+	jar2DexCommand:java -jar -Xms512m -Xmx512m dx.jar --dex --output=E:\UBSDK\UBTool\work\temp\libs\vassdk_xiantu2.dex E:\UBSDK\UBTool\work\temp\libs\vassdk_xiantu2.jar
 	vassdk_xiantu2.jar------>dex成功！
 
-	dex----->smali:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.dex----->smali
-	dex2SmaliCommand:java -jar baksmali.jar -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\smali2 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp\libs\vassdk_xiantu2.dex 
+	dex----->smali:E:\UBSDK\UBTool\work\temp\libs\vassdk_xiantu2.dex----->smali
+	dex2SmaliCommand:java -jar baksmali.jar -o E:\UBSDK\UBTool\work\temp\smali2 E:\UBSDK\UBTool\work\temp\libs\vassdk_xiantu2.dex 
 	dex----->smali成功！
 
 	11.将TEMP_PATH目录下libs目录中的jar包[渠道sdk中拷贝过来的和重新生成的R.jar]----->dex文件----->smali文件----->成功！
@@ -1440,7 +689,7 @@ indicate that it is *not* an inner class.
 	13.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml
 	13.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml----->成功！
 	14.生成未签名的apk...
-	generateUnsignedApkCommand:java -jar apktool2-3-0.jar b -r -o E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\unsigned.apk E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\work\temp 
+	generateUnsignedApkCommand:java -jar apktool2-3-0.jar b -r -o E:\UBSDK\UBTool\out\unsigned.apk E:\UBSDK\UBTool\work\temp 
 I: Using Apktool 2.3.0
 I: Checking whether sources has changed...
 I: Smaling smali folder into classes.dex...
@@ -1453,7 +702,7 @@ I: Copying unknown files/dir...
 
 
 	15.签名
-	generateSignedApkCommand:jarsigner -digestalg SHA1 -sigalg SHA1withRSA -keystore E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\config\keystore\vas\vas.keystore -storepass pptvvas -keypass pptvvas -signedjar E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\signed.apk E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\unsigned.apk vas.keystore
+	generateSignedApkCommand:jarsigner -digestalg SHA1 -sigalg SHA1withRSA -keystore E:\UBSDK\UBTool\config\keystore\vas\vas.keystore -storepass pptvvas -keypass pptvvas -signedjar E:\UBSDK\UBTool\out\signed.apk E:\UBSDK\UBTool\out\unsigned.apk vas.keystore
 jar ��ǩ����
 
 ����: 
@@ -1462,225 +711,225 @@ jar ��ǩ����
 
 
 	16.对签名apk生成优化！
-	generateFinalChannelApkCommand:E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\tools\zipalign -v 4 E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\signed.apk E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\vivo\ubsdkdemo\ubsdkdemo_vivo_2018-02-22-21-56.apk
-Verifying alignment of E:\WorkSpace\Eclipse\UmBrellaWorkspace\UBSDKTool\out\vivo\ubsdkdemo\ubsdkdemo_vivo_2018-02-22-21-56.apk (4)...
+	generateFinalChannelApkCommand:E:\UBSDK\UBTool\tools\zipalign -v 4 E:\UBSDK\UBTool\out\signed.apk E:\UBSDK\UBTool\out\vivo\sgbwdl\sgbwdl_vivo_2018-02-23-17-36.apk
+Verifying alignment of E:\UBSDK\UBTool\out\vivo\sgbwdl\sgbwdl_vivo_2018-02-23-17-36.apk (4)...
       50 META-INF/MANIFEST.MF (OK - compressed)
-    6918 META-INF/VAS_KEYS.SF (OK - compressed)
-   13890 META-INF/VAS_KEYS.RSA (OK - compressed)
-   15027 AndroidManifest.xml (OK - compressed)
-   17116 assets/mchcontrol (OK)
-  792780 assets/paysdk.jar (OK - compressed)
- 2120399 assets/paysdk_del_okio.jar (OK - compressed)
- 3220916 assets/ubsdk.dat (OK - compressed)
- 3221208 assets/ubsdk_config.xml (OK)
- 3222347 assets/ubsdk_config_nomal.xml (OK - compressed)
- 3222868 assets/vasconfig/channel.ini (OK)
- 3222920 classes.dex (OK - compressed)
- 3226218 libs/armeabi-v7a/libmchpaysdk.so (OK - compressed)
- 3234469 libs/armeabi/libmchpaysdk.so (OK - compressed)
- 3242756 res/drawable-hdpi-v4/dialog_bocop_loading_rotate_anim_img.png (OK)
- 3245080 res/drawable-hdpi-v4/get_pack.png (OK)
- 3247084 res/drawable-hdpi-v4/ic_launcher.png (OK)
- 3254448 res/drawable-hdpi-v4/icon_spinner_delete.png (OK)
- 3255668 res/drawable-hdpi-v4/icon_spinner_down_arrow.png (OK)
- 3256096 res/drawable-hdpi-v4/icon_spinner_listview_background.png (OK)
- 3256372 res/drawable-hdpi-v4/icon_spinner_user.png (OK)
- 3258144 res/drawable-hdpi-v4/image_icon_radiobutton_no.png (OK)
- 3259252 res/drawable-hdpi-v4/image_icon_radiobutton_yes.png (OK)
- 3260820 res/drawable-hdpi-v4/jftlogo.png (OK)
- 3263532 res/drawable-hdpi-v4/logo.png (OK)
- 3310040 res/drawable-hdpi-v4/mc_platform_login_lock.png (OK)
- 3310916 res/drawable-hdpi-v4/mc_platform_login_seleceted.png (OK)
- 3311580 res/drawable-hdpi-v4/mc_platform_login_unseleceted.png (OK)
- 3311824 res/drawable-hdpi-v4/mc_platform_login_user.png (OK)
- 3312632 res/drawable-hdpi-v4/mch_alert_exit_bg_focused.png (OK)
- 3314016 res/drawable-hdpi-v4/mch_alert_exit_bg_main.png (OK)
- 3316224 res/drawable-hdpi-v4/mch_alert_exit_bg_nofocused.png (OK)
- 3317692 res/drawable-hdpi-v4/mch_back_icon.png (OK)
- 3318160 res/drawable-hdpi-v4/mch_back_left60.png (OK)
- 3318628 res/drawable-hdpi-v4/mch_back_left_gray_60.png (OK)
- 3319724 res/drawable-hdpi-v4/mch_baidu_80x80.png (OK)
- 3322060 res/drawable-hdpi-v4/mch_bindphone_img_succ.png (OK)
- 3324652 res/drawable-hdpi-v4/mch_bindptb.png (OK)
- 3326632 res/drawable-hdpi-v4/mch_blue_60.png (OK)
- 3327664 res/drawable-hdpi-v4/mch_card_orange_60.png (OK)
- 3328296 res/drawable-hdpi-v4/mch_checkbox_pressed.png (OK)
- 3329700 res/drawable-hdpi-v4/mch_chong_orange_60.png (OK)
- 3331356 res/drawable-hdpi-v4/mch_choosepay_3030_check.png (OK)
- 3331844 res/drawable-hdpi-v4/mch_choosepay_3030_uncheck.png (OK)
- 3332328 res/drawable-hdpi-v4/mch_choosepay_close.png (OK)
- 3333128 res/drawable-hdpi-v4/mch_choosepay_close2.png (OK)
- 3335296 res/drawable-hdpi-v4/mch_choosepay_ico_ptb.png (OK)
- 3336756 res/drawable-hdpi-v4/mch_choosepay_ico_uncheck.png (OK)
- 3337788 res/drawable-hdpi-v4/mch_choosepay_money.png (OK)
- 3338940 res/drawable-hdpi-v4/mch_choosepay_select.png (OK)
- 3348308 res/drawable-hdpi-v4/mch_choosepay_unselect.png (OK)
- 3354596 res/drawable-hdpi-v4/mch_close.png (OK)
- 3355408 res/drawable-hdpi-v4/mch_close1.png (OK)
- 3356016 res/drawable-hdpi-v4/mch_close_receive.png (OK)
- 3356288 res/drawable-hdpi-v4/mch_commplit_100x100_blue.png (OK)
- 3358272 res/drawable-hdpi-v4/mch_float_ico.png (OK)
- 3363784 res/drawable-hdpi-v4/mch_float_ico_h.png (OK)
- 3369476 res/drawable-hdpi-v4/mch_float_menu_bg.9.png (OK)
- 3370588 res/drawable-hdpi-v4/mch_floating_pack.png (OK)
- 3371408 res/drawable-hdpi-v4/mch_floating_pers.png (OK)
- 3372032 res/drawable-hdpi-v4/mch_gray_arrow_left.png (OK)
- 3372696 res/drawable-hdpi-v4/mch_ico_80_hfb.png (OK)
- 3381376 res/drawable-hdpi-v4/mch_ico_80_jby.png (OK)
- 3383332 res/drawable-hdpi-v4/mch_ico_80_jby_red.png (OK)
- 3384532 res/drawable-hdpi-v4/mch_ico_80_ptb.png (OK)
- 3395880 res/drawable-hdpi-v4/mch_ico_80_wx.png (OK)
- 3404800 res/drawable-hdpi-v4/mch_ico_80_zfb.png (OK)
- 3408200 res/drawable-hdpi-v4/mch_logo.png (OK)
- 3435724 res/drawable-hdpi-v4/mch_logo_400x100.png (OK)
- 3487520 res/drawable-hdpi-v4/mch_pay.png (OK)
- 3489164 res/drawable-hdpi-v4/mch_person_60.png (OK)
- 3490400 res/drawable-hdpi-v4/mch_person_logo.png (OK)
- 3568512 res/drawable-hdpi-v4/mch_personal_info_per_bi.png (OK)
- 3569072 res/drawable-hdpi-v4/mch_personal_info_per_chgpwd_yz.png (OK)
- 3569564 res/drawable-hdpi-v4/mch_personal_info_per_edit.png (OK)
- 3570040 res/drawable-hdpi-v4/mch_personal_info_per_lock.png (OK)
- 3570448 res/drawable-hdpi-v4/mch_personal_info_per_pay.png (OK)
- 3571012 res/drawable-hdpi-v4/mch_personal_info_per_people.png (OK)
- 3571392 res/drawable-hdpi-v4/mch_platform_login_account_4040.png (OK)
- 3572608 res/drawable-hdpi-v4/mch_platform_login_password_4040.png (OK)
- 3573588 res/drawable-hdpi-v4/mch_play_img.png (OK)
- 5354176 res/drawable-hdpi-v4/mch_ptb.png (OK)
- 5355488 res/drawable-hdpi-v4/mch_qq_80x80.png (OK)
- 5359692 res/drawable-hdpi-v4/mch_selectptb_unselected.png (OK)
- 5359972 res/drawable-hdpi-v4/mch_step1_80x80_blue.png (OK)
- 5361568 res/drawable-hdpi-v4/mch_step2_80x80_blue.png (OK)
- 5363368 res/drawable-hdpi-v4/mch_step2_80x80_grey.png (OK)
- 5365220 res/drawable-hdpi-v4/mch_step3_80x80_blue.png (OK)
- 5367092 res/drawable-hdpi-v4/mch_step3_80x80_grey.png (OK)
- 5369020 res/drawable-hdpi-v4/mch_step4_80x80_blue.png (OK)
- 5370736 res/drawable-hdpi-v4/mch_step4_80x80_grey.png (OK)
- 5372500 res/drawable-hdpi-v4/mch_weibo_80x80.png (OK)
- 5374796 res/drawable-hdpi-v4/mch_weixin_80x80.png (OK)
- 5376608 res/drawable-hdpi-v4/mch_write_60x60.png (OK)
- 5377688 res/drawable-hdpi-v4/mch_wx_pay.png (OK)
- 5379148 res/drawable-hdpi-v4/mch_xlistview_down_arrow.png (OK)
- 5380452 res/drawable-hdpi-v4/mch_xlistview_up_arrow.png (OK)
- 5381764 res/drawable-hdpi-v4/my_img_authentication3x.png (OK)
- 5383632 res/drawable-hdpi-v4/my_img_authentication_already3x.png (OK)
- 5402472 res/drawable-hdpi-v4/my_img_authentication_prompt3x.png (OK)
- 5403344 res/drawable-hdpi-v4/my_img_authentication_success3x.png (OK)
- 5427576 res/drawable-hdpi-v4/pack_image_new.png (OK)
- 5437400 res/drawable-hdpi-v4/sec.png (OK)
- 5445080 res/drawable-hdpi-v4/topay.png (OK)
- 5448736 res/drawable-hdpi-v4/ttw_loading.png (OK)
- 5450232 res/drawable-hdpi-v4/ttw_quilogin_bg.9.png (OK)
- 5450864 res/drawable-hdpi-v4/u11.png (OK)
- 5454544 res/drawable-hdpi-v4/u12.png (OK)
- 5461232 res/drawable-hdpi-v4/u29.png (OK)
- 5468072 res/drawable-hdpi-v4/u43.png (OK)
- 5477292 res/drawable-hdpi-v4/u5.png (OK)
- 5478636 res/drawable-hdpi-v4/u55.png (OK)
- 5479260 res/drawable-hdpi-v4/yzx_green_leftbubble.9.png (OK)
- 5480352 res/drawable-hdpi-v4/yzx_green_rightbubble.9.png (OK)
- 5481436 res/drawable-hdpi-v4/yzx_person.png (OK)
- 5482336 res/drawable-hdpi/ubsdk_splash.png (OK)
- 5628132 res/drawable-ldpi-v4/ic_launcher.png (OK)
- 5630248 res/drawable-mdpi-v4/ic_launcher.png (OK)
- 5634144 res/drawable-xhdpi-v4/ic_launcher.png (OK)
- 5645824 res/drawable/color_cursor.xml (OK - compressed)
- 5646144 res/drawable/mc_choosepay_backgrount.xml (OK - compressed)
- 5646677 res/drawable/mc_choosepay_backgrount_pay.xml (OK - compressed)
- 5647214 res/drawable/mc_choosepay_backgrount_ptb.xml (OK - compressed)
- 5647755 res/drawable/mc_choosepay_backgrount_top.xml (OK - compressed)
- 5648271 res/drawable/mc_choosepay_backgrount_top_ptb.xml (OK - compressed)
- 5648778 res/drawable/mc_login_reg_phone_num.xml (OK - compressed)
- 5649177 res/drawable/mc_login_reg_phone_num_disable.xml (OK - compressed)
- 5649565 res/drawable/mc_personal_button_bg.xml (OK - compressed)
- 5650101 res/drawable/mc_personal_info_back_chgpwd.xml (OK - compressed)
- 5650636 res/drawable/mc_platform_dialog_back.xml (OK - compressed)
- 5651023 res/drawable/mc_platform_input_back.xml (OK - compressed)
- 5651400 res/drawable/mc_tip_dialog.xml (OK - compressed)
- 5651801 res/drawable/mch_alert_exit_custom_button_style.xml (OK - compressed)
- 5652160 res/drawable/mch_bindphone_bg_edt.xml (OK - compressed)
- 5652586 res/drawable/mch_bindphone_progressball.xml (OK - compressed)
- 5652982 res/drawable/mch_bindphone_progressball_line.xml (OK - compressed)
- 5653384 res/drawable/mch_bindphone_progressball_yellow.xml (OK - compressed)
- 5653772 res/drawable/mch_button_selector.xml (OK - compressed)
- 5654369 res/drawable/mch_button_selector_green.xml (OK - compressed)
- 5654961 res/drawable/mch_copy_code_bottom_shape.xml (OK - compressed)
- 5655329 res/drawable/mch_copy_packagecode_shape.xml (OK - compressed)
- 5655659 res/drawable/mch_copycode_button_shape.xml (OK - compressed)
- 5656207 res/drawable/mch_copycode_lable_shape.xml (OK - compressed)
- 5656749 res/drawable/mch_cricle_10dp_bg_white.xml (OK - compressed)
- 5657345 res/drawable/mch_cricle_5dp_bg_blue.xml (OK - compressed)
- 5657943 res/drawable/mch_cricle_5dp_bg_gray.xml (OK - compressed)
- 5658541 res/drawable/mch_cricle_5dp_bg_violet.xml (OK - compressed)
- 5659132 res/drawable/mch_hellocircle.xml (OK - compressed)
- 5659532 res/drawable/mch_hellocircle_blue.xml (OK - compressed)
- 5659932 res/drawable/mch_hellocircle_green.xml (OK - compressed)
- 5660331 res/drawable/mch_hellocircle_red.xml (OK - compressed)
- 5660733 res/drawable/mch_hellorectangle_blue.xml (OK - compressed)
- 5661139 res/drawable/mch_input_back_shape.xml (OK - compressed)
- 5661654 res/drawable/mch_input_updatepwd_shape.xml (OK - compressed)
- 5662168 res/drawable/mch_jft_customer_service.xml (OK - compressed)
- 5662569 res/drawable/mch_pay_type_selected_shape.xml (OK - compressed)
- 5663103 res/drawable/mch_paytype_select_style.xml (OK - compressed)
- 5663440 res/drawable/mch_receive_pack_dialog_code.xml (OK - compressed)
- 5663868 res/drawable/mch_tocerticate_btn_bg.xml (OK - compressed)
- 5664245 res/drawable/mch_tocerticate_btn_bg2.xml (OK - compressed)
- 5664566 res/drawable/mch_tocerticate_edt_bg.xml (OK - compressed)
- 5664930 res/drawable/progressbar.xml (OK - compressed)
- 5665493 res/layout-land/activity_mch_choose_pay.xml (OK - compressed)
- 5667538 res/layout/activity_communicate.xml (OK - compressed)
- 5668173 res/layout/activity_custom_loding_dialog_layout.xml (OK - compressed)
- 5669050 res/layout/activity_main.xml (OK - compressed)
- 5669652 res/layout/activity_mch_add_platform_money.xml (OK - compressed)
- 5671656 res/layout/activity_mch_certificate.xml (OK - compressed)
- 5672085 res/layout/activity_mch_choose_pay.xml (OK - compressed)
- 5674096 res/layout/activity_mch_choosepay.xml (OK - compressed)
- 5676290 res/layout/activity_mch_forgetpassword.xml (OK - compressed)
- 5679358 res/layout/activity_mch_game_record.xml (OK - compressed)
- 5680512 res/layout/activity_mch_money_record.xml (OK - compressed)
- 5681536 res/layout/activity_mch_packs.xml (OK - compressed)
- 5682138 res/layout/activity_mch_personal_info.xml (OK - compressed)
- 5684860 res/layout/activity_mch_personal_info_bindphone2.xml (OK - compressed)
- 5687407 res/layout/activity_mch_personal_info_chgpwd.xml (OK - compressed)
- 5688710 res/layout/activity_mch_personal_info_setuser.xml (OK - compressed)
- 5690001 res/layout/activity_mch_ptb_pay_info.xml (OK - compressed)
- 5691636 res/layout/activity_mch_social.xml (OK - compressed)
- 5692135 res/layout/activity_mylistview.xml (OK - compressed)
- 5692783 res/layout/activty_mch_jft_pay.xml (OK - compressed)
- 5694167 res/layout/dialog_mch_alert_exit_main.xml (OK - compressed)
- 5694980 res/layout/dialog_mch_alert_exit_main_light.xml (OK - compressed)
- 5695795 res/layout/dialog_mch_alert_main.xml (OK - compressed)
- 5696563 res/layout/dialog_mch_platform_login.xml (OK - compressed)
- 5698494 res/layout/dialog_mch_platform_quickregister.xml (OK - compressed)
- 5700234 res/layout/dialog_mch_platform_register.xml (OK - compressed)
- 5702046 res/layout/dialog_mch_receive_packs.xml (OK - compressed)
- 5702978 res/layout/dialog_mch_select_ptb_type.xml (OK - compressed)
- 5704627 res/layout/dialog_mch_tip_custom.xml (OK - compressed)
- 5705410 res/layout/dialog_mch_to_certificate.xml (OK - compressed)
- 5706216 res/layout/floating_mch_menu.xml (OK - compressed)
- 5707294 res/layout/item_jft.xml (OK - compressed)
- 5707878 res/layout/item_mch_addptb_record.xml (OK - compressed)
- 5708546 res/layout/item_mch_game_record.xml (OK - compressed)
- 5709087 res/layout/item_mch_packs.xml (OK - compressed)
- 5710149 res/layout/item_spinner_numbers.xml (OK - compressed)
- 5710716 res/layout/list.xml (OK - compressed)
- 5711289 res/layout/list_communicate.xml (OK - compressed)
- 5712068 res/layout/mc_tip_dialog.xml (OK - compressed)
- 5712628 res/layout/to_certificate_fragment.xml (OK - compressed)
- 5713584 res/layout/to_certificate_no_fragment.xml (OK - compressed)
- 5714975 res/layout/to_certificate_ok_fragment.xml (OK - compressed)
- 5715669 res/layout/util_mch_header.xml (OK - compressed)
- 5716343 res/layout/webview_mch_zfbpay.xml (OK - compressed)
- 5716746 res/layout/xlistview_mch_footer.xml (OK - compressed)
- 5717359 res/layout/xlistview_mch_header.xml (OK - compressed)
- 5718282 res/xml/filepaths.xml (OK - compressed)
- 5718492 resources.arsc (OK)
+    6921 META-INF/VAS_KEYS.SF (OK - compressed)
+   13896 META-INF/VAS_KEYS.RSA (OK - compressed)
+   15032 AndroidManifest.xml (OK - compressed)
+   17124 assets/mchcontrol (OK)
+  792788 assets/paysdk.jar (OK - compressed)
+ 2120407 assets/paysdk_del_okio.jar (OK - compressed)
+ 3220924 assets/ubsdk.dat (OK - compressed)
+ 3221216 assets/ubsdk_config.xml (OK)
+ 3222355 assets/ubsdk_config_nomal.xml (OK - compressed)
+ 3222876 assets/vasconfig/channel.ini (OK)
+ 3222928 classes.dex (OK - compressed)
+ 3226215 libs/armeabi-v7a/libmchpaysdk.so (OK - compressed)
+ 3234466 libs/armeabi/libmchpaysdk.so (OK - compressed)
+ 3242752 res/drawable-hdpi-v4/dialog_bocop_loading_rotate_anim_img.png (OK)
+ 3245076 res/drawable-hdpi-v4/get_pack.png (OK)
+ 3247080 res/drawable-hdpi-v4/ic_launcher.png (OK)
+ 3254444 res/drawable-hdpi-v4/icon_spinner_delete.png (OK)
+ 3255664 res/drawable-hdpi-v4/icon_spinner_down_arrow.png (OK)
+ 3256092 res/drawable-hdpi-v4/icon_spinner_listview_background.png (OK)
+ 3256368 res/drawable-hdpi-v4/icon_spinner_user.png (OK)
+ 3258140 res/drawable-hdpi-v4/image_icon_radiobutton_no.png (OK)
+ 3259248 res/drawable-hdpi-v4/image_icon_radiobutton_yes.png (OK)
+ 3260816 res/drawable-hdpi-v4/jftlogo.png (OK)
+ 3263528 res/drawable-hdpi-v4/logo.png (OK)
+ 3310036 res/drawable-hdpi-v4/mc_platform_login_lock.png (OK)
+ 3310912 res/drawable-hdpi-v4/mc_platform_login_seleceted.png (OK)
+ 3311576 res/drawable-hdpi-v4/mc_platform_login_unseleceted.png (OK)
+ 3311820 res/drawable-hdpi-v4/mc_platform_login_user.png (OK)
+ 3312628 res/drawable-hdpi-v4/mch_alert_exit_bg_focused.png (OK)
+ 3314012 res/drawable-hdpi-v4/mch_alert_exit_bg_main.png (OK)
+ 3316220 res/drawable-hdpi-v4/mch_alert_exit_bg_nofocused.png (OK)
+ 3317688 res/drawable-hdpi-v4/mch_back_icon.png (OK)
+ 3318156 res/drawable-hdpi-v4/mch_back_left60.png (OK)
+ 3318624 res/drawable-hdpi-v4/mch_back_left_gray_60.png (OK)
+ 3319720 res/drawable-hdpi-v4/mch_baidu_80x80.png (OK)
+ 3322056 res/drawable-hdpi-v4/mch_bindphone_img_succ.png (OK)
+ 3324648 res/drawable-hdpi-v4/mch_bindptb.png (OK)
+ 3326628 res/drawable-hdpi-v4/mch_blue_60.png (OK)
+ 3327660 res/drawable-hdpi-v4/mch_card_orange_60.png (OK)
+ 3328292 res/drawable-hdpi-v4/mch_checkbox_pressed.png (OK)
+ 3329696 res/drawable-hdpi-v4/mch_chong_orange_60.png (OK)
+ 3331352 res/drawable-hdpi-v4/mch_choosepay_3030_check.png (OK)
+ 3331840 res/drawable-hdpi-v4/mch_choosepay_3030_uncheck.png (OK)
+ 3332324 res/drawable-hdpi-v4/mch_choosepay_close.png (OK)
+ 3333124 res/drawable-hdpi-v4/mch_choosepay_close2.png (OK)
+ 3335292 res/drawable-hdpi-v4/mch_choosepay_ico_ptb.png (OK)
+ 3336752 res/drawable-hdpi-v4/mch_choosepay_ico_uncheck.png (OK)
+ 3337784 res/drawable-hdpi-v4/mch_choosepay_money.png (OK)
+ 3338936 res/drawable-hdpi-v4/mch_choosepay_select.png (OK)
+ 3348304 res/drawable-hdpi-v4/mch_choosepay_unselect.png (OK)
+ 3354592 res/drawable-hdpi-v4/mch_close.png (OK)
+ 3355404 res/drawable-hdpi-v4/mch_close1.png (OK)
+ 3356012 res/drawable-hdpi-v4/mch_close_receive.png (OK)
+ 3356284 res/drawable-hdpi-v4/mch_commplit_100x100_blue.png (OK)
+ 3358268 res/drawable-hdpi-v4/mch_float_ico.png (OK)
+ 3363780 res/drawable-hdpi-v4/mch_float_ico_h.png (OK)
+ 3369472 res/drawable-hdpi-v4/mch_float_menu_bg.9.png (OK)
+ 3370584 res/drawable-hdpi-v4/mch_floating_pack.png (OK)
+ 3371404 res/drawable-hdpi-v4/mch_floating_pers.png (OK)
+ 3372028 res/drawable-hdpi-v4/mch_gray_arrow_left.png (OK)
+ 3372692 res/drawable-hdpi-v4/mch_ico_80_hfb.png (OK)
+ 3381372 res/drawable-hdpi-v4/mch_ico_80_jby.png (OK)
+ 3383328 res/drawable-hdpi-v4/mch_ico_80_jby_red.png (OK)
+ 3384528 res/drawable-hdpi-v4/mch_ico_80_ptb.png (OK)
+ 3395876 res/drawable-hdpi-v4/mch_ico_80_wx.png (OK)
+ 3404796 res/drawable-hdpi-v4/mch_ico_80_zfb.png (OK)
+ 3408196 res/drawable-hdpi-v4/mch_logo.png (OK)
+ 3435720 res/drawable-hdpi-v4/mch_logo_400x100.png (OK)
+ 3487516 res/drawable-hdpi-v4/mch_pay.png (OK)
+ 3489160 res/drawable-hdpi-v4/mch_person_60.png (OK)
+ 3490396 res/drawable-hdpi-v4/mch_person_logo.png (OK)
+ 3568508 res/drawable-hdpi-v4/mch_personal_info_per_bi.png (OK)
+ 3569068 res/drawable-hdpi-v4/mch_personal_info_per_chgpwd_yz.png (OK)
+ 3569560 res/drawable-hdpi-v4/mch_personal_info_per_edit.png (OK)
+ 3570036 res/drawable-hdpi-v4/mch_personal_info_per_lock.png (OK)
+ 3570444 res/drawable-hdpi-v4/mch_personal_info_per_pay.png (OK)
+ 3571008 res/drawable-hdpi-v4/mch_personal_info_per_people.png (OK)
+ 3571388 res/drawable-hdpi-v4/mch_platform_login_account_4040.png (OK)
+ 3572604 res/drawable-hdpi-v4/mch_platform_login_password_4040.png (OK)
+ 3573584 res/drawable-hdpi-v4/mch_play_img.png (OK)
+ 5354172 res/drawable-hdpi-v4/mch_ptb.png (OK)
+ 5355484 res/drawable-hdpi-v4/mch_qq_80x80.png (OK)
+ 5359688 res/drawable-hdpi-v4/mch_selectptb_unselected.png (OK)
+ 5359968 res/drawable-hdpi-v4/mch_step1_80x80_blue.png (OK)
+ 5361564 res/drawable-hdpi-v4/mch_step2_80x80_blue.png (OK)
+ 5363364 res/drawable-hdpi-v4/mch_step2_80x80_grey.png (OK)
+ 5365216 res/drawable-hdpi-v4/mch_step3_80x80_blue.png (OK)
+ 5367088 res/drawable-hdpi-v4/mch_step3_80x80_grey.png (OK)
+ 5369016 res/drawable-hdpi-v4/mch_step4_80x80_blue.png (OK)
+ 5370732 res/drawable-hdpi-v4/mch_step4_80x80_grey.png (OK)
+ 5372496 res/drawable-hdpi-v4/mch_weibo_80x80.png (OK)
+ 5374792 res/drawable-hdpi-v4/mch_weixin_80x80.png (OK)
+ 5376604 res/drawable-hdpi-v4/mch_write_60x60.png (OK)
+ 5377684 res/drawable-hdpi-v4/mch_wx_pay.png (OK)
+ 5379144 res/drawable-hdpi-v4/mch_xlistview_down_arrow.png (OK)
+ 5380448 res/drawable-hdpi-v4/mch_xlistview_up_arrow.png (OK)
+ 5381760 res/drawable-hdpi-v4/my_img_authentication3x.png (OK)
+ 5383628 res/drawable-hdpi-v4/my_img_authentication_already3x.png (OK)
+ 5402468 res/drawable-hdpi-v4/my_img_authentication_prompt3x.png (OK)
+ 5403340 res/drawable-hdpi-v4/my_img_authentication_success3x.png (OK)
+ 5427572 res/drawable-hdpi-v4/pack_image_new.png (OK)
+ 5437396 res/drawable-hdpi-v4/sec.png (OK)
+ 5445076 res/drawable-hdpi-v4/topay.png (OK)
+ 5448732 res/drawable-hdpi-v4/ttw_loading.png (OK)
+ 5450228 res/drawable-hdpi-v4/ttw_quilogin_bg.9.png (OK)
+ 5450860 res/drawable-hdpi-v4/u11.png (OK)
+ 5454540 res/drawable-hdpi-v4/u12.png (OK)
+ 5461228 res/drawable-hdpi-v4/u29.png (OK)
+ 5468068 res/drawable-hdpi-v4/u43.png (OK)
+ 5477288 res/drawable-hdpi-v4/u5.png (OK)
+ 5478632 res/drawable-hdpi-v4/u55.png (OK)
+ 5479256 res/drawable-hdpi-v4/yzx_green_leftbubble.9.png (OK)
+ 5480348 res/drawable-hdpi-v4/yzx_green_rightbubble.9.png (OK)
+ 5481432 res/drawable-hdpi-v4/yzx_person.png (OK)
+ 5482332 res/drawable-hdpi/ubsdk_splash.png (OK)
+ 5628128 res/drawable-ldpi-v4/ic_launcher.png (OK)
+ 5630244 res/drawable-mdpi-v4/ic_launcher.png (OK)
+ 5634140 res/drawable-xhdpi-v4/ic_launcher.png (OK)
+ 5645820 res/drawable/color_cursor.xml (OK - compressed)
+ 5646140 res/drawable/mc_choosepay_backgrount.xml (OK - compressed)
+ 5646673 res/drawable/mc_choosepay_backgrount_pay.xml (OK - compressed)
+ 5647210 res/drawable/mc_choosepay_backgrount_ptb.xml (OK - compressed)
+ 5647751 res/drawable/mc_choosepay_backgrount_top.xml (OK - compressed)
+ 5648267 res/drawable/mc_choosepay_backgrount_top_ptb.xml (OK - compressed)
+ 5648774 res/drawable/mc_login_reg_phone_num.xml (OK - compressed)
+ 5649173 res/drawable/mc_login_reg_phone_num_disable.xml (OK - compressed)
+ 5649561 res/drawable/mc_personal_button_bg.xml (OK - compressed)
+ 5650097 res/drawable/mc_personal_info_back_chgpwd.xml (OK - compressed)
+ 5650632 res/drawable/mc_platform_dialog_back.xml (OK - compressed)
+ 5651019 res/drawable/mc_platform_input_back.xml (OK - compressed)
+ 5651396 res/drawable/mc_tip_dialog.xml (OK - compressed)
+ 5651797 res/drawable/mch_alert_exit_custom_button_style.xml (OK - compressed)
+ 5652156 res/drawable/mch_bindphone_bg_edt.xml (OK - compressed)
+ 5652582 res/drawable/mch_bindphone_progressball.xml (OK - compressed)
+ 5652978 res/drawable/mch_bindphone_progressball_line.xml (OK - compressed)
+ 5653380 res/drawable/mch_bindphone_progressball_yellow.xml (OK - compressed)
+ 5653768 res/drawable/mch_button_selector.xml (OK - compressed)
+ 5654365 res/drawable/mch_button_selector_green.xml (OK - compressed)
+ 5654957 res/drawable/mch_copy_code_bottom_shape.xml (OK - compressed)
+ 5655325 res/drawable/mch_copy_packagecode_shape.xml (OK - compressed)
+ 5655655 res/drawable/mch_copycode_button_shape.xml (OK - compressed)
+ 5656203 res/drawable/mch_copycode_lable_shape.xml (OK - compressed)
+ 5656745 res/drawable/mch_cricle_10dp_bg_white.xml (OK - compressed)
+ 5657341 res/drawable/mch_cricle_5dp_bg_blue.xml (OK - compressed)
+ 5657939 res/drawable/mch_cricle_5dp_bg_gray.xml (OK - compressed)
+ 5658537 res/drawable/mch_cricle_5dp_bg_violet.xml (OK - compressed)
+ 5659128 res/drawable/mch_hellocircle.xml (OK - compressed)
+ 5659528 res/drawable/mch_hellocircle_blue.xml (OK - compressed)
+ 5659928 res/drawable/mch_hellocircle_green.xml (OK - compressed)
+ 5660327 res/drawable/mch_hellocircle_red.xml (OK - compressed)
+ 5660729 res/drawable/mch_hellorectangle_blue.xml (OK - compressed)
+ 5661135 res/drawable/mch_input_back_shape.xml (OK - compressed)
+ 5661650 res/drawable/mch_input_updatepwd_shape.xml (OK - compressed)
+ 5662164 res/drawable/mch_jft_customer_service.xml (OK - compressed)
+ 5662565 res/drawable/mch_pay_type_selected_shape.xml (OK - compressed)
+ 5663099 res/drawable/mch_paytype_select_style.xml (OK - compressed)
+ 5663436 res/drawable/mch_receive_pack_dialog_code.xml (OK - compressed)
+ 5663864 res/drawable/mch_tocerticate_btn_bg.xml (OK - compressed)
+ 5664241 res/drawable/mch_tocerticate_btn_bg2.xml (OK - compressed)
+ 5664562 res/drawable/mch_tocerticate_edt_bg.xml (OK - compressed)
+ 5664926 res/drawable/progressbar.xml (OK - compressed)
+ 5665489 res/layout-land/activity_mch_choose_pay.xml (OK - compressed)
+ 5667534 res/layout/activity_communicate.xml (OK - compressed)
+ 5668169 res/layout/activity_custom_loding_dialog_layout.xml (OK - compressed)
+ 5669046 res/layout/activity_main.xml (OK - compressed)
+ 5669648 res/layout/activity_mch_add_platform_money.xml (OK - compressed)
+ 5671652 res/layout/activity_mch_certificate.xml (OK - compressed)
+ 5672081 res/layout/activity_mch_choose_pay.xml (OK - compressed)
+ 5674092 res/layout/activity_mch_choosepay.xml (OK - compressed)
+ 5676286 res/layout/activity_mch_forgetpassword.xml (OK - compressed)
+ 5679354 res/layout/activity_mch_game_record.xml (OK - compressed)
+ 5680508 res/layout/activity_mch_money_record.xml (OK - compressed)
+ 5681532 res/layout/activity_mch_packs.xml (OK - compressed)
+ 5682134 res/layout/activity_mch_personal_info.xml (OK - compressed)
+ 5684856 res/layout/activity_mch_personal_info_bindphone2.xml (OK - compressed)
+ 5687403 res/layout/activity_mch_personal_info_chgpwd.xml (OK - compressed)
+ 5688706 res/layout/activity_mch_personal_info_setuser.xml (OK - compressed)
+ 5689997 res/layout/activity_mch_ptb_pay_info.xml (OK - compressed)
+ 5691632 res/layout/activity_mch_social.xml (OK - compressed)
+ 5692131 res/layout/activity_mylistview.xml (OK - compressed)
+ 5692779 res/layout/activty_mch_jft_pay.xml (OK - compressed)
+ 5694163 res/layout/dialog_mch_alert_exit_main.xml (OK - compressed)
+ 5694976 res/layout/dialog_mch_alert_exit_main_light.xml (OK - compressed)
+ 5695791 res/layout/dialog_mch_alert_main.xml (OK - compressed)
+ 5696559 res/layout/dialog_mch_platform_login.xml (OK - compressed)
+ 5698490 res/layout/dialog_mch_platform_quickregister.xml (OK - compressed)
+ 5700230 res/layout/dialog_mch_platform_register.xml (OK - compressed)
+ 5702042 res/layout/dialog_mch_receive_packs.xml (OK - compressed)
+ 5702974 res/layout/dialog_mch_select_ptb_type.xml (OK - compressed)
+ 5704623 res/layout/dialog_mch_tip_custom.xml (OK - compressed)
+ 5705406 res/layout/dialog_mch_to_certificate.xml (OK - compressed)
+ 5706212 res/layout/floating_mch_menu.xml (OK - compressed)
+ 5707290 res/layout/item_jft.xml (OK - compressed)
+ 5707874 res/layout/item_mch_addptb_record.xml (OK - compressed)
+ 5708542 res/layout/item_mch_game_record.xml (OK - compressed)
+ 5709083 res/layout/item_mch_packs.xml (OK - compressed)
+ 5710145 res/layout/item_spinner_numbers.xml (OK - compressed)
+ 5710712 res/layout/list.xml (OK - compressed)
+ 5711285 res/layout/list_communicate.xml (OK - compressed)
+ 5712064 res/layout/mc_tip_dialog.xml (OK - compressed)
+ 5712624 res/layout/to_certificate_fragment.xml (OK - compressed)
+ 5713580 res/layout/to_certificate_no_fragment.xml (OK - compressed)
+ 5714971 res/layout/to_certificate_ok_fragment.xml (OK - compressed)
+ 5715665 res/layout/util_mch_header.xml (OK - compressed)
+ 5716339 res/layout/webview_mch_zfbpay.xml (OK - compressed)
+ 5716742 res/layout/xlistview_mch_footer.xml (OK - compressed)
+ 5717355 res/layout/xlistview_mch_header.xml (OK - compressed)
+ 5718278 res/xml/filepaths.xml (OK - compressed)
+ 5718488 resources.arsc (OK)
 Verification succesful
 	16.对签名apk生成优化----->成功!
-	【游戏Demo】----->【vivo】----->打包完成！
+	【sgbwdl】----->【vivo】----->打包完成！
 
 
 
-【游戏Demo】----->所有渠道包打包完成！
+【sgbwdl】----->所有渠道包打包完成！
 
 
 
