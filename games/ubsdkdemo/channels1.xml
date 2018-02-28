@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<channels>
+	<!-- 这里只放三方的meta-data 和channel配置 -->
+	<channel id="xiantu2-ldxy" folder="xiantu2" name="XianTuSDK-乱斗西游2"  suffix=".xiantu" splash="true" icon="rb">
+		<param name="XianTu2_PayRate" value="100"/>
+		<param name="XianTu2_ChannelId" value="0"/>
+		<param name="XianTu2_ChannelName" value="自然注册"/>
+		<param name="XianTu2_GameId" value="1184"/>
+		<param name="XianTu2_GameName" value="乱斗西游2"/>
+		<param name="XianTu2_GameAppId" value="9F75B0661AE296935"/>
+		<param name="XianTu2_SDKSecretKey" value="AwZVFl1RVF9cCAZUDFUEBwQBCBE="/>
+		<param name="XianTu2_SDKAddress" value="http://www.jmsdk.net/sdk.php/"/>
+		
+		<param name="GAMEID" value="ldxy_m"/>
+		<param name="VAS_DEBUG" value="true"/>
+		<param name="VAS_GAMEID" value="1184"/>
+		<param name="VAS_PLATFORMID" value="85"/>
+		<param name="VAS_SUBPLATFORMID" value="0"/>
+		<param name="VAS_CHANNELID" value="1"/>
+		<param name="VAS_SUBCHANNEL_ID" value="1"/>
+	</channel>
+	<channel id="xiantu2-stzb" folder="xiantu2" name="XianTuSDK-率土之滨"  suffix=".xiantu" splash="true" icon="rb">
+		<param name="XianTu2_PayRate" value="100"/>
+		<param name="XianTu2_ChannelId" value="0"/>
+		<param name="XianTu2_ChannelName" value="自然注册"/>
+		<param name="XianTu2_GameId" value="38"/>
+		<param name="XianTu2_GameName" value="率土之滨"/>
+		<param name="XianTu2_GameAppId" value="4840F4D7E839029E4"/>
+		<param name="XianTu2_SDKSecretKey" value="DBkMEBIOUwVQXwIWGgYGBBJWBgI="/>
+		<param name="XianTu2_SDKAddress" value="http://www.jmsdk.net/sdk.php/"/>
+		
+		<param name="GAMEID" value="stzb_m"/>
+		<param name="VAS_DEBUG" value="true"/>
+		<param name="VAS_GAMEID" value="1167"/>
+		<param name="VAS_PLATFORMID" value="85"/>
+		<param name="VAS_SUBPLATFORMID" value="0"/>
+		<param name="VAS_CHANNELID" value="1"/>
+		<param name="VAS_SUBCHANNEL_ID" value="1"/>
+	</channel>
+	<channel id="xiantu2-lnwy" folder="xiantu2" name="XianTuSDK-露娜物语"  suffix=".xiantu" splash="true" icon="rb">
+		<param name="XianTu2_PayRate" value="100"/>
+		<param name="XianTu2_ChannelId" value="0"/>
+		<param name="XianTu2_ChannelName" value="自然注册"/>
+		<param name="XianTu2_GameId" value="1235"/>
+		<param name="XianTu2_GameName" value="露娜物语"/>
+		<param name="XianTu2_GameAppId" value="A1664BD14153B80CD"/>
+		<param name="XianTu2_SDKSecretKey" value="CR8SHV8LVBQWHg8EGlVGAhoQDA4="/>
+		<param name="XianTu2_SDKAddress" value="http://www.jmsdk.net/sdk.php/"/>
+		
+		<param name="GAMEID" value="lnwy_m"/>
+		<param name="VAS_DEBUG" value="true"/>
+		<param name="VAS_GAMEID" value="1332"/>
+		<param name="VAS_PLATFORMID" value="85"/>
+		<param name="VAS_SUBPLATFORMID" value="0"/>
+		<param name="VAS_CHANNELID" value="1"/>
+		<param name="VAS_SUBCHANNEL_ID" value="1"/>
+	</channel>
+	
+	    <!-- 记得修改修改assets里面game.json中的参数-->
+	<channel id="dinglian-lwcsdldl" folder="dinglian" name="顶联" suffix=".dljh" splash="false"  >
+	    <param name="VAS_GAMEID" value="1280" />
+		<param name="VAS_PLATFORMID" value="77" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+	</channel>
+	<channel id="youlong_new-lwcsdldl" folder="youlong_new" name="游龙SDK" suffix=".yljh" splash="false"  >
+	    <param name="VAS_GAMEID" value="1280" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+		<!--   	"Pid":"105146",
+  				"PKey":"0c27dc141918d1af2850d378620dae4e",
+  				"AppVersion":"1.0",
+  				"GameName":"龙王传说-斗罗大陆3", -->
+	</channel>
+	<channel id="youlong_new-hmzqfy" folder="youlong_new" name="游龙SDK" suffix=".yljh" splash="false"  >
+	    <param name="VAS_GAMEID" value="1123" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+		<!--   	"Pid":"104999",
+  				"PKey":"727a66d6eb4459089828f1a324c6dd9c",
+  				"AppVersion":"1.0",
+  				"GameName":"足球豪门风云", -->
+	</channel>
+	<channel id="youlong_new_qjzqz" folder="youlong_new" name="游龙SDK" suffix=".yljh" splash="false"  >
+	    <param name="VAS_GAMEID" value="1387" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+		<!--   	"Pid":"105172",
+  				"PKey":"a6bb15ff1c516ad37ac8ff68d25e2da7",
+  				"AppVersion":"1.0",
+  				"GameName":"奇迹：最强者", -->
+	</channel>
+	<channel id="youlong_new_fw" folder="youlong_new" name="游龙SDK" suffix=".yljh" splash="false"  >
+	    <param name="VAS_GAMEID" value="1391" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+		<!--   	"Pid":"105201",
+  				"PKey":"a97a5c6afb60a447026f1b1f7d99a827",
+  				"AppVersion":"1.0",
+  				"GameName":"凤武", -->
+	</channel>
+	<channel id="youlong_new_hzgj" folder="youlong_new" name="游龙SDK" suffix=".yljh" splash="false"  >
+	    <param name="VAS_GAMEID" value="1356" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+		<!--   	"Pid":"105216",
+  				"PKey":"bae3f97932f9d4f751798d7fd224f783",
+  				"AppVersion":"1.0",
+  				"GameName":"魂之轨迹", -->
+	</channel>
+	<channel id="youlong_new-qnyh" folder="youlong_new" name="youlong_new-倩女幽魂" suffix=".yljh" splash="false"  >
+    	<param name="VAS_GAMEID" value="1138" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+				<!--   	"Pid":"105030",
+  				"PKey":"516725065c44d9b8d0e97664b1917b55",
+  				"AppVersion":"1.0",
+  				"GameName":"倩女幽魂", -->
+	</channel>
+	<channel id="youlong_new-kdygry" folder="youlong_new" name="youlong_new-口袋妖怪日月" suffix=".yljh" splash="false"  >
+    	<param name="VAS_GAMEID" value="1213" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+				<!--   	"Pid":"104938",
+  				"PKey":"ea76f20a9c6272f096650b282e0dcd45",
+  				"AppVersion":"1.0",
+  				"GameName":"口袋妖怪日月", -->
+	</channel>
+	<channel id="youlong_new-yqfs" folder="youlong_new" name="youlong_new-元气封神" suffix=".yljh" splash="false"  >
+    	<param name="VAS_GAMEID" value="1382" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+				<!--   	"Pid":"105202",
+  				"PKey":"210dd3aa942a98b30be19f4b40935c1b",
+  				"AppVersion":"1.0",
+  				"GameName":"元气封神", -->
+	</channel>
+	<channel id="youlong_new-mhxy" folder="youlong_new" name="youlong_new-梦幻西游" suffix=".yljh" splash="false"  >
+    	<param name="VAS_GAMEID" value="1137" />
+		<param name="VAS_PLATFORMID" value="77" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+		
+				<!--转移包
+				"Pid":"105077",
+  				"PKey":"c7d9fc055935459437e812103d23dc6b",
+  				"AppVersion":"1.0",
+  				"GameName":"梦幻西游", -->
+	</channel>
+	<channel id="youlong_new-qjzqz" folder="youlong_new" name="youlong_new-奇迹最强者" suffix=".yljh" splash="false"  >
+    	<param name="VAS_GAMEID" value="1387" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+				<!--   	"Pid":"105172",
+  				"PKey":"a6bb15ff1c516ad37ac8ff68d25e2da7",
+  				"AppVersion":"1.0",
+  				"GameName":"奇迹最强者" -->
+	</channel>
+	<channel id="youlong_new-ppsg2" folder="youlong_new" name="youlong_new-啪啪三国2" suffix=".yljh" splash="false"  >
+    	<param name="VAS_GAMEID" value="1069" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+				<!--   	"Pid":"105217",
+  				"PKey":"f8b3bbaedfcad5a7424f684387d3e965",
+  				"AppVersion":"1.0",
+  				"GameName":"啪啪三国2" -->
+	</channel>
+	<channel id="youlong_new-mhtx" folder="youlong_new" name="youlong_new-莽荒天下" suffix=".yljh" splash="false"  >
+    	<param name="VAS_GAMEID" value="1365" />
+		<param name="VAS_PLATFORMID" value="37" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		
+				<!--   	"Pid":"105182",
+  				"PKey":"4d9f3bdd36d547bb665d81aff234fba2",
+  				"AppVersion":"1.0",
+  				"GameName":"莽荒天下" -->
+	</channel>
+	<channel id="guaimao_lwcsdldl" folder="guaimao" name="怪猫" suffix=".gm" splash="true" icon="rb"  >
+		<param name="GM_AppID" value="1409" />
+	    <param name="VAS_GAMEID" value="1280" />
+		<param name="VAS_PLATFORMID" value="62" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+	</channel>
+    <channel id="miqiwan-sgz2017" folder="miqiwan" name="欢乐互娱-三国志2017" suffix=".miqiwan" splash="false"  >
+		<param name="SDK_PAY_RATE" value="10" />
+	    <param name="VAS_GAMEID" value="1083" />
+		<param name="VAS_PLATFORMID" value="42" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<meta-data name="YYJIA_PLUGIN_MIQIWAN_APPID" value="196" />  
+	    <meta-data name="YOUDONG_APPID" value="471" />
+    </channel>
+    <channel id="xiantu-tjxm3" folder="xiantu" name="XianTuSDK-太极熊猫3" suffix=".xiantu" splash="true"
+		icon="rb">
+		<param name="XIANTU_GAMEID" value="1317" />
+		<param name="XIANTU_GAME_NAME" value="太极熊猫3：烈龙" />
+		<param name="XIANTU_APPID" value="44C70C10D108C9FA3" />
+		<param name="GAMEID" value="tjxm3_m" />
+		<param name="VAS_GAMEID" value="1286" />
+		<param name="VAS_PLATFORMID" value="27" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNELID" value="1" />
+	</channel>
+	<channel id="dinglian-xmqz" folder="dinglian" name="顶联-小米枪战" suffix=".dljh" splash="false"  >
+    	<param name="VAS_GAMEID" value="1359" />
+		<param name="VAS_PLATFORMID" value="77" />
+		<param name="VAS_SUBPLATFORMID" value="0" />
+		<param name="VAS_CHANNELID" value="1" />
+		<param name="VAS_SUBCHANNEL_ID" value="1" />
+		<!--   	"Pid":"105116",
+  				"PKey":"b2f4c0e39ae542a047b812809f2b0f02",
+  				"AppVersion":"1.0",
+  				"GameName":"小米枪战" -->
+	</channel>
+</channels>

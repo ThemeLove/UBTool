@@ -7,4 +7,4 @@ proguard-project.txt
 project.properties
 work/
 out/
-games/**.apk
+games/**/*.apk
