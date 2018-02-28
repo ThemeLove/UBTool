@@ -12,7 +12,7 @@ public class UBToolConfig {
 		iconMap.put("drawable-hdpi",72);
 		iconMap.put("drawable-xhdpi",96);
 		iconMap.put("drawable-xxhdpi",144);
-		iconMap.put("drawable-xxxhdpi", 192);
+		iconMap.put("drawable-xxxhdpi",192);
 		iconMap.put("mipmap-ldpi", 32);
 		iconMap.put("mipmap-mdpi", 48);
 		iconMap.put("mipmap-hdpi", 72);

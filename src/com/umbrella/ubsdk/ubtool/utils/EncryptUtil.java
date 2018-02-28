@@ -33,7 +33,7 @@ public class EncryptUtil {
             // 产生密钥
             Key key = kg.generateKey();
             // 将key序列化到程序assets目录下
-            f = new FileOutputStream(assetsPath + File.separator + "ubsdk.dat");
+            f = new FileOutputStream(assetsPath + File.separator + "ubdsk.dat");
             b = new ObjectOutputStream(f);
             b.writeObject(key);
 
@@ -55,7 +55,7 @@ public class EncryptUtil {
         }
         catch (Exception e)
         {
-            System.out.println("创建加密ubssdk_config.xml失败");
+            System.out.println("创建加密ubsdk_config.xml失败");
         }
         finally
         {

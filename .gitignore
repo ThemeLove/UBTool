@@ -5,3 +5,6 @@ bin/
 gen/
 proguard-project.txt
 project.properties
+work/
+out/
+games/*.apk

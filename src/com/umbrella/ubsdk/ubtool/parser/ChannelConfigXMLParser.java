@@ -13,6 +13,8 @@ import com.umbrella.ubsdk.ubtool.bean.ChannelConfig;
 import com.umbrella.ubsdk.ubtool.bean.ChannelConfig.Operation;
 
 
+
+
 public class ChannelConfigXMLParser {
 	public static ChannelConfig parser(String xmlPath) {
 		ChannelConfig channelConfig = new ChannelConfig();

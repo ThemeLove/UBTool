@@ -4,7 +4,6 @@ import java.io.File;
 
 import com.umbrella.ubsdk.ubtool.bean.LoggerThread;
 
-
 public class CommandUtil {
     // 执行命令
     public static void exeCmd(String command, File dir) throws Exception

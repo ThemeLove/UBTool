@@ -21,6 +21,7 @@ public class FileUtil {
 	 * @throws Exception
 	 */
 	public static void replaceDirectioryContent(String oldWord, String newWord, File dir) throws Exception {
+		if (!dir.exists()) return;
 		for(File file : dir.listFiles()) {
 			if(file.isDirectory()) {
 				replaceDirectioryContent(oldWord, newWord, file);
@@ -43,6 +44,7 @@ public class FileUtil {
 		reader.close();
 		
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
+//		System.out.println("buffer:"+buffer.toString());
 		writer.write(buffer.toString().toCharArray());
 		writer.flush();
 		writer.close();

@@ -12,8 +12,9 @@ import javax.crypto.Cipher;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.KeyGenerator;
 
-import com.umbrella.ubsdk.tool.util.FileUtil;
 import com.umbrella.ubsdk.ubtool.utils.KeyBoardUtil;
+
+
 
 public class Test {
 	public static void main(String[] args) {

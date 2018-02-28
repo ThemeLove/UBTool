@@ -10,6 +10,8 @@ import org.dom4j.io.SAXReader;
 
 import com.umbrella.ubsdk.ubtool.bean.Channel;
 
+
+
 public class ChannelXMLParser {
 //	private static String LINE_SEPARATOR=System.getProperty("line.separator");
 	public static Map<String, Channel> parser(String xmlPath) {
@@ -28,7 +30,7 @@ public class ChannelXMLParser {
         	for(Element gameChannelElement : channelList) {
         		Channel gameChannel = new Channel();
         		gameChannel.setId(gameChannelElement.attributeValue("id"));
-        		gameChannel.setName(gameChannelElement.attributeValue("name"));
+//        		gameChannel.setName(gameChannelElement.attributeValue("name"));
         		gameChannel.setFolder(gameChannelElement.attributeValue("folder"));
         		gameChannel.setIcon(gameChannelElement.attributeValue("icon"));
         		gameChannel.setSuffix(gameChannelElement.attributeValue("suffix"));
@@ -49,7 +51,10 @@ public class ChannelXMLParser {
         		gameChannel.setChannelParams(paramMap);
         		gameChannel.setMetaDatas(metaDataMap);
         		
-        		System.out.println(gameChannel);
+        		System.out.print("【");
+        		System.out.print(gameChannel.getId());
+        		System.out.println("】");
+        		
         		gameChannelMap.put(gameChannel.getId(), gameChannel);
         	}
         	System.out.println("------end-------");
