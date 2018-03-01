@@ -7,4 +7,5 @@ proguard-project.txt
 project.properties
 work/
 out/
+#忽略games目录以及子目录下的所有以.apk结尾的文件，**匹配多级目录
 games/**/*.apk

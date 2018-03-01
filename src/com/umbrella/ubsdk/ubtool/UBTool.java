@@ -621,28 +621,18 @@ public class UBTool {
 		 
 		 if (!TextUtil.isEmpty(channel.getSuffix())) {
 			 int lastDotIndex = oldGamePackageName.lastIndexOf(".");
+			 String prefixPackageName = oldGamePackageName.substring(0, lastDotIndex);
 			 String lastPackageName = oldGamePackageName.substring(lastDotIndex);
-			//如果原有包名最后和包名和配置的一样就不修改，否则直接添加新报名在老包名的后面
-			 if (!TextUtil.equals(lastPackageName, channel.getSuffix())) {
-				 newGamePackageName+=channel.getSuffix();
-				 System.out.println("	newGamePackageName:"+newGamePackageName);
-				 System.out.println("	新老包名不一样！！！！！！");
-				 System.out.println("		5.1替换新包名和替换{PACKAGENAME}");
-//						 修改AndroidManifest.xml中的DOM中的所有oldGamePackageName为newGamePackageName,同时替换占位包名{PACKAGENAME}为newGamePackageName
-				 replaceFileContent(new File(gameManifestPath), new String[]{oldGamePackageName,"{PACKAGENAME}"},newGamePackageName);
-				 System.out.println("		5.1替换新包名和替换{PACKAGENAME}----->成功");
-				 System.out.println("-----------------------"+LINE_SEPARATOR+LINE_SEPARATOR);
-			}else{//如果相同，只替换"{PACKAGENAME}"
-				 System.out.println("新老包名一样，只替换\"{PACKAGENAME}\",不用修改smali");
-				 System.out.println("		5.1替换新包名和替换{PACKAGENAME}");
-				 System.out.println("	newGamePackageName:"+newGamePackageName);
-//						 修改AndroidManifest.xml中的DOM中的所有oldGamePackageName为newGamePackageName,同时替换占位包名{PACKAGENAME}为newGamePackageName
-				 replaceFileContent(new File(gameManifestPath), new String[]{"{PACKAGENAME}"},newGamePackageName);
-				 System.out.println("		5.1替换新包名和替换{PACKAGENAME}----->成功");
-				 System.out.println("-----------------------");
+			 if (TextUtil.equalsIgnoreCase(lastPackageName, ".pptv")) {//如果是以.pptv结尾的话
+				 newGamePackageName=prefixPackageName+channel.getSuffix();//用小写拼接
+			}else{
+				 newGamePackageName=oldGamePackageName+channel.getSuffix();
 			}
+			 System.out.println("	newGamePackageName:"+newGamePackageName);
+			 System.out.println("		5.1替换新包名和替换{PACKAGENAME}");
+			 replaceFileContent(new File(gameManifestPath), new String[]{oldGamePackageName,"{PACKAGENAME}"},newGamePackageName);
+			 System.out.println("		5.1替换新包名和替换{PACKAGENAME}----->成功");
 		 }
-		 
 		 System.out.println("	5.根据channel中的配置替换AndroidManifest.xml中的包名和'{PACKAGENAME}'----成功！");
 		 System.out.println("--------------"+LINE_SEPARATOR);
 	}
