@@ -13,7 +13,7 @@ import org.dom4j.io.XMLWriter;
 
 import com.umbrella.ubsdk.ubtool.utils.CommandUtil;
 import com.umbrella.ubsdk.ubtool.utils.KeyBoardUtil;
-import com.vas.vassdk.util.TextUtil;
+import com.umbrella.ubsdk.ubtool.utils.TextUtil;
 
 /**
  * 根据 <<游戏名>> 生成签名文件的工具

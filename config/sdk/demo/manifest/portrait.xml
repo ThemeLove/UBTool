@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<permissionConfig>
+   		<!-- SDK 相关 start -->
+	</permissionConfig>
+
+	<applicationConfig>
+
+	</applicationConfig>
+</manifest>
