@@ -33,7 +33,7 @@ public class EncryptUtil {
             // 产生密钥
             Key key = kg.generateKey();
             // 将key序列化到程序assets目录下
-            f = new FileOutputStream(assetsPath + File.separator + "ubdsk.dat");
+            f = new FileOutputStream(assetsPath + File.separator + "ubsdk.dat");
             b = new ObjectOutputStream(f);
             b.writeObject(key);
 

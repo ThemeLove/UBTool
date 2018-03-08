@@ -12,6 +12,15 @@
 	  />
 	<game 
         id="10002"
+        name="test-misc"
+        folder="test-misc"
+        gameMainName=""
+        debug="true"
+        orientation="protrait"
+        apktoolVersion="2-3-0"
+	  />
+	<game 
+        id="10003"
         name="sgbwdl"
         folder="sgbwdl"
         gameMainName=""
