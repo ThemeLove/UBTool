@@ -12,6 +12,7 @@ import javax.crypto.Cipher;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.KeyGenerator;
 
+import com.umbrella.ubsdk.ubtool.bean.Channel;
 import com.umbrella.ubsdk.ubtool.utils.KeyBoardUtil;
 
 
@@ -32,6 +33,11 @@ public class Test {
 		
 		ProcessBuilder builder = new ProcessBuilder();
 		builder.command("");
+		String simpleName = Channel.class.getSimpleName();
+		String name = Channel.class.getName();
+		
+		System.out.println(simpleName);
+		System.out.println(name);
 		
 	}
 
