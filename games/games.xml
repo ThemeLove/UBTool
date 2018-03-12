@@ -19,8 +19,17 @@
         orientation="protrait"
         apktoolVersion="2-3-0"
 	  />
-	<game 
+	  	<game 
         id="10003"
+        name="DownTheMountain"
+        folder="DownTheMountain"
+        gameMainName=""
+        debug="true"
+        orientation="portrait"
+        apktoolVersion="2-3-0"
+	  />
+	<game 
+        id="10004"
         name="sgbwdl"
         folder="sgbwdl"
         gameMainName=""

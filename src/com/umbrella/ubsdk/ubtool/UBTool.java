@@ -848,21 +848,22 @@ public class UBTool {
 				
 				System.out.println("		merge:"+mergeFromPath+"----->"+mergeToPath);
 				Document mergeFromDocument = new SAXReader().read(new File(mergeFromPath));
-				List<Element> permissionListFrom = mergeFromDocument.getRootElement().elements("uses-permission");
+				Element permissionConfig = mergeFromDocument.getRootElement().element("permissionConfig");
 				Element applicationConfig = mergeFromDocument.getRootElement().element("applicationConfig");
 				List<Element> componentListFrom = applicationConfig.elements();
 				
 				Document mergeToDocument = new SAXReader().read(mergeToPath);
-				List<Element> permissionListTo = mergeToDocument.getRootElement().elements("uses-permission");
-				Element applicationElementTo = mergeToDocument.getRootElement().element("application");
+				Element mergeToRootElement = mergeToDocument.getRootElement();
+				List<Element> permissionListTo = mergeToRootElement.elements("uses-permission");
+				Element applicationElementTo = mergeToRootElement.element("application");
 //						合并权限uses-permission
-				outer:for (Element permissionFrom : permissionListFrom) {
+				outer:for (Element permissionFrom : permissionConfig.elements()) {
 					for (Element permissionTo : permissionListTo) {
 						if (TextUtil.equals(permissionFrom.attributeValue("name"), permissionTo.attributeValue("name"))) {
 							continue outer;
 						}
 					}
-					applicationElementTo.add(permissionFrom.createCopy());
+					mergeToRootElement.add(permissionFrom.createCopy());
 				}
 //						合并application下的四大组件,这里不做重复判断,一般不会相同
 				for (Element component : componentListFrom) {

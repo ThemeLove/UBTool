@@ -8,7 +8,7 @@
 	</operations>
 	<plugins>
 		<plugin name="com.ubsdk.baidu.plugin.BaiDuUserPlugin" type="1"/>
-		<plugin name="com.vas.xiantu2.plugin.BaiDuPayPlugin" type="2"/>
-		<plugin name="com.vas.xiantu2.plugin.BaiDuSettingPlugin" type="3"/>
+		<plugin name="com.ubsdk.baidu.plugin.BaiDuPayPlugin" type="2"/>
+		<plugin name="com.ubsdk.baidu.plugin.BaiDuSettingPlugin" type="3"/>
 	</plugins>
 </config>
