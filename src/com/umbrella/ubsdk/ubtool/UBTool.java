@@ -848,17 +848,18 @@ public class UBTool {
 				
 				System.out.println("		merge:"+mergeFromPath+"----->"+mergeToPath);
 				Document mergeFromDocument = new SAXReader().read(new File(mergeFromPath));
-				Element permissionConfig = mergeFromDocument.getRootElement().element("permissionConfig");
-				Element applicationConfig = mergeFromDocument.getRootElement().element("applicationConfig");
-				List<Element> componentListFrom = applicationConfig.elements();
+
+				Element mergeFromRootElement = mergeFromDocument.getRootElement();
+				Element permissionConfig = mergeFromRootElement.element("permissionConfig");
+				
 				
 				Document mergeToDocument = new SAXReader().read(mergeToPath);
+				List<Element> permissionToList = mergeToDocument.getRootElement().elements("uses-permission");
 				Element mergeToRootElement = mergeToDocument.getRootElement();
-				List<Element> permissionListTo = mergeToRootElement.elements("uses-permission");
-				Element applicationElementTo = mergeToRootElement.element("application");
-//						合并权限uses-permission
+
+//				合并权限uses-permission
 				outer:for (Element permissionFrom : permissionConfig.elements()) {
-					for (Element permissionTo : permissionListTo) {
+					for (Element permissionTo : permissionToList) {
 						if (TextUtil.equals(permissionFrom.attributeValue("name"), permissionTo.attributeValue("name"))) {
 							continue outer;
 						}
@@ -866,8 +867,11 @@ public class UBTool {
 					mergeToRootElement.add(permissionFrom.createCopy());
 				}
 //						合并application下的四大组件,这里不做重复判断,一般不会相同
+				Element applicationConfig = mergeFromRootElement.element("applicationConfig");
+				Element applicationToElement = mergeToRootElement.element("application");
+				List<Element> componentListFrom = applicationConfig.elements();
 				for (Element component : componentListFrom) {
-					applicationElementTo.add(component.createCopy());
+					applicationToElement.add(component.createCopy());
 				}
 				
 				XMLWriter xmlWriter = new XMLWriter(new FileWriter(new File(mergeToPath)),outputFormat);

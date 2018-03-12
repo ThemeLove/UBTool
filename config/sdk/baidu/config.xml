@@ -7,6 +7,7 @@
 		<operation step="4" type="copy"  from="res"    to="res"/>
 	</operations>
 	<plugins>
+		<plugin name="com.ubsdk.baidu.plugin.BaiDuInitPlugin" type="0"/>
 		<plugin name="com.ubsdk.baidu.plugin.BaiDuUserPlugin" type="1"/>
 		<plugin name="com.ubsdk.baidu.plugin.BaiDuPayPlugin" type="2"/>
 		<plugin name="com.ubsdk.baidu.plugin.BaiDuSettingPlugin" type="3"/>
