@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">UBSDK_BaiDu</string>
     <string name="channel_yeepay">充值卡</string>
     <string name="channel_alipay">支付宝</string>
     <string name="channel_quickpay">一键支付</string>
