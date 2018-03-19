@@ -5,13 +5,16 @@
 	<channel id="baidu"  name="DownTheMountain"  suffix=".baidu" splash="false">
 		<param name="BaiDu_Game_Orientation" value="portrait"/>
 		
-		<param name="UB_Debug" value="true"/>
-		<param name="UB_GameID" value="1"/>
-		<param name="UB_GameName" value="DownTheMountain"/>
-		<param name="UB_PlatformID" value="1"/>
-		<param name="UB_SubPlatformID" value="0"/>
-		<param name="UB_ChannelID" value="1"/>
-		<param name="UB_SubChannelID" value="1"/>
+		<param name="UB_GameID" value="1123" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
+		
+		<param name="UB_PlatformID" value="80" />
+		<param name="UB_PlatformName" value="baidu"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
         
         <!--注意：下面4个meta-data一定要添加到application节点内） -->
        	<!-- dksdk_appid表示从开发者平台申请的APPID，一定要填写正确 -->

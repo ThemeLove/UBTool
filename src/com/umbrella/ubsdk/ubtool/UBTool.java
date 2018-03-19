@@ -30,9 +30,9 @@ import org.dom4j.io.XMLWriter;
 
 import com.umbrella.ubsdk.ubtool.bean.Channel;
 import com.umbrella.ubsdk.ubtool.bean.ChannelConfig;
+import com.umbrella.ubsdk.ubtool.bean.ChannelConfig.Operation;
 import com.umbrella.ubsdk.ubtool.bean.Game;
 import com.umbrella.ubsdk.ubtool.bean.Keystore;
-import com.umbrella.ubsdk.ubtool.bean.ChannelConfig.Operation;
 import com.umbrella.ubsdk.ubtool.config.UBToolConfig;
 import com.umbrella.ubsdk.ubtool.parser.ChannelConfigXMLParser;
 import com.umbrella.ubsdk.ubtool.parser.ChannelXMLParser;
