@@ -55,7 +55,7 @@
 		<!-- Activity屏幕方向要同代码中设置一致 -->
 		<activity
             android:name="com.duoku.platform.single.ui.DKContainerActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
             android:theme="@style/DK.Theme.NoBackGround.NoAnimation"
             android:screenOrientation="landscape">
         </activity>
@@ -85,7 +85,7 @@
 			<!-- 聚合微信支付 start -->
         <activity
             android:name="com.ipaynow.wechatpay.plugin.inner_plugin.wechat_plugin.activity.WeChatNotifyActivity"
-            android:configChanges="orientation|keyboardHidden|keyboard|smallestScreenSize|locale|screenLayout"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
             android:screenOrientation="behind"
             android:theme="@android:style/Theme.Translucent" >
         </activity>
@@ -99,7 +99,7 @@
         	<!-- for weixin plugin -->
         <activity
             android:name="com.baidu.platformsdk.wxpay.PayActivity"
-            android:configChanges="orientation|navigation"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
             android:exported="false"
             android:windowSoftInputMode="adjustPan"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
