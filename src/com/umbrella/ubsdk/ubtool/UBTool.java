@@ -887,11 +887,10 @@ public class UBTool {
 		System.out.println("	2:加载渠道配置文件config.xml并根据渠道配置copy、merge渠道相关资源到temp目录----->成功！");
 		System.out.println("--------------"+LINE_SEPARATOR);
 		
-		return channelConfig;
+		return channelConfig;            
 	}
 
 	/**
-	 * 
 	 * @param apktoolVersion
 	 * @param apkFile
 	 * @throws Exception
