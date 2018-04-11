@@ -90,8 +90,8 @@ currFucNum = 0
 totalFucNum = 0
 allRefs = []
 #currentPath = os.getcwd()
-#currentPath = "D:/WorkSpace_git/framework/VASSDKTool/work/temp"
-currentPath = "D:/VasSDK/VasSDK/FrameworkSDK/VASSDKTool/work/temp"
+#currentPath = "E:/UBSDK/UBTool/work/temp"
+currentPath = "E:/UBSDK/UBTool/work/temp"
 
 allFiles=list_files(currentPath)
 smaliPath = currentPath + '/smali'
@@ -99,11 +99,11 @@ currDexIndex = 1
 
 for f in allFiles:
     f = f.replace("\\", "/")
-    if "/com/vas/vassdk" in f or "/android/support/multidex" in f:
+    if "/com/umbrella/game/ubsdk" in f or "/android/support/multidex" in f:
         currFucNum = currFucNum + get_smali_method_count(f, allRefs)
 
 totalFucNum = currFucNum
-print "vassdk+multidex =", totalFucNum
+print "ubsdk+multidex =", totalFucNum
 print "file nums =",len(allFiles)
 for f in allFiles:
     f = f.replace("\\", "/")
@@ -111,7 +111,7 @@ for f in allFiles:
     if not f.endswith(".smali"):
         continue
 
-    if "/com/vas/vassdk" in f or "/android/support/multidex" in f:
+    if "/com/umbrella/game/ubsdk" in f or "/android/support/multidex" in f:
         continue
 
     thisFucNum = get_smali_method_count(f, allRefs)

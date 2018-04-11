@@ -28,8 +28,8 @@ public class MulDexUtil {
 		ArrayList<File> smaliFileList = new ArrayList<File>();
 		getDirSmaliFileList(smaliDirPath, smaliFileList);
 		
-		for (File file : smaliFileList) {//先遍历一遍将"/com/vas/vassdk" 和 "/android/support/multidex" 计数
-			if (file.getAbsolutePath().contains("/com/vas/vassdk")||file.getAbsolutePath().contains("/android/support/multidex")) {
+		for (File file : smaliFileList) {//先遍历一遍将"/com/umbrella/game/ubsdk" 和 "/android/support/multidex" 计数
+			if (file.getAbsolutePath().contains("/com/umbrella/game/ubsdk")||file.getAbsolutePath().contains("/android/support/multidex")) {
 				int smaliFileMethodCount = getSmaliFileMethodCount(file);
 				currentMethodCount+=smaliFileMethodCount;
 				totalMethodCount+=smaliFileMethodCount;
@@ -39,8 +39,8 @@ public class MulDexUtil {
 		
 		
 		for (File file : smaliFileList) {
-//			这样确保"/com/vas/vassdk" 和 "/android/support/multidex"留在第一个smali里，不被拷贝到其他smali目录里
-			if (file.getAbsolutePath().contains("/com/vas/vassdk")||file.getAbsolutePath().contains("/android/support/multidex"))continue;
+//			这样确保"/com/umbrella/game/ubsdk" 和 "/android/support/multidex"留在第一个smali里，不被拷贝到其他smali目录里
+			if (file.getAbsolutePath().contains("/com/umbrella/game/ubsdk")||file.getAbsolutePath().contains("/android/support/multidex"))continue;
 			
 			int smaliFileMethodCount = getSmaliFileMethodCount(file);
 			currentMethodCount+=smaliFileMethodCount;

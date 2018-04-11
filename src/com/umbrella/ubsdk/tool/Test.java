@@ -29,8 +29,8 @@ public class Test
         
         
         
-        File outFile = new File(BASE_PATH + File.separator + "vassdk_configdes.xml");
-        File inFile = new File(BASE_PATH + File.separator + "vassdk_config.xml");
+        File outFile = new File(BASE_PATH + File.separator + "ubsdk_config.xml");
+        File inFile = new File(BASE_PATH + File.separator + "ubsdk_config.xml");
 
         
         InputStreamReader reader = null;

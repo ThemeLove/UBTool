@@ -15,7 +15,7 @@ import javax.crypto.KeyGenerator;
 public class EncryptUtil {
 
     /**
-     * 将vassdk_config.xml进行加密
+     * 将ubsdk_config.xml进行加密
      */
     public static void createEncryptConfigXml(String assetsPath, String configNomalXmlPath)
     {

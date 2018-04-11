@@ -123,7 +123,7 @@ public class Test {
 	
 
     /**
-     * 将vassdk_config.xml进行加密
+     * 将ubsdk_config.xml进行加密
      */
     private static void createEncryptConfigXml(String assetsPath, String configNomalXmlPath)
     {
@@ -204,7 +204,7 @@ public class Test {
     }
     private static void deleteVasConfigNomal(String xmlPath)
     {
-        // 加密完成删除vassdk_config_nomal.xml
+        // 加密完成删除ubsdk_config_nomal.xml
         File configNomalFile = new File(xmlPath);
         if (configNomalFile.exists())
         {

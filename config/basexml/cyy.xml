@@ -20,9 +20,6 @@
 	    <param name="VAS_SUBPLATFORMID" value="0" />
 	    <param name="VAS_CHANNELID" value="1"/>
 	    <param name="VAS_SUBCHANNEL_ID" value="1"/>
-	    <meta-data value="269" name="PptvVasSdk_CID"/>
-	    <meta-data value="" name="PptvVasSdk_CCID"/>
-	    <meta-data value="false" name="PptvVasSdk_DebugMode"/>
 	</channel>
 	
 	<channel id="pptv6.0" name="PPTV6.0SDK" suffix=".pptv" splash="true" icon="rb" >
