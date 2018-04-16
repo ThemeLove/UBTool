@@ -33,11 +33,13 @@ import com.umbrella.ubsdk.ubtool.bean.ChannelConfig;
 import com.umbrella.ubsdk.ubtool.bean.ChannelConfig.Operation;
 import com.umbrella.ubsdk.ubtool.bean.Game;
 import com.umbrella.ubsdk.ubtool.bean.Keystore;
+import com.umbrella.ubsdk.ubtool.bean.Plugin;
 import com.umbrella.ubsdk.ubtool.config.UBToolConfig;
 import com.umbrella.ubsdk.ubtool.parser.ChannelConfigXMLParser;
 import com.umbrella.ubsdk.ubtool.parser.ChannelXMLParser;
 import com.umbrella.ubsdk.ubtool.parser.GameXMLParser;
 import com.umbrella.ubsdk.ubtool.parser.KeystoreXMLParser;
+import com.umbrella.ubsdk.ubtool.parser.PluginXMLParse;
 import com.umbrella.ubsdk.ubtool.utils.CommandUtil;
 import com.umbrella.ubsdk.ubtool.utils.EncryptUtil;
 import com.umbrella.ubsdk.ubtool.utils.FileUtil;
@@ -174,13 +176,18 @@ public class UBTool {
 //				1.拷贝bak目录到temp目录
 				copyBak2Temp();
 				
+//				如果sdk渠道配置的有插件，那么先加载插件配置并copy插件资源
+				Map<String, Plugin> pluginsMap = loadPluginsConfigAndOperatePluginsRes(game,channel);
+				
+				ChannelConfig channelConfig = loadChannelsConfigAndOperateChannelsRes(game,channel);
+				
 //				2:加载渠道配置文件config.xml并根据渠道配置copy、merge渠道相关资源到temp目录
-				ChannelConfig channelConfig = loadChannelConfigAndOperateChannelRes(game,channel);
+//				ChannelConfig channelConfig = loadChannelConfigAndOperateChannelRes(game,channel);
 
 //				3.合并sdk角标到游戏图标
 				mergeChannelIcon2Game(game, channel);
 				
-//				4.添加渠道sdk channel中配置的<meta-data>到AndroidManifest.xml中
+//				4.添加渠道sdk channel中配置的<meta-data>到AndroidMan ifest.xml中
 				addChannelMetaData2GameManifest(channel);
 				
 //				5.根据channel中的配置替换AndroidManifest.xml中的包名和'{PACKAGENAME}'
@@ -212,7 +219,7 @@ public class UBTool {
 				
 				
 //				12.首先创建未加密ubsdk_config_nomal.xml，首先创建DOM文档，然后在写入配置文件中
-				generateNormalUBSDKConfigFile(channel, channelConfig);
+				generateNormalUBSDKConfigFile(channel, channelConfig,pluginsMap);
 				
 //				13.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml
 				generateEncryptUBSDKConfigFile();
@@ -234,6 +241,40 @@ public class UBTool {
 		System.out.println("所有渠道包打包完成！");
 	}
 
+	/**
+	 * 
+	 * @param game
+	 * @param channel
+	 * @return
+	 * @throws DocumentException
+	 * @throws IOException
+	 * @throws Exception
+	 */
+	private static Map<String,Plugin> loadPluginsConfigAndOperatePluginsRes(Game game, Channel channel) throws DocumentException, IOException, Exception {
+		ArrayList<String> pluginList = channel.getPluginList();
+		Map<String, Plugin> plugins=null;
+		if (pluginList!=null&pluginList.size()>0) {
+			String gamePluginXmlPath=GAMES_PATH+File.separator+game.getFolder()+File.separator+"plugin.xml";
+			plugins = PluginXMLParse.parser(gamePluginXmlPath);
+			for (String pluginName : pluginList) {
+				Plugin plugin = plugins.get(pluginName);
+				String operationPath=CONFIG_PATH+File.separator+"plugin"+File.separator+plugin.getId();
+				String pluginConfigXMLPath=operationPath+File.separator+"config.xml";
+				ChannelConfig channelConfig = ChannelConfigXMLParser.parser(pluginConfigXMLPath);
+				operateChannelOrPluginRes(game, operationPath, channelConfig);
+			}
+		}
+		return plugins;
+	}
+	
+	private static ChannelConfig loadChannelsConfigAndOperateChannelsRes(Game game,Channel channel) throws DocumentException, IOException, Exception{
+		String operationPath=GAMES_PATH+File.separator+game.getFolder();
+		String gameConfigXMLPATH=operationPath+File.separator+"config.xml";
+		ChannelConfig channelConfig = ChannelConfigXMLParser.parser(gameConfigXMLPATH);
+		operateChannelOrPluginRes(game, operationPath, channelConfig);
+		return channelConfig;
+	}
+	
 	private static void zipalignSignedApk(Game game, Channel channel) throws Exception {
 		System.out.println("	16.对签名apk生成优化！");
 		String signedApkPath=OUT_PATH+File.separator+"signed.apk";
@@ -321,7 +362,7 @@ public class UBTool {
 	 * @param channelConfig
 	 * @throws IOException
 	 */
-	private static void generateNormalUBSDKConfigFile(Channel channel, ChannelConfig channelConfig)
+	private static void generateNormalUBSDKConfigFile(Channel channel, ChannelConfig channelConfig,Map<String,Plugin> pluginsMap)
 			throws IOException {
 		System.out.println("	12.首先创建未加密ubsdk_config_nomal.xml");
 		String ubsdkConfigPath=TEMP_PATH+File.separator+"assets"+File.separator+"ubsdk_config_nomal.xml";
@@ -361,6 +402,19 @@ public class UBTool {
 			ubsdkConfigRootElement.add(plugins);
 		}
 		System.out.println("		12.2添加plugin参数----->成功！"+LINE_SEPARATOR);
+		
+		for (Entry<String,Plugin> entry : pluginsMap.entrySet()) {
+			Plugin plugin = entry.getValue();
+			Map<String, String> pluginParams = plugin.getPluginParams();
+			if (pluginParams.size()>0) {
+				for (Entry<String,String> pluginParam : pluginParams.entrySet()) {
+					Element pluginElement = DocumentHelper.createElement("param");
+					pluginElement.addAttribute("name",pluginParam.getKey());
+					pluginElement.addAttribute("value",pluginParam.getValue());
+					ubsdkConfigRootElement.add(param);
+				}
+			}
+		}
 		
 		System.out.println("		12.3添加applications参数");
 //			  添加channelConfig中配置的渠道sdk的application
@@ -782,14 +836,24 @@ public class UBTool {
 			throw  new RuntimeException("error:渠道配置参数出错，或没有找到对应的配置文件，请检查。。。");
 		}
 //		解析渠道配置文件
-		 ChannelConfig channelConfig = ChannelConfigXMLParser.parser(sdkConfigPath);
+		ChannelConfig channelConfig = ChannelConfigXMLParser.parser(sdkConfigPath);
 		
+		operateChannelOrPluginRes(game, sdkPath, channelConfig);
+		 
+		System.out.println("	2:加载渠道配置文件config.xml并根据渠道配置copy、merge渠道相关资源到temp目录----->成功！");
+		System.out.println("--------------"+LINE_SEPARATOR);
+		
+		return channelConfig;            
+	}
+
+	private static void operateChannelOrPluginRes(Game game, String operationPath, ChannelConfig channelConfig)
+			throws Exception, DocumentException, IOException {
 		List<Operation> operations = channelConfig.getOperations();
 		 for (Operation operation : operations) {
 			String type = operation.getType();
 			switch (type) {
 			case "copy":
-				String sourcePath=sdkPath+File.separator+operation.getFrom();
+				String sourcePath=operationPath+File.separator+operation.getFrom();
 				String targetPath=TEMP_PATH+File.separator+operation.getTo();
 				System.out.println("		copy:"+sourcePath+"----->"+targetPath);
 				
@@ -843,7 +907,7 @@ public class UBTool {
 			case "merge"://文件类型的合并
 				String manifestName=game.getOrientation();
 				if(TextUtil.isEmpty(manifestName))manifestName="landscape";
-				String mergeFromPath=sdkPath+File.separator+operation.getFrom()+File.separator+manifestName+".xml";
+				String mergeFromPath=operationPath+File.separator+operation.getFrom()+File.separator+manifestName+".xml";
 				String mergeToPath=TEMP_PATH+File.separator+operation.getTo();
 				
 				System.out.println("		merge:"+mergeFromPath+"----->"+mergeToPath);
@@ -883,11 +947,6 @@ public class UBTool {
 				break;
 			}
 		}
-		 
-		System.out.println("	2:加载渠道配置文件config.xml并根据渠道配置copy、merge渠道相关资源到temp目录----->成功！");
-		System.out.println("--------------"+LINE_SEPARATOR);
-		
-		return channelConfig;            
 	}
 
 	/**

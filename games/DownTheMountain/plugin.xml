@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<plugins xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+	<plugin id="ad_baidu" name="DownTheMountain">
+		<param name="BaiDu_Game_Orientation" value="portrait" />
+
+		<param name="UB_GameID" value="1123" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
+
+		<!-- 沙盒环境....DUOKU_AD_APPKEY：填写appKey信息 -->
+		<meta-data android:name="DUOKU_AD_APPKEY" android:value="50040" />
+		<!-- DUOKU_AD_PRODUCT_KEY：填写 productKey信息 -->
+		<meta-data android:name="DUOKU_AD_PRODUCT_KEY"
+			android:value="OWNDEV_w6FRJc4aTw2oCPxyj" />
+		<!--DUOKU_AD_VERSION：填写sdk 版本 -->
+		<meta-data android:name="DUOKU_AD_VERSION" android:value="3.1.0" />
+
+	</plugin>
+
+</plugins>

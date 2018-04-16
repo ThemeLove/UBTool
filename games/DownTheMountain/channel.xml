@@ -28,6 +28,9 @@
 		<!-- dksdk_ver表示sdk版本,此版本为 221 -->
 		<meta-data android:name="dksdk_ver" android:value="221" />
 		
+		<plugins>
+			<plugin name="ad_baidu"/>
+		</plugins>
 	</channel>
 
 </channels>

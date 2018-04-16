@@ -1,5 +1,6 @@
 package com.umbrella.ubsdk.ubtool.bean;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class Channel {
@@ -14,6 +15,7 @@ public class Channel {
 	private boolean splash = false;				//是否开启闪屏，默认不开启
 	private Map<String, String> channelParams;	//渠道参数，最后生成到aksdk_config.xml中的map元素
 	private Map<String, String> metaDatas;		//渠道参数，最后生成到AndroidManifest.xml中的meta-data元素
+	private ArrayList<String>   pluginList;
 	
 	
 	public String getFolder() {
@@ -71,6 +73,12 @@ public class Channel {
 		this.metaDatas = metaDatas;
 	}
 	
+	public ArrayList<String> getPluginList() {
+		return pluginList;
+	}
+	public void setPluginList(ArrayList<String> pluginList) {
+		this.pluginList = pluginList;
+	}
 	@Override
 	public String toString() {
 		return id ;
