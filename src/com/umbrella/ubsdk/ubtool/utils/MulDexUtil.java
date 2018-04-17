@@ -33,7 +33,7 @@ public class MulDexUtil {
 				int smaliFileMethodCount = getSmaliFileMethodCount(file);
 				currentMethodCount+=smaliFileMethodCount;
 				totalMethodCount+=smaliFileMethodCount;
-				System.out.println(file.getName()+" methodCount----->"+smaliFileMethodCount);
+//				System.out.println(file.getName()+" methodCount----->"+smaliFileMethodCount);
 			}
 		}
 		
@@ -45,7 +45,7 @@ public class MulDexUtil {
 			int smaliFileMethodCount = getSmaliFileMethodCount(file);
 			currentMethodCount+=smaliFileMethodCount;
 			totalMethodCount+=smaliFileMethodCount;
-			System.out.println(file.getName()+" methodCount----->"+smaliFileMethodCount);
+//			System.out.println(file.getName()+" methodCount----->"+smaliFileMethodCount);
 			if (totalMethodCount>=maxMethodCount) {//当第一个smali目录里的方法数超出maxMethodCount后，剩下的文件都需要copy到其他smali目录
 				if (currentMethodCount>=maxMethodCount) {
 					currentDexIndex++;
@@ -57,10 +57,10 @@ public class MulDexUtil {
 				String targetDexPath=TEMP_PATH+File.separator+"smali_classes"+currentDexIndex;
 				String baseDexPath=TEMP_PATH+File.separator+"smali";
 				String targetSmaliPath=file.getAbsolutePath().substring(baseDexPath.length());
-				System.out.println("sourceFilePath:"+file.getAbsolutePath());
-				System.out.println("targetSmaliPath:"+targetSmaliPath);
+//				System.out.println("sourceFilePath:"+file.getAbsolutePath());
+//				System.out.println("targetSmaliPath:"+targetSmaliPath);
 				String targetPath=targetDexPath+targetSmaliPath;
-				System.out.println("targetPath:"+targetPath);
+//				System.out.println("targetPath:"+targetPath);
 				File targetFile = new File(targetPath);
 				if (!targetFile.exists()) {
 					new File(targetFile.getParent()).mkdirs();
@@ -90,7 +90,7 @@ public class MulDexUtil {
 			if (lineIndex==0) {
 				String classLine=str.trim();
 				if (!classLine.startsWith(".class")) {
-					System.out.println(smaliFile.getName()+" not startswith .class");
+//					System.out.println(smaliFile.getName()+" not startswith .class");
 					return 0;
 				};
 //				2.获取当前.smali文件的类名

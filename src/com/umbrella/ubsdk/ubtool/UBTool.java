@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,6 +68,7 @@ public class UBTool {
 	private static String oldGamePackageName="";//游戏原有的包名
 	private static String newGamePackageName="";//根据渠道要求最新的游戏包名
 	private static String LINE_SEPARATOR=System.getProperty("line.separator");
+	private static ArrayList<ChannelConfig> pluginConfigList;
 	
 	public static void main(String[] args) throws Exception {
 		//***************************交互部分*******************************//
@@ -188,7 +190,7 @@ public class UBTool {
 				mergeChannelIcon2Game(game, channel);
 				
 //				4.添加渠道sdk channel中配置的<meta-data>到AndroidMan ifest.xml中
-				addChannelMetaData2GameManifest(channel);
+				addChannelMetaData2GameManifest(channel,pluginsMap);
 				
 //				5.根据channel中的配置替换AndroidManifest.xml中的包名和'{PACKAGENAME}'
 				replacePackageName(channel);
@@ -224,6 +226,8 @@ public class UBTool {
 //				13.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml
 				generateEncryptUBSDKConfigFile();
 				
+				executeChannelAndPluginScript(game,channel,BASE_PATH);
+				
 //				14.生成未签名的apk...
 				generateUnsignedApk(apktoolVersion);
 				
@@ -242,6 +246,50 @@ public class UBTool {
 	}
 
 	/**
+	 * 执行渠道和插件自定义脚本
+	 * @param objects
+	 */
+	private static void executeChannelAndPluginScript(Game game,Channel channel,String basePath) {
+		System.out.println("执行渠道和插件自定义脚本");
+//		执行渠道插件自定义脚本
+		ArrayList<String> pluginList = channel.getPluginList();
+		if (pluginList!=null&&pluginList.size()>0) {
+			for (String pluginName : pluginList) {
+				String pluginScriptClassPath="com.umbrella.ubsdk.ubtool.script.plugin."+pluginName+"Script";
+				try {
+					Class<?> pluginScriptClass = Class.forName(pluginScriptClassPath);
+					if (pluginScriptClass!=null) {
+						Method method = pluginScriptClass.getMethod("execute",new Class[]{Game.class,Channel.class,String.class});
+						if (method!=null) {
+							method.setAccessible(true);
+							method.invoke(pluginScriptClass.newInstance(),new Object[]{game,channel,basePath});
+						}
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+//		执行渠道自定义脚本
+		String channelScriptClassPath="com.umbrella.ubsdk.ubtool.script.sdk."+channel.getId()+"Script";
+//		反射调用
+		try {
+			Class<?> channelScriptClass = Class.forName(channelScriptClassPath);
+			if (channelScriptClass!=null) {
+				Method method = channelScriptClass.getMethod("execute",new Class[]{Game.class,Channel.class,String.class});
+				if (method!=null) {
+					method.setAccessible(true);
+					method.invoke(channelScriptClass.newInstance(), new Object[]{game,channel,basePath});
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("执行渠道和插件自定义脚本----->成功！");
+	}
+
+	/**
 	 * 
 	 * @param game
 	 * @param channel
@@ -253,6 +301,7 @@ public class UBTool {
 	private static Map<String,Plugin> loadPluginsConfigAndOperatePluginsRes(Game game, Channel channel) throws DocumentException, IOException, Exception {
 		ArrayList<String> pluginList = channel.getPluginList();
 		Map<String, Plugin> plugins=null;
+		pluginConfigList = new ArrayList<>();
 		if (pluginList!=null&pluginList.size()>0) {
 			String gamePluginXmlPath=GAMES_PATH+File.separator+game.getFolder()+File.separator+"plugin.xml";
 			plugins = PluginXMLParse.parser(gamePluginXmlPath);
@@ -260,17 +309,18 @@ public class UBTool {
 				Plugin plugin = plugins.get(pluginName);
 				String operationPath=CONFIG_PATH+File.separator+"plugin"+File.separator+plugin.getId();
 				String pluginConfigXMLPath=operationPath+File.separator+"config.xml";
-				ChannelConfig channelConfig = ChannelConfigXMLParser.parser(pluginConfigXMLPath);
-				operateChannelOrPluginRes(game, operationPath, channelConfig);
+				ChannelConfig pluginConfig = ChannelConfigXMLParser.parser(pluginConfigXMLPath);
+				pluginConfigList.add(pluginConfig);
+				operateChannelOrPluginRes(game, operationPath, pluginConfig);
 			}
 		}
 		return plugins;
 	}
 	
 	private static ChannelConfig loadChannelsConfigAndOperateChannelsRes(Game game,Channel channel) throws DocumentException, IOException, Exception{
-		String operationPath=GAMES_PATH+File.separator+game.getFolder();
-		String gameConfigXMLPATH=operationPath+File.separator+"config.xml";
-		ChannelConfig channelConfig = ChannelConfigXMLParser.parser(gameConfigXMLPATH);
+		String operationPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getId();
+		String channelConfigXMLPATH=operationPath+File.separator+"config.xml";
+		ChannelConfig channelConfig = ChannelConfigXMLParser.parser(channelConfigXMLPATH);
 		operateChannelOrPluginRes(game, operationPath, channelConfig);
 		return channelConfig;
 	}
@@ -399,8 +449,22 @@ public class UBTool {
 				plugin.addAttribute("name",entry.getValue());
 				plugins.add(plugin);
 			}
-			ubsdkConfigRootElement.add(plugins);
 		}
+		
+//		添加插件中的plugin
+		for (ChannelConfig pluginConfig : pluginConfigList) {
+			Map<String, String> pluginMap2 = pluginConfig.getPlugins();
+			if (pluginMap2.size()>0) {
+				for (Entry<String,String> entry : pluginMap2.entrySet()) {
+					Element plugin = DocumentHelper.createElement("plugin");
+					plugin.addAttribute("type",entry.getKey());
+					plugin.addAttribute("name",entry.getValue());
+					plugins.add(plugin);
+				}
+			}
+		}
+		ubsdkConfigRootElement.add(plugins);
+		
 		System.out.println("		12.2添加plugin参数----->成功！"+LINE_SEPARATOR);
 		
 		for (Entry<String,Plugin> entry : pluginsMap.entrySet()) {
@@ -411,7 +475,7 @@ public class UBTool {
 					Element pluginElement = DocumentHelper.createElement("param");
 					pluginElement.addAttribute("name",pluginParam.getKey());
 					pluginElement.addAttribute("value",pluginParam.getValue());
-					ubsdkConfigRootElement.add(param);
+					ubsdkConfigRootElement.add(pluginElement);
 				}
 			}
 		}
@@ -426,8 +490,21 @@ public class UBTool {
 				appPlugin.addAttribute("name",appPluginName);
 				applications.add(appPlugin);
 			}
-			ubsdkConfigRootElement.add(applications);
 		}
+		
+//		添加插件中的application参数
+		for (ChannelConfig pluginConfig : pluginConfigList) {
+			List<String> pluginApplicationList = pluginConfig.getApplications();
+			if (pluginApplicationList!=null&&pluginApplicationList.size()>0) {
+				for (String pluginApplicationName : pluginApplicationList) {
+					Element pluginApplicationElement = DocumentHelper.createElement("application");
+					pluginApplicationElement.addAttribute("name",pluginApplicationName);
+					applications.add(pluginApplicationElement);
+				}
+			}
+		}
+		ubsdkConfigRootElement.add(applications);
+		
 		System.out.println("		12.3添加applications参数----->成功！"+LINE_SEPARATOR);
 		
 		XMLWriter xmlWriter = new XMLWriter(new FileWriter(ubsdkConfigPath), outputFormat);
@@ -697,7 +774,7 @@ public class UBTool {
 	 * @throws DocumentException
 	 * @throws IOException
 	 */
-	private static void addChannelMetaData2GameManifest(Channel channel) throws DocumentException, IOException {
+	private static void addChannelMetaData2GameManifest(Channel channel,Map<String,Plugin> pluginsMap) throws DocumentException, IOException {
 		System.out.println("	4.添加渠道sdk channel中配置的<meta-data>到AndroidManifest.xml中");
 		
 		String gameManifestPath=TEMP_PATH+File.separator+"AndroidManifest.xml";
@@ -711,6 +788,18 @@ public class UBTool {
 			 metaElement.addAttribute("android:value",metaEntry.getValue());
 			 application.add(metaElement);
 		}
+		
+//		添加渠道插件里的meta-data参数到AndroidManifest.xml中
+		for (Plugin plugin : pluginsMap.values()) {
+			Map<String, String> metaDatas2 = plugin.getMetaDatas();
+			for (Entry<String,String> metaEntry : metaDatas2.entrySet()) {
+				Element metaElement = DocumentHelper.createElement("meta-data");
+				metaElement.addAttribute("android:name", metaEntry.getKey());
+				metaElement.addAttribute("android:value",metaEntry.getValue());
+				application.add(metaElement);
+			}
+		}
+		
 		 XMLWriter xmlWriter = new XMLWriter(new FileWriter(gameManifestPath),outputFormat);
 		 xmlWriter.write(manifestDOM);
 		 xmlWriter.flush();

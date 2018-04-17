@@ -218,9 +218,9 @@ public class FileUtil {
 	 * @param targetFile
 	 * @throws IOException
 	 */
-	public static void copyFile(File sourcefile,File targetFile) throws IOException{
+	public static void copyFile(File sourceFile,File targetFile) throws IOException{
         //新建文件输入流并对它进行缓冲
-        FileInputStream input = new FileInputStream(sourcefile);
+        FileInputStream input = new FileInputStream(sourceFile);
         BufferedInputStream inbuff = new BufferedInputStream(input);
         
         //新建文件输出流并对它进行缓冲
