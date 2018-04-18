@@ -45,7 +45,7 @@
 	</channel>
 	
 	
-	<channel id="baidu"  name="test-misc"  suffix=".baidu" splash="false" icon="rb">
+	<channel id="1" name="baidu" game="test-misc"  suffix=".baidu" splash="false" icon="rb" script="true" >
 		<param name="BaiDu_Game_Orientation" value="portrait"/>
 		<param name="UB_Debug" value="true"/>
 		<param name="UB_GameID" value="1"/>

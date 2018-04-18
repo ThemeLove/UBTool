@@ -298,6 +298,9 @@ public class UBTool {
 		System.out.println("执行渠道和插件自定义脚本");
 		System.out.println("执行插件自定义脚本");
 //		执行渠道插件自定义脚本
+		if (pluginMap!=null&&pluginMap.size()>0) {
+			
+		
 		Collection<Plugin> pluginList = pluginMap.values();
 		if (pluginList!=null&&pluginList.size()>0) {
 			for (Plugin plugin : pluginList) {
@@ -325,7 +328,7 @@ public class UBTool {
 		}else{
 			System.out.println("该渠道没有配置插件!!!"+LINE_SEPARATOR);
 		}
-		
+		}
 		System.out.println("执行渠道自定义脚本");
 //		执行渠道自定义脚本
 		String channelScript = channel.getScript();
@@ -527,31 +530,36 @@ public class UBTool {
 			}
 		}
 		
-//		添加插件中的plugin
-		for (ChannelConfig pluginConfig : pluginConfigList) {
-			Map<String, String> pluginMap2 = pluginConfig.getPlugins();
-			if (pluginMap2.size()>0) {
-				for (Entry<String,String> entry : pluginMap2.entrySet()) {
-					Element plugin = DocumentHelper.createElement("plugin");
-					plugin.addAttribute("type",entry.getKey());
-					plugin.addAttribute("name",entry.getValue());
-					plugins.add(plugin);
+		if (pluginConfigList!=null&&pluginConfigList.size()>0) {
+//			添加插件中的plugin
+			for (ChannelConfig pluginConfig : pluginConfigList) {
+				Map<String, String> pluginMap2 = pluginConfig.getPlugins();
+				if (pluginMap2.size()>0) {
+					for (Entry<String,String> entry : pluginMap2.entrySet()) {
+						Element plugin = DocumentHelper.createElement("plugin");
+						plugin.addAttribute("type",entry.getKey());
+						plugin.addAttribute("name",entry.getValue());
+						plugins.add(plugin);
+					}
 				}
 			}
 		}
+
 		ubsdkConfigRootElement.add(plugins);
 		
 		System.out.println("		12.2添加plugin参数----->成功！"+LINE_SEPARATOR);
 		
-		for (Entry<String,Plugin> entry : pluginsMap.entrySet()) {
-			Plugin plugin = entry.getValue();
-			Map<String, String> pluginParams = plugin.getPluginParamMap();
-			if (pluginParams.size()>0) {
-				for (Entry<String,String> pluginParam : pluginParams.entrySet()) {
-					Element pluginElement = DocumentHelper.createElement("param");
-					pluginElement.addAttribute("name",pluginParam.getKey());
-					pluginElement.addAttribute("value",pluginParam.getValue());
-					ubsdkConfigRootElement.add(pluginElement);
+		if (pluginsMap!=null&&pluginsMap.values()!=null) {
+			for (Entry<String,Plugin> entry : pluginsMap.entrySet()) {
+				Plugin plugin = entry.getValue();
+				Map<String, String> pluginParams = plugin.getPluginParamMap();
+				if (pluginParams.size()>0) {
+					for (Entry<String,String> pluginParam : pluginParams.entrySet()) {
+						Element pluginElement = DocumentHelper.createElement("param");
+						pluginElement.addAttribute("name",pluginParam.getKey());
+						pluginElement.addAttribute("value",pluginParam.getValue());
+						ubsdkConfigRootElement.add(pluginElement);
+					}
 				}
 			}
 		}
@@ -568,17 +576,20 @@ public class UBTool {
 			}
 		}
 		
-//		添加插件中的application参数
-		for (ChannelConfig pluginConfig : pluginConfigList) {
-			List<String> pluginApplicationList = pluginConfig.getApplications();
-			if (pluginApplicationList!=null&&pluginApplicationList.size()>0) {
-				for (String pluginApplicationName : pluginApplicationList) {
-					Element pluginApplicationElement = DocumentHelper.createElement("application");
-					pluginApplicationElement.addAttribute("name",pluginApplicationName);
-					applications.add(pluginApplicationElement);
+		if (pluginConfigList!=null&&pluginConfigList.size()>0) {
+//			添加插件中的application参数
+			for (ChannelConfig pluginConfig : pluginConfigList) {
+				List<String> pluginApplicationList = pluginConfig.getApplications();
+				if (pluginApplicationList!=null&&pluginApplicationList.size()>0) {
+					for (String pluginApplicationName : pluginApplicationList) {
+						Element pluginApplicationElement = DocumentHelper.createElement("application");
+						pluginApplicationElement.addAttribute("name",pluginApplicationName);
+						applications.add(pluginApplicationElement);
+					}
 				}
 			}
 		}
+
 		ubsdkConfigRootElement.add(applications);
 		
 		System.out.println("		12.3添加applications参数----->成功！"+LINE_SEPARATOR);
@@ -867,17 +878,18 @@ public class UBTool {
 			 application.add(metaElement);
 		}
 		
-//		添加渠道插件里的meta-data参数到AndroidManifest.xml中
-		for (Plugin plugin : pluginsMap.values()) {
-			Map<String, String> metaDatas2 = plugin.getMetaDataMap();
-			for (Entry<String,String> metaEntry : metaDatas2.entrySet()) {
-				Element metaElement = DocumentHelper.createElement("meta-data");
-				metaElement.addAttribute("android:name", metaEntry.getKey());
-				metaElement.addAttribute("android:value",metaEntry.getValue());
-				application.add(metaElement);
+		if (pluginsMap!=null&&pluginsMap.values()!=null) {
+	//		添加渠道插件里的meta-data参数到AndroidManifest.xml中
+			for (Plugin plugin : pluginsMap.values()) {
+				Map<String, String> metaDatas2 = plugin.getMetaDataMap();
+				for (Entry<String,String> metaEntry : metaDatas2.entrySet()) {
+					Element metaElement = DocumentHelper.createElement("meta-data");
+					metaElement.addAttribute("android:name", metaEntry.getKey());
+					metaElement.addAttribute("android:value",metaEntry.getValue());
+					application.add(metaElement);
+				}
 			}
 		}
-		
 		 XMLWriter xmlWriter = new XMLWriter(new FileWriter(gameManifestPath),outputFormat);
 		 xmlWriter.write(manifestDOM);
 		 xmlWriter.flush();

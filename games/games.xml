@@ -15,7 +15,8 @@
         id="1001"
         name="test-misc"
         debug="true"
-        orientation="protrait"
+        orientation="portrait"
+        script="false"
         apktoolVersion="2-3-0"
         gameMainName=""
 	  />
