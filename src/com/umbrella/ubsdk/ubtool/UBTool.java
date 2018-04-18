@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -69,6 +70,7 @@ public class UBTool {
 	private static String newGamePackageName="";//根据渠道要求最新的游戏包名
 	private static String LINE_SEPARATOR=System.getProperty("line.separator");
 	private static ArrayList<ChannelConfig> pluginConfigList;
+	private static Map<String, Plugin> pluginMap;
 	
 	public static void main(String[] args) throws Exception {
 		//***************************交互部分*******************************//
@@ -80,20 +82,26 @@ public class UBTool {
 //		选择游戏
 		HashMap<Game, ArrayList<Channel>> gameChannelsMap = new HashMap<Game,ArrayList<Channel>>();
 		for(int i=1;i<=gameList.size();i++){
-			String gameId = KeyBoardUtil.keyBoardIn("请选择第《"+i+"》个要打包的游戏id");
-			if ("all".equalsIgnoreCase(gameId)) {
+			String gameID = KeyBoardUtil.keyBoardIn("请选择第《"+i+"》个要打包的游戏id");
+			if ("all".equalsIgnoreCase(gameID)) {
 				System.out.println("所有游戏选择完毕!");
 				break;
 			}
-			Game game=gameList.get(gameId);
+			Game game=gameList.get(gameID);
 			while(game==null){
-				gameId=KeyBoardUtil.keyBoardIn("您输入的游戏id不存在，请重新输入：");
+				gameID=KeyBoardUtil.keyBoardIn("您输入的游戏id不存在，请重新输入：");
+				if ("all".equalsIgnoreCase(gameID)) {
+					System.out.println("所有游戏选择完毕!");
+					break;
+				}
+				game=gameList.get(gameID);
 			}
+			
 			ArrayList<Channel> gameChannelList = new ArrayList<Channel>();
 			
 //			根据gameId加载配置的渠道列表
 			System.out.println("已选择游戏 ："+game.toString()+"----->已配置渠道如下：");
-			String gameChannelXmlPath=GAMES_PATH+File.separator+game.getFolder()+File.separator+"channel.xml";
+			String gameChannelXmlPath=GAMES_PATH+File.separator+game.getName()+File.separator+"channel.xml";
 			Map<String, Channel> channelMap = ChannelXMLParser.parser(gameChannelXmlPath);//TODO 这里可以用ArrayList代替
 			
 //			根据加载的渠道列表提示用户选择渠道
@@ -119,7 +127,7 @@ public class UBTool {
 			System.out.print(entry.getKey().toString()+"----->对应渠道:");
 			String gameChannelHintStr = "[";
 			for (Channel channel : entry.getValue()) {
-				gameChannelHintStr+=channel.getId()+",";
+				gameChannelHintStr+=channel.getName()+",";
 			}
 			gameChannelHintStr=gameChannelHintStr.substring(0,gameChannelHintStr.length()-1)+"]";
 			System.out.println(gameChannelHintStr+LINE_SEPARATOR);
@@ -135,15 +143,16 @@ public class UBTool {
 			String apktoolVersion=UBToolConfig.DEFAULT_APKTOOL_VERSION;
 			if (!TextUtil.isEmpty(game.getApktoolVersion())) {
 				apktoolVersion=game.getApktoolVersion();
-				System.out.println(game.toString()+"配置apktool版本为:"+apktoolVersion);
+				System.out.println(game.toString()+"使用游戏配置的apktool,版本:"+apktoolVersion);
+			}else{
+				System.out.println(game.toString()+"使用默认apktool,版本："+apktoolVersion);
 			}
-			System.out.println(game.toString()+"使用默认apktool版本："+apktoolVersion);
 
 //			获取母包apk
-			if (TextUtil.isEmpty(game.getFolder())) {
+			if (TextUtil.isEmpty(game.getName())) {
 				throw new RuntimeException("error: "+game.toString()+" 必要参数 folder 配置为空");
 			}
-			String gamePath=GAMES_PATH+File.separator+game.getFolder();
+			String gamePath=GAMES_PATH+File.separator+game.getName();
 			File[] apkList = new File(gamePath).listFiles(new FilenameFilter() {
 				
 				@Override
@@ -165,7 +174,7 @@ public class UBTool {
 			new File(WORK_PATH).mkdirs();
 			System.out.println("清空成功！");
 			
-//			步骤二：反编译游戏母包 到work/bak目录下
+//			步骤二：反编译游戏母包到work/bak目录下
 //			新游戏要清空bak目录
 			DecodeApk2Bak(apktoolVersion, apkFile);
 			
@@ -173,15 +182,20 @@ public class UBTool {
 			System.out.println("步骤三：遍历渠道列表，循环打包：");
 			ArrayList<Channel> channelList = gameChannelsMap.get(game);
 			for (Channel channel : channelList) {
-				System.out.println("现在打的包是：游戏"+game.toString()+"对应的——————>>>>>>渠道【" + channel.getId() + "】\n");
+				System.out.println("现在打的包是：游戏"+game.toString()+"对应的——————>>>>>>渠道【" + channel.getName() + "】\n");
 				
 //				1.拷贝bak目录到temp目录
 				copyBak2Temp();
 				
+//				执行游戏自定义脚本
+				executeGameScript(game,channel);
+				
 //				如果sdk渠道配置的有插件，那么先加载插件配置并copy插件资源
+//				加载插件配置文件并根据插件配置copy、merge渠道相关资源到temp目录
 				Map<String, Plugin> pluginsMap = loadPluginsConfigAndOperatePluginsRes(game,channel);
 				
-				ChannelConfig channelConfig = loadChannelsConfigAndOperateChannelsRes(game,channel);
+//				加载渠道配置文件config.xml并根据渠道配置copy、merge渠道相关资源到temp目录
+				ChannelConfig channelConfig = loadChannelConfigAndOperateChannelRes(game,channel);
 				
 //				2:加载渠道配置文件config.xml并根据渠道配置copy、merge渠道相关资源到temp目录
 //				ChannelConfig channelConfig = loadChannelConfigAndOperateChannelRes(game,channel);
@@ -226,7 +240,8 @@ public class UBTool {
 //				13.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml
 				generateEncryptUBSDKConfigFile();
 				
-				executeChannelAndPluginScript(game,channel,BASE_PATH);
+//				执行渠道和插件自定义脚本
+				executeChannelAndPluginScript(game,channel);
 				
 //				14.生成未签名的apk...
 				generateUnsignedApk(apktoolVersion);
@@ -238,7 +253,7 @@ public class UBTool {
 				zipalignSignedApk(game, channel);
 				
 //				FileUtil.delete(signedApkPath);
-				System.out.println("	"+game.toString()+"----->"+"【"+channel.getId()+"】----->打包完成！"+LINE_SEPARATOR+LINE_SEPARATOR);
+				System.out.println("	"+game.toString()+"----->"+"【"+channel.getName()+"】----->打包完成！"+LINE_SEPARATOR+LINE_SEPARATOR);
 			}
 			System.out.println(game.toString()+"----->"+"所有渠道包打包完成！"+LINE_SEPARATOR+LINE_SEPARATOR);
 		}
@@ -246,51 +261,100 @@ public class UBTool {
 	}
 
 	/**
+	 * 执行游戏自定义脚本
+	 * @param game
+	 * @param channel
+	 */
+	private static void executeGameScript(final Game game,final Channel channel){
+		System.out.println("执行游戏自定义脚本");
+		String script=game.getScript();
+		boolean isSupportScript=TextUtil.equals("true",script);
+		if (isSupportScript) {
+			String gameScriptClassPath="com.umbrella.ubsdk.ubtool.script.game."+game.getName()+"Script";
+			try {
+				Class<?> gameScriptClass = Class.forName(gameScriptClassPath);
+				if (gameScriptClass!=null) {
+					System.out.println("成功获取到游戏自定义脚本----->"+gameScriptClassPath);
+					Method method = gameScriptClass.getMethod("execute",new Class[]{Game.class,Channel.class});
+					if (method!=null) {
+						method.setAccessible(true);
+						method.invoke(gameScriptClass.newInstance(),new Object[]{game,channel});
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			System.out.println("执行游戏自定义脚本----->成功！"+LINE_SEPARATOR+LINE_SEPARATOR);
+		}else{
+			System.out.println("该游戏不执行游戏自定义脚本"+LINE_SEPARATOR+LINE_SEPARATOR);
+		}
+		
+	}
+	/**
 	 * 执行渠道和插件自定义脚本
 	 * @param objects
 	 */
-	private static void executeChannelAndPluginScript(Game game,Channel channel,String basePath) {
+	private static void executeChannelAndPluginScript(Game game,Channel channel) {
 		System.out.println("执行渠道和插件自定义脚本");
+		System.out.println("执行插件自定义脚本");
 //		执行渠道插件自定义脚本
-		ArrayList<String> pluginList = channel.getPluginList();
+		Collection<Plugin> pluginList = pluginMap.values();
 		if (pluginList!=null&&pluginList.size()>0) {
-			for (String pluginName : pluginList) {
-				String pluginScriptClassPath="com.umbrella.ubsdk.ubtool.script.plugin."+pluginName+"Script";
-				try {
-					Class<?> pluginScriptClass = Class.forName(pluginScriptClassPath);
-					if (pluginScriptClass!=null) {
-						Method method = pluginScriptClass.getMethod("execute",new Class[]{Game.class,Channel.class,String.class});
-						if (method!=null) {
-							method.setAccessible(true);
-							method.invoke(pluginScriptClass.newInstance(),new Object[]{game,channel,basePath});
+			for (Plugin plugin : pluginList) {
+				String script = plugin.getScript();
+				boolean isSupportScript=TextUtil.equals("true",script);
+				String pluginName = plugin.getName();
+				if (isSupportScript&&!TextUtil.isEmpty(pluginName)) {
+					String pluginScriptClassPath="com.umbrella.ubsdk.ubtool.script.plugin."+pluginName+"Script";
+					try {
+						Class<?> pluginScriptClass = Class.forName(pluginScriptClassPath);
+						System.out.println("成功获取到插件自定义脚本----->"+pluginScriptClass);
+						if (pluginScriptClass!=null) {
+							Method method = pluginScriptClass.getMethod("execute",new Class[]{Game.class,Channel.class});
+							if (method!=null) {
+								method.setAccessible(true);
+								method.invoke(pluginScriptClass.newInstance(),new Object[]{game,channel});
+							}
 						}
+					} catch (Exception e) {
+						e.printStackTrace();
 					}
-				} catch (Exception e) {
-					e.printStackTrace();
 				}
 			}
+			System.out.println("执行插件自定义脚本----->成功！"+LINE_SEPARATOR);
+		}else{
+			System.out.println("该渠道没有配置插件!!!"+LINE_SEPARATOR);
 		}
 		
+		System.out.println("执行渠道自定义脚本");
 //		执行渠道自定义脚本
-		String channelScriptClassPath="com.umbrella.ubsdk.ubtool.script.sdk."+channel.getId()+"Script";
-//		反射调用
-		try {
-			Class<?> channelScriptClass = Class.forName(channelScriptClassPath);
-			if (channelScriptClass!=null) {
-				Method method = channelScriptClass.getMethod("execute",new Class[]{Game.class,Channel.class,String.class});
-				if (method!=null) {
-					method.setAccessible(true);
-					method.invoke(channelScriptClass.newInstance(), new Object[]{game,channel,basePath});
+		String channelScript = channel.getScript();
+		boolean isChannelScript=TextUtil.equals("true",channelScript);
+		String channelScriptClassPath="com.umbrella.ubsdk.ubtool.script.sdk."+channel.getName()+"Script";
+		if (isChannelScript&&!TextUtil.isEmpty(channelScriptClassPath)) {
+			//		反射调用
+			try {
+				Class<?> channelScriptClass = Class.forName(channelScriptClassPath);
+				if (channelScriptClass!=null) {
+					System.out.println("成功获取到渠道自定义脚本----->"+channelScriptClass);
+					Method method = channelScriptClass.getMethod("execute",new Class[]{Game.class,Channel.class});
+					if (method!=null) {
+						method.setAccessible(true);
+						method.invoke(channelScriptClass.newInstance(), new Object[]{game,channel});
+					}
 				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("执行渠道自定义脚本----->成功！"+LINE_SEPARATOR);
+		}else{
+			System.out.println("该渠道不执行渠道自定义脚本"+LINE_SEPARATOR);
 		}
-		System.out.println("执行渠道和插件自定义脚本----->成功！");
+		System.out.println("执行渠道和插件自定义脚本----->成功！"+LINE_SEPARATOR+LINE_SEPARATOR);
 	}
 
 	/**
-	 * 
+	 * 加载插件配置文件并根据插件配置copy、merge渠道相关资源到temp目录
 	 * @param game
 	 * @param channel
 	 * @return
@@ -299,29 +363,41 @@ public class UBTool {
 	 * @throws Exception
 	 */
 	private static Map<String,Plugin> loadPluginsConfigAndOperatePluginsRes(Game game, Channel channel) throws DocumentException, IOException, Exception {
+		System.out.println("	加载插件配置文件并根据插件配置copy、merge渠道相关资源到temp目录");
 		ArrayList<String> pluginList = channel.getPluginList();
-		Map<String, Plugin> plugins=null;
 		pluginConfigList = new ArrayList<>();
 		if (pluginList!=null&pluginList.size()>0) {
-			String gamePluginXmlPath=GAMES_PATH+File.separator+game.getFolder()+File.separator+"plugin.xml";
-			plugins = PluginXMLParse.parser(gamePluginXmlPath);
+			String gamePluginXmlPath=GAMES_PATH+File.separator+game.getName()+File.separator+"plugin.xml";
+			pluginMap = PluginXMLParse.parser(gamePluginXmlPath);
 			for (String pluginName : pluginList) {
-				Plugin plugin = plugins.get(pluginName);
-				String operationPath=CONFIG_PATH+File.separator+"plugin"+File.separator+plugin.getId();
+				Plugin plugin = pluginMap.get(pluginName);
+				String operationPath=CONFIG_PATH+File.separator+"plugin"+File.separator+plugin.getName();
 				String pluginConfigXMLPath=operationPath+File.separator+"config.xml";
 				ChannelConfig pluginConfig = ChannelConfigXMLParser.parser(pluginConfigXMLPath);
 				pluginConfigList.add(pluginConfig);
 				operateChannelOrPluginRes(game, operationPath, pluginConfig);
 			}
 		}
-		return plugins;
+		System.out.println("	加载插件配置文件并根据插件配置copy、merge渠道相关资源到temp目录----->成功！"+LINE_SEPARATOR+LINE_SEPARATOR);
+		return pluginMap;
 	}
 	
-	private static ChannelConfig loadChannelsConfigAndOperateChannelsRes(Game game,Channel channel) throws DocumentException, IOException, Exception{
-		String operationPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getId();
+	/**
+	 * 加载渠道配置文件并根据渠道配置copy、merge渠道相关资源到temp目录
+	 * @param game
+	 * @param channel
+	 * @return
+	 * @throws DocumentException
+	 * @throws IOException
+	 * @throws Exception
+	 */
+	private static ChannelConfig loadChannelConfigAndOperateChannelRes(Game game,Channel channel) throws DocumentException, IOException, Exception{
+		System.out.println("	加载渠道配置文件并根据渠道配置copy、merge渠道相关资源到temp目录");
+		String operationPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getName();
 		String channelConfigXMLPATH=operationPath+File.separator+"config.xml";
 		ChannelConfig channelConfig = ChannelConfigXMLParser.parser(channelConfigXMLPATH);
 		operateChannelOrPluginRes(game, operationPath, channelConfig);
+		System.out.println("	加载渠道配置文件并根据渠道配置copy、merge渠道相关资源到temp目录----->成功！"+LINE_SEPARATOR+LINE_SEPARATOR);
 		return channelConfig;
 	}
 	
@@ -330,11 +406,11 @@ public class UBTool {
 		String signedApkPath=OUT_PATH+File.separator+"signed.apk";
 //				16.对已生成的签名包进行优化
 //				最终的生成渠道包路径和命令
-		String finalChannelApkDir=OUT_PATH+File.separator+channel.getId()+File.separator+game.getFolder();
+		String finalChannelApkDir=OUT_PATH+File.separator+channel.getName()+File.separator+game.getName();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm",Locale.getDefault());
 		Date date = new Date();
 		String timestamp = simpleDateFormat.format(date);
-		String finalChannelApkName=game.getFolder()+"_"+channel.getId()+"_"+timestamp+".apk";
+		String finalChannelApkName=game.getName()+"_"+channel.getName()+"_"+timestamp+".apk";
 		String finalChannelApkPath=finalChannelApkDir+File.separator+finalChannelApkName;
 		File finalChannelApk = new File(finalChannelApkPath);
 		if (!finalChannelApk.getParentFile().exists()) {
@@ -421,7 +497,7 @@ public class UBTool {
 		
 		System.out.println("		12.1添加param参数");
 //				添加param参数
-		Map<String, String> channelParams = channel.getChannelParams();
+		Map<String, String> channelParams = channel.getChannelParamMap();
 		if (channelParams.size()>0) {
 			for (Entry<String,String> entry : channelParams.entrySet()) {
 				Element param = DocumentHelper.createElement("param");
@@ -469,7 +545,7 @@ public class UBTool {
 		
 		for (Entry<String,Plugin> entry : pluginsMap.entrySet()) {
 			Plugin plugin = entry.getValue();
-			Map<String, String> pluginParams = plugin.getPluginParams();
+			Map<String, String> pluginParams = plugin.getPluginParamMap();
 			if (pluginParams.size()>0) {
 				for (Entry<String,String> pluginParam : pluginParams.entrySet()) {
 					Element pluginElement = DocumentHelper.createElement("param");
@@ -643,13 +719,15 @@ public class UBTool {
 	 */
 	private static void addSplashActivity(Game game, Channel channel) throws IOException, DocumentException {
 //		7. 根据渠道sdk是否配置闪屏来决定是否来添加闪屏Activity,这一步一定要在替换包名的后面，因为替换包名之后，gameOldMainActivityFullName 的值可能会变。
-		 if (channel.isSplash()) {
+		 String splash = channel.getSplash();
+		 boolean isSupportSplash=TextUtil.equalsIgnoreCase("true",splash)?true:false;
+		 if (isSupportSplash) {
 			 System.out.println("	7.拷贝渠道闪屏，并将其设置为启动页，这一步一定要在替换包名的后面，因为替换包名之后，gameOldMainActivityFullName 的值可能会变。");
 			 System.out.println("---------------------");
 //						a.根据游戏方向copy对应闪屏图片到游戏res目录
 			 String gameManifestPath=TEMP_PATH+File.separator+"AndroidManifest.xml";
 			 String sdkSplashName=(TextUtil.equalsIgnoreCase("portrait",game.getOrientation())?"portrait.png":"landscape.png");
-			 String sdkPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getId();
+			 String sdkPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getName();
 			 String sdkSplashPath=sdkPath+File.separator+"splash"+File.separator+sdkSplashName;
 //						7.1.将sdk闪屏图片copy到游戏资源目录res/drawable-hdpi目录
 			 String gameSplashPath=TEMP_PATH+File.separator+"res"+File.separator+"drawable-hdpi"+File.separator+"ubsdk_splash.png";
@@ -778,7 +856,7 @@ public class UBTool {
 		System.out.println("	4.添加渠道sdk channel中配置的<meta-data>到AndroidManifest.xml中");
 		
 		String gameManifestPath=TEMP_PATH+File.separator+"AndroidManifest.xml";
-		Map<String, String> metaDatas = channel.getMetaDatas();
+		Map<String, String> metaDatas = channel.getMetaDataMap();
 		Document manifestDOM = new SAXReader().read(new File(gameManifestPath));
 		Element rootElement = manifestDOM.getRootElement();
 		Element application = rootElement.element("application");
@@ -791,7 +869,7 @@ public class UBTool {
 		
 //		添加渠道插件里的meta-data参数到AndroidManifest.xml中
 		for (Plugin plugin : pluginsMap.values()) {
-			Map<String, String> metaDatas2 = plugin.getMetaDatas();
+			Map<String, String> metaDatas2 = plugin.getMetaDataMap();
 			for (Entry<String,String> metaEntry : metaDatas2.entrySet()) {
 				Element metaElement = DocumentHelper.createElement("meta-data");
 				metaElement.addAttribute("android:name", metaEntry.getKey());
@@ -853,9 +931,9 @@ public class UBTool {
 					if (iconSize==null) {
 						iconSize=192;//如果默认匹配到默认为192
 					}
-					String sdkPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getId();
+					String sdkPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getName();
 					String  iconMarkPath=sdkPath+File.separator+"icon"+File.separator+iconDirName+File.separator+channel.getIcon()+".png";
-					System.out.println("	成功获取到渠道："+channel.getId()+"--->icon目录下："+iconDirName+"--->下的角标："+channel.getIcon()+".png");
+					System.out.println("	成功获取到渠道："+channel.getName()+"--->icon目录下："+iconDirName+"--->下的角标："+channel.getIcon()+".png");
 					System.out.println("	准备合并...");
 //							String  iconPath=iconFile.getAbsolutePath();
 					File iconMarkFile=new File(iconMarkPath);
@@ -915,13 +993,13 @@ public class UBTool {
 	 * @throws DocumentException
 	 * @throws IOException
 	 */
-	private static ChannelConfig loadChannelConfigAndOperateChannelRes(Game game,Channel channel)
+/*	private static ChannelConfig loadChannelConfigAndOperateChannelRes(Game game,Channel channel)
 			throws Exception, DocumentException, IOException {
 		System.out.println("	2:根据渠道配置copy、merge渠道相关资源到temp目录");
 		
-		String sdkPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getId();
-		String sdkConfigPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getId()+File.separator+"config.xml";
-		if (TextUtil.isEmpty(channel.getId())||!new File(sdkConfigPath).exists()) {
+		String sdkPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getName();
+		String sdkConfigPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getName()+File.separator+"config.xml";
+		if (TextUtil.isEmpty(channel.getName())||!new File(sdkConfigPath).exists()) {
 			throw  new RuntimeException("error:渠道配置参数出错，或没有找到对应的配置文件，请检查。。。");
 		}
 //		解析渠道配置文件
@@ -933,7 +1011,7 @@ public class UBTool {
 		System.out.println("--------------"+LINE_SEPARATOR);
 		
 		return channelConfig;            
-	}
+	}*/
 
 	private static void operateChannelOrPluginRes(Game game, String operationPath, ChannelConfig channelConfig)
 			throws Exception, DocumentException, IOException {

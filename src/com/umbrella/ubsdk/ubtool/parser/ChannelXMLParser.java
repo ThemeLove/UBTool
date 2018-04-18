@@ -30,15 +30,16 @@ public class ChannelXMLParser {
 				System.out.println("------start-------");
 				for (Element gameChannelElement : channelList) {
 					Channel gameChannel = new Channel();
-					gameChannel.setId(gameChannelElement.attributeValue("id"));
-					// gameChannel.setName(gameChannelElement.attributeValue("name"));
-					gameChannel.setFolder(gameChannelElement.attributeValue("folder"));
+					gameChannel.setID(gameChannelElement.attributeValue("id"));
+					gameChannel.setName(gameChannelElement.attributeValue("name"));
 					gameChannel.setIcon(gameChannelElement.attributeValue("icon"));
 					gameChannel.setSuffix(gameChannelElement.attributeValue("suffix"));
 					gameChannel.setKeystore(gameChannelElement.attributeValue("keystore"));
-					boolean splash = "true".equals(gameChannelElement.attributeValue("splash"));
-					gameChannel.setSplash(splash);
-
+					gameChannel.setSplash(gameChannelElement.attributeValue("splash"));
+					gameChannel.setScript(gameChannelElement.attributeValue("script"));
+					gameChannel.setGame(gameChannelElement.attributeValue("game"));
+					gameChannel.setDesc(gameChannelElement.attributeValue("desc"));
+					
 					List<Element> paramList = gameChannelElement.elements();
 					Map<String, String> paramMap = new HashMap<String, String>();
 					Map<String, String> metaDataMap = new HashMap<String, String>();
@@ -60,15 +61,15 @@ public class ChannelXMLParser {
 							}
 						}
 					}
-					gameChannel.setChannelParams(paramMap);
-					gameChannel.setMetaDatas(metaDataMap);
+					gameChannel.setChannelParamMap(paramMap);
+					gameChannel.setMetaDataMap(metaDataMap);
 					gameChannel.setPluginList(pluginList);
 
 					System.out.print("【");
-					System.out.print(gameChannel.getId());
+					System.out.print(gameChannel.getName());
 					System.out.println("】");
 
-					gameChannelMap.put(gameChannel.getId(), gameChannel);
+					gameChannelMap.put(gameChannel.getName(), gameChannel);
 				}
 				System.out.println("------end-------");
 			}

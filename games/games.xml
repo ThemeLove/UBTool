@@ -2,18 +2,18 @@
 <games>
     <game 
         id="1000"
-        name="游戏Demo"
-        folder="ubsdkdemo"
+        name="ubsdkdemo"
         debug="true"
+        script="false"
         orientation="landscape"
         apktoolVersion="2-3-0"
         gameMainName=""
+        desc="游戏测试demo"
 	  />
 
 	<game 
         id="1001"
         name="test-misc"
-        folder="test-misc"
         debug="true"
         orientation="protrait"
         apktoolVersion="2-3-0"
@@ -22,8 +22,10 @@
 	<game 
         id="1002"
         name="DownTheMountain"
-        folder="DownTheMountain"
         debug="true"
+        script="true"
+        keystore=""
+        desc="好玩的游戏"
         orientation="portrait"
         apktoolVersion="2-3-0"
         gameMainName=""

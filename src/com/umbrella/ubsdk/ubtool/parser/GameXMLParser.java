@@ -30,11 +30,12 @@ public class GameXMLParser {
               for (Element gameElement : root.elements()) {
                   Game game = new Game();
 //                必须要有的属性
-                  game.setId(gameElement.attributeValue("id"));
+                  game.setID(gameElement.attributeValue("id"));
                   game.setName(gameElement.attributeValue("name"));
-                  game.setFolder(gameElement.attributeValue("folder"));
+                  game.setScript(gameElement.attributeValue("script"));
                   game.setDebug(gameElement.attributeValue("debug"));
                   game.setOrientation(gameElement.attributeValue("orientation"));
+                  game.setKeystore(gameElement.attributeValue("keystore"));
                   game.setApktoolVersion(gameElement.attributeValue("apktoolVersion"));
                   
 //                可以没有的属性
@@ -50,7 +51,7 @@ public class GameXMLParser {
                   
                   System.out.println(game);
                   
-                  gameMap.put(game.getId(), game);
+                  gameMap.put(game.getID(), game);
               }
               System.out.println("------end-------");
           }

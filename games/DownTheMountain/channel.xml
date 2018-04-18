@@ -2,7 +2,7 @@
 <channels xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-	<channel id="baidu"  name="DownTheMountain"  suffix=".baidu" splash="false">
+	<channel id="1"  name="baidu" game="DownTheMountain" suffix=".baidu" splash="false" script="true">
 		<param name="BaiDu_Game_Orientation" value="portrait"/>
 		
 		<param name="UB_GameID" value="1123" />

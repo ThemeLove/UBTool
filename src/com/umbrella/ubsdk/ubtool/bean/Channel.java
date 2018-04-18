@@ -5,82 +5,118 @@ import java.util.Map;
 
 public class Channel {
 	
+	private String ID ="";							//渠道号
+	private String name ="";						//渠道名称 例如 baidu、meizu
+	private String game ="";						//该渠道要打包的游戏
+	private String icon ="rb";						//渠道自定义icon位置 lt、lb、rt、rb
+	private String suffix ="";						//包名后缀
+	private String keystore ="";					//渠道自定义签名
+	private String splash = "false";				//是否开启闪屏，默认不开启
+	private String script = "false";				//是否支持渠道自定义脚本
+	private String desc	= "渠道描述字段";			//渠道描述字段
+	private Map<String, String> channelParamMap;	//渠道参数，最后生成到ubsdk_config.xml中的map元素
+	private Map<String, String> metaDataMap;		//渠道参数，最后生成到AndroidManifest.xml中的meta-data元素
+	private ArrayList<String>   pluginList;			//该渠道要集成的插件集合
+
 	
-	private String id="";							//渠道号
-//	private String name="";						//描述，用于显示
-	private String folder="";//渠道号,专门用于指向sdk下面的渠道名
-	private String icon="";
-	private String suffix="";						//包名后缀
-	private String keystore="";
-	private boolean splash = false;				//是否开启闪屏，默认不开启
-	private Map<String, String> channelParams;	//渠道参数，最后生成到aksdk_config.xml中的map元素
-	private Map<String, String> metaDatas;		//渠道参数，最后生成到AndroidManifest.xml中的meta-data元素
-	private ArrayList<String>   pluginList;
-	
-	
-	public String getFolder() {
-		return folder;
+	public String getID() {
+		return ID;
 	}
-	public void setFolder(String folder) {
-		this.folder = folder;
+
+	public void setID(String iD) {
+		ID = iD;
 	}
-	public String getId() {
-		return id;
+
+	public String getName() {
+		return name;
 	}
-	public void setId(String id) {
-		this.id = id;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-//	public String getName() {
-//		return name;
-//	}
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-	public boolean isSplash() {
-		return splash;
+
+	public String getGame() {
+		return game;
 	}
-	public void setSplash(boolean splash) {
-		this.splash = splash;
+
+	public void setGame(String game) {
+		this.game = game;
 	}
+
 	public String getIcon() {
 		return icon;
 	}
+
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
+
 	public String getSuffix() {
 		return suffix;
 	}
+
 	public void setSuffix(String suffix) {
 		this.suffix = suffix;
 	}
+
 	public String getKeystore() {
 		return keystore;
 	}
+
 	public void setKeystore(String keystore) {
 		this.keystore = keystore;
 	}
-	public Map<String, String> getChannelParams() {
-		return channelParams;
+
+	public String getSplash() {
+		return splash;
 	}
-	public void setChannelParams(Map<String, String> channelParams) {
-		this.channelParams = channelParams;
+
+	public void setSplash(String splash) {
+		this.splash = splash;
 	}
-	public Map<String, String> getMetaDatas() {
-		return metaDatas;
+
+	public String getScript() {
+		return script;
 	}
-	public void setMetaDatas(Map<String, String> metaDatas) {
-		this.metaDatas = metaDatas;
+
+	public void setScript(String script) {
+		this.script = script;
 	}
-	
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	public Map<String, String> getChannelParamMap() {
+		return channelParamMap;
+	}
+
+	public void setChannelParamMap(Map<String, String> channelParamMap) {
+		this.channelParamMap = channelParamMap;
+	}
+
+	public Map<String, String> getMetaDataMap() {
+		return metaDataMap;
+	}
+
+	public void setMetaDataMap(Map<String, String> metaDataMap) {
+		this.metaDataMap = metaDataMap;
+	}
+
 	public ArrayList<String> getPluginList() {
 		return pluginList;
 	}
+
 	public void setPluginList(ArrayList<String> pluginList) {
 		this.pluginList = pluginList;
 	}
+
 	@Override
 	public String toString() {
-		return id ;
+		return name;
 	}
 }

@@ -26,8 +26,11 @@ public class PluginXMLParse {
 				System.out.println("------start-------");
 				for (Element pluginElement : pluginList) {
 					Plugin plugin = new Plugin();
-					plugin.setId(pluginElement.attributeValue("id"));
+					plugin.setID(pluginElement.attributeValue("id"));
 					plugin.setName(pluginElement.attributeValue("name"));
+					plugin.setGame(pluginElement.attributeValue("game"));
+					plugin.setScript(pluginElement.attributeValue("script"));
+					plugin.setDesc(pluginElement.attributeValue("desc"));
 
 					List<Element> paramList = pluginElement.elements();
 					Map<String, String> paramMap = new HashMap<String, String>();
@@ -39,14 +42,14 @@ public class PluginXMLParse {
 							metaDataMap.put(param.attributeValue("name"), param.attributeValue("value"));
 						} 
 					}
-					plugin.setPluginParams(paramMap);
-					plugin.setMetaDatas(metaDataMap);
+					plugin.setPluginParamMap(paramMap);
+					plugin.setMetaDataMap(metaDataMap);
 
 					System.out.print("【");
-					System.out.print(plugin.getId());
+					System.out.print(plugin.getName());
 					System.out.println("】");
 
-					gamePluginMap.put(plugin.getId(), plugin);
+					gamePluginMap.put(plugin.getName(), plugin);
 				}
 				System.out.println("------end-------");
 			}
