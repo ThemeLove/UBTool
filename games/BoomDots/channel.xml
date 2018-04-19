@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<channels xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+	<channel id="1"  name="baidu" game="BoomDots" suffix=".baidu" splash="false" script="true" keystore="false">
+		<param name="BaiDu_Game_Orientation" value="portrait"/>
+		
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
+		
+		<param name="UB_PlatformID" value="1" />
+		<param name="UB_PlatformName" value="baidu"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+        
+        <!--注意：下面4个meta-data一定要添加到application节点内） -->
+       	<!-- dksdk_appid表示从开发者平台申请的APPID，一定要填写正确 -->
+		<meta-data android:name="dksdk_appid" android:value="11125131" />
+		<!-- dksdk_appkey表示从开发者平台申请的APPKEY，一定要填写正确 -->
+		<meta-data android:name="dksdk_appkey" android:value="uDxP9u9InnhH1DzDHsGXofVT" />
+		<!-- dksdk_appsecret表示从开发者平台申请的APPSECRET，一定要填写正确 -->
+		<meta-data android:name="dksdk_appsecret" android:value="P0LM1GLG3Bz4tdxcLVri3snC18HF5QRj" />
+		<!-- dksdk_channel表示渠道,百度手机助手13744，百度多酷12999，91（福建博锐）14076，百度贴吧14146 -->
+		<meta-data android:name="dksdk_channel" android:value="13744" />
+		<!-- dksdk_ver表示sdk版本,此版本为 221 -->
+		<meta-data android:name="dksdk_ver" android:value="221" />
+		
+<!-- 		<plugins>
+			<plugin name="ad_baidu"/>
+		</plugins> -->
+	</channel>
+	
+	<channel id="2"  name="meizu" game="BoomDots" suffix=".mz" splash="false" script="false" keystore="false">
+		<param name="MeiZu_AppID" value="3194768" />
+		<param name="MeiZu_AppKey" value="799dbf67e35841028df83495a1eb84e4" />
+		<param name="MeiZu_AppSecret" value="7Oknf5UaAlUce0JPnk0dgChQW2jnRP8v"/>
+	
+		<param name="BaiDu_Game_Orientation" value="portrait"/>
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
+		
+		<param name="UB_PlatformID" value="1" />
+		<param name="UB_PlatformName" value="meizu"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+<!-- 		<plugins>
+			<plugin name="ad_baidu"/>
+		</plugins> -->
+	</channel>
+
+</channels>

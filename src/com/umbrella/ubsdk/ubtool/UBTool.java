@@ -31,13 +31,13 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
 import com.umbrella.ubsdk.ubtool.bean.Channel;
-import com.umbrella.ubsdk.ubtool.bean.ChannelConfig;
-import com.umbrella.ubsdk.ubtool.bean.ChannelConfig.Operation;
+import com.umbrella.ubsdk.ubtool.bean.ChannelOrPluginConfig;
+import com.umbrella.ubsdk.ubtool.bean.ChannelOrPluginConfig.Operation;
 import com.umbrella.ubsdk.ubtool.bean.Game;
 import com.umbrella.ubsdk.ubtool.bean.Keystore;
 import com.umbrella.ubsdk.ubtool.bean.Plugin;
 import com.umbrella.ubsdk.ubtool.config.UBToolConfig;
-import com.umbrella.ubsdk.ubtool.parser.ChannelConfigXMLParser;
+import com.umbrella.ubsdk.ubtool.parser.ChannelOrPluginConfigXMLParser;
 import com.umbrella.ubsdk.ubtool.parser.ChannelXMLParser;
 import com.umbrella.ubsdk.ubtool.parser.GameXMLParser;
 import com.umbrella.ubsdk.ubtool.parser.KeystoreXMLParser;
@@ -70,7 +70,7 @@ public class UBTool {
 	private static String newGamePackageName="";//根据渠道要求最新的游戏包名
 	private static String LINE_SEPARATOR=System.getProperty("line.separator");
 	private static Map<String,Plugin> pluginMap;//当前渠道配置的插件集合
-	private static Map<String,ChannelConfig> pluginConfigMap;//当前渠道配置的插件配置集合
+	private static Map<String,ChannelOrPluginConfig> pluginConfigMap;//当前渠道配置的插件配置集合
 	
 	public static void main(String[] args) throws Exception {
 		//***************************交互部分*******************************//
@@ -196,7 +196,7 @@ public class UBTool {
 				Map<String, Plugin> pluginsMap = loadPluginsConfigAndOperatePluginsRes(game,channel);
 				
 //				4.加载渠道配置并根据渠道配置copy、merge渠道相关资源到temp目录
-				ChannelConfig channelConfig = loadChannelConfigAndOperateChannelRes(game,channel);
+				ChannelOrPluginConfig channelConfig = loadChannelConfigAndOperateChannelRes(game,channel);
 
 //				5.合并sdk角标到游戏图标
 				mergeChannelIcon2Game(game, channel);
@@ -385,7 +385,7 @@ public class UBTool {
 	private static Map<String,Plugin> loadPluginsConfigAndOperatePluginsRes(Game game, Channel channel) throws DocumentException, IOException, Exception {
 		System.out.println("	3:加载所有插件配置文件并根据插件配置copy、merge渠道相关资源到temp目录");
 		ArrayList<String> pluginList = channel.getPluginList();
-		pluginConfigMap = new HashMap<String,ChannelConfig>();
+		pluginConfigMap = new HashMap<String,ChannelOrPluginConfig>();
 		pluginMap = new HashMap<String,Plugin>();
 		if (pluginList!=null&pluginList.size()>0) {
 			String gamePluginXmlPath=GAMES_PATH+File.separator+game.getName()+File.separator+"plugin.xml";
@@ -396,7 +396,7 @@ public class UBTool {
 					pluginMap.put(pluginName, plugin);
 					String operationPath=CONFIG_PATH+File.separator+"plugin"+File.separator+plugin.getName();
 					String pluginConfigXMLPath=operationPath+File.separator+"config.xml";
-					ChannelConfig pluginConfig = ChannelConfigXMLParser.parser(pluginConfigXMLPath);
+					ChannelOrPluginConfig pluginConfig = ChannelOrPluginConfigXMLParser.parser(pluginConfigXMLPath);
 					pluginConfigMap.put(pluginName, pluginConfig);
 					System.out.println("	合并----->"+pluginName+"----->插件的资源");
 					operateChannelOrPluginRes(game, operationPath, pluginConfig);
@@ -420,11 +420,11 @@ public class UBTool {
 	 * @throws IOException
 	 * @throws Exception
 	 */
-	private static ChannelConfig loadChannelConfigAndOperateChannelRes(Game game,Channel channel) throws DocumentException, IOException, Exception{
+	private static ChannelOrPluginConfig loadChannelConfigAndOperateChannelRes(Game game,Channel channel) throws DocumentException, IOException, Exception{
 		System.out.println("	4:加载渠道配置文件并根据渠道配置copy、merge渠道相关资源到temp目录");
 		String operationPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getName();
 		String channelConfigXMLPATH=operationPath+File.separator+"config.xml";
-		ChannelConfig channelConfig = ChannelConfigXMLParser.parser(channelConfigXMLPATH);
+		ChannelOrPluginConfig channelConfig = ChannelOrPluginConfigXMLParser.parser(channelConfigXMLPATH);
 		System.out.println("	合并----->"+channel.getName()+"----->渠道的资源");
 		operateChannelOrPluginRes(game, operationPath, channelConfig);
 		System.out.println("	合并----->"+channel.getName()+"----->渠道的资源----->成功！");
@@ -554,7 +554,7 @@ public class UBTool {
 	 * @param channelConfig
 	 * @throws IOException
 	 */
-	private static void generateNormalUBSDKConfigFile(Channel channel, ChannelConfig channelConfig,Map<String,Plugin> pluginsMap)
+	private static void generateNormalUBSDKConfigFile(Channel channel, ChannelOrPluginConfig channelConfig,Map<String,Plugin> pluginsMap)
 			throws IOException {
 		System.out.println("	15.首先创建未加密ubsdk_config_nomal.xml");
 		String ubsdkConfigPath=TEMP_PATH+File.separator+"assets"+File.separator+"ubsdk_config_nomal.xml";
@@ -595,7 +595,7 @@ public class UBTool {
 		
 		if (pluginConfigMap!=null&&pluginConfigMap.size()>0) {
 //			添加插件中的plugin
-			for (ChannelConfig pluginConfig : pluginConfigMap.values()) {
+			for (ChannelOrPluginConfig pluginConfig : pluginConfigMap.values()) {
 				Map<String, String> pluginMap2 = pluginConfig.getPlugins();
 				if (pluginMap2.size()>0) {
 					for (Entry<String,String> entry : pluginMap2.entrySet()) {
@@ -641,7 +641,7 @@ public class UBTool {
 		
 		if (pluginConfigMap!=null&&pluginConfigMap.size()>0) {
 //			添加插件中的application参数
-			for (ChannelConfig pluginConfig : pluginConfigMap.values()) {
+			for (ChannelOrPluginConfig pluginConfig : pluginConfigMap.values()) {
 				List<String> pluginApplicationList = pluginConfig.getApplications();
 				if (pluginApplicationList!=null&&pluginApplicationList.size()>0) {
 					for (String pluginApplicationName : pluginApplicationList) {
@@ -907,11 +907,9 @@ public class UBTool {
 		 
 		 if (!TextUtil.isEmpty(channel.getSuffix())) {
 			 int lastDotIndex = oldGamePackageName.lastIndexOf(".");
-			 String prefixPackageName = oldGamePackageName.substring(0, lastDotIndex);
+//			 String prefixPackageName = oldGamePackageName.substring(0, lastDotIndex);
 			 String lastPackageName = oldGamePackageName.substring(lastDotIndex);
-			 if (TextUtil.equalsIgnoreCase(lastPackageName, ".pptv")) {//如果是以.pptv结尾的话
-				 newGamePackageName=prefixPackageName+channel.getSuffix();//用小写拼接
-			}else{
+			 if (!TextUtil.equalsIgnoreCase(lastPackageName,channel.getSuffix())) {//如果和当前渠道配置不相同
 				 newGamePackageName=oldGamePackageName+channel.getSuffix();
 			}
 			 System.out.println("	newGamePackageName:"+newGamePackageName);
@@ -1094,7 +1092,7 @@ public class UBTool {
 		return channelConfig;            
 	}*/
 
-	private static void operateChannelOrPluginRes(Game game, String operationPath, ChannelConfig channelConfig)
+	private static void operateChannelOrPluginRes(Game game, String operationPath, ChannelOrPluginConfig channelConfig)
 			throws Exception, DocumentException, IOException {
 		List<Operation> operations = channelConfig.getOperations();
 		 for (Operation operation : operations) {

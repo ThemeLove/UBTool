@@ -31,6 +31,16 @@
         apktoolVersion="2-3-0"
         gameMainName=""
 	  />
+	  <game
+	    id="1003"
+	    name="BoomDots"
+	    debug="true"
+	    script="false"
+	    keystore="false"
+	    orientation="portrait"
+	    apktoolVersion="2-3-0"
+	    gameMainName=""
+	  />
 </games>
 <!-- 一定要记得改cpu areambi文件和游戏统一 -->
 <!-- 游戏猫打包一定要注意arrays.xml文件copy -->

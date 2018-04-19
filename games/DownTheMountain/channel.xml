@@ -32,5 +32,26 @@
 			<plugin name="ad_baidu"/>
 		</plugins>
 	</channel>
+	
+	<channel id="2"  name="meizu" game="DownTheMountain" suffix=".mz" splash="false" script="false" keystore="false">
+		<param name="MeiZu_AppID" value="3197242" />
+		<param name="MeiZu_AppKey" value="90d7b783b59041a9bd592e9c5321b0e4" />
+		<param name="MeiZu_AppSecret" value="qTVSgdYquLhvYnJWw2LejCtNdCJxubrK"/>
+	
+		<param name="BaiDu_Game_Orientation" value="portrait"/>
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
+		
+		<param name="UB_PlatformID" value="1" />
+		<param name="UB_PlatformName" value="meizu"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+<!-- 		<plugins>
+			<plugin name="ad_baidu"/>
+		</plugins> -->
+	</channel>
 
 </channels>
