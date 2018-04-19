@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<keystore name="DownTheMountain" password="DownTheMountain_ubsdk">
+<alias name="DownTheMountain.keystore" password="DownTheMountain_ubsdk"/>
+</keystore>

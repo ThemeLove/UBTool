@@ -10,7 +10,7 @@ public class Channel {
 	private String game ="";						//该渠道要打包的游戏
 	private String icon ="rb";						//渠道自定义icon位置 lt、lb、rt、rb
 	private String suffix ="";						//包名后缀
-	private String keystore ="";					//渠道自定义签名
+	private String keystore ="false";				//渠道自定义签名默认不支持
 	private String splash = "false";				//是否开启闪屏，默认不开启
 	private String script = "false";				//是否支持渠道自定义脚本
 	private String desc	= "渠道描述字段";			//渠道描述字段

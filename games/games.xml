@@ -25,7 +25,7 @@
         name="DownTheMountain"
         debug="true"
         script="true"
-        keystore=""
+        keystore="true"
         desc="好玩的游戏"
         orientation="portrait"
         apktoolVersion="2-3-0"

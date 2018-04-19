@@ -116,6 +116,6 @@ public class GenerateKeyStoreTool {
 		BASE_PATH=System.getProperty("user.dir");
 		TOOLS_PATH=BASE_PATH+File.separator+"tools";
 		CONFIG_PATH=BASE_PATH+File.separator+"config";
-		KEYSTORE_PATH=CONFIG_PATH+File.separator+"keystore";
+		KEYSTORE_PATH=CONFIG_PATH+File.separator+"keystore"+File.separator+"game";
 	}
 }

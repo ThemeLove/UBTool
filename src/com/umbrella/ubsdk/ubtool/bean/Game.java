@@ -11,7 +11,7 @@ public class Game {
     private String script="false";	//是否支持自定义脚本	默认不开启游戏脚本脚本
     private String apktoolVersion=UBToolConfig.DEFAULT_APKTOOL_VERSION;	//apktool版本
     private String orientation; 	//游戏是横屏还是竖屏(landscape|portrait),不配置默认是横屏
-    private String keystore;		//游戏自定义签名
+    private String keystore="false";//游戏自定义签名
     private String desc;			//游戏描述
     
 //  以下属性可以没有
