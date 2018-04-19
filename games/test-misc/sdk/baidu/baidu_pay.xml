@@ -6,9 +6,9 @@
 		    <!-- billingID:百度计费点 -->
 		    <!-- billingName:计费点名称 -->
 		    <!-- billingPrice:计费点价格 -->
-		    <good productID="1" billingID="44136" billingName="去除广告" billingPrice="4.9"/>   
+		    <good productID="TestID" billingID="44136" billingName="去除广告" billingPrice="4.9"/>   
 		    <good productID="2" billingID="44137" billingName="4把钥匙"  billingPrice="4.9"/>   
-		    <good productID="2" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>     
+		    <good productID="3" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>     
 		</goods>
 	</pay>
 	
@@ -20,7 +20,7 @@
 		    <!-- billingPrice:计费点价格 -->
 		    <good productID="1" billingID="44136" billingName="去除广告" billingPrice="4.9"/>   
 		    <good productID="2" billingID="44137" billingName="4把钥匙"  billingPrice="4.9"/>   
-		    <good productID="2" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>   
+		    <good productID="3" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>   
 		</goods>    
 	</pay>
 	
@@ -32,7 +32,7 @@
 		    <!-- billingPrice:计费点价格 -->
 		    <good productID="1" billingID="44136" billingName="去除广告" billingPrice="4.9"/>   
 		    <good productID="2" billingID="44137" billingName="4把钥匙"  billingPrice="4.9"/>   
-		    <good productID="2" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>   
+		    <good productID="3" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>   
 		</goods>    
 	</pay>
 	
@@ -44,7 +44,7 @@
 		    <!-- billingPrice:计费点价格 -->
 		    <good productID="1" billingID="44136" billingName="去除广告" billingPrice="4.9"/>   
 		    <good productID="2" billingID="44137" billingName="4把钥匙"  billingPrice="4.9"/>   
-		    <good productID="2" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>   
+		    <good productID="3" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>   
 		</goods>      
 	</pay>
 	
@@ -56,7 +56,7 @@
 		    <!-- billingPrice:计费点价格 -->
 		    <good productID="1" billingID="44136" billingName="去除广告" billingPrice="4.9"/>   
 		    <good productID="2" billingID="44137" billingName="4把钥匙"  billingPrice="4.9"/>   
-		    <good productID="2" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>   
+		    <good productID="3" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>   
 		</goods>     
 	</pay>
 	
@@ -68,7 +68,7 @@
 		    <!-- billingPrice:计费点价格 -->
 		    <good productID="1" billingID="44136" billingName="去除广告" billingPrice="4.9"/>   
 		    <good productID="2" billingID="44137" billingName="4把钥匙"  billingPrice="4.9"/>   
-		    <good productID="2" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>    
+		    <good productID="3" billingID="44138" billingName="沙漠主题" billingPrice="4.9"/>    
 		</goods>      
 	</pay>    
     
