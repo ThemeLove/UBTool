@@ -44,7 +44,7 @@
 		<param name="UB_GameOrientation" value="portrait" />
 		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
 		
-		<param name="UB_PlatformID" value="1" />
+		<param name="UB_PlatformID" value="2" />
 		<param name="UB_PlatformName" value="meizu"/>
 		<param name="UB_SubPlatformID" value="0" />
 		<param name="UB_ChannelID" value="1" />
