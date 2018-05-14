@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <channels xmlns:android="http://schemas.android.com/apk/res/android">
+<<<<<<< HEAD
 
 
 	<channel id="1"  name="baidu" game="BoomDots" suffix=".baidu" splash="false" script="true" keystore="false">
@@ -44,15 +45,35 @@
 		<param name="UB_GameOrientation" value="portrait" />
 		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
 		
+=======
+		<channel id="2"  name="meizu" game="BoomDots" suffix=".mz" splash="false" script="false" keystore="false">
+		<param name="MeiZu_AppID" value="3194768" />
+		<param name="MeiZu_AppKey" value="799dbf67e35841028df83495a1eb84e4" />
+		<param name="MeiZu_AppSecret" value="7Oknf5UaAlUce0JPnk0dgChQW2jnRP8v"/>
+	
+		<param name="BaiDu_Game_Orientation" value="portrait"/>
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
+		
+>>>>>>> a419fbd2c6eed22d5abb3b9d0b102b73cfd71151
 		<param name="UB_PlatformID" value="2" />
 		<param name="UB_PlatformName" value="meizu"/>
 		<param name="UB_SubPlatformID" value="0" />
 		<param name="UB_ChannelID" value="1" />
 		<param name="UB_SubChannelID" value="1" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> a419fbd2c6eed22d5abb3b9d0b102b73cfd71151
 		<plugins>
 			<plugin name="ad_meizu"/>
 		</plugins>
 	</channel>
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> a419fbd2c6eed22d5abb3b9d0b102b73cfd71151
 </channels>
