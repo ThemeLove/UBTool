@@ -1,45 +1,58 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <channels xmlns:android="http://schemas.android.com/apk/res/android">
-	<channel id="xiantu2"  name="XianTu-露娜物语"  suffix=".xiantu" splash="true" icon="rb">
-		<param name="XianTu2_PayRate" value="100"/>
-		<param name="XianTu2_ChannelId" value="0"/>
-		<param name="XianTu2_ChannelName" value="自然注册"/>
-		<param name="XianTu2_GameId" value="1235"/>
-		<param name="XianTu2_GameName" value="露娜物语"/>
-		<param name="XianTu2_GameAppId" value="A1664BD14153B80CD"/>
-		<param name="XianTu2_SDKSecretKey" value="CR8SHV8LVBQWHg8EGlVGAhoQDA4="/>
-		<param name="XianTu2_SDKAddress" value="http://www.jmsdk.net/sdk.php/"/>
+
+
+	<channel id="1"  name="baidu" game="BoomDots" suffix=".baidu" splash="false" script="true" keystore="false">
+		<param name="BaiDu_Game_Orientation" value="portrait"/>
 		
-		<param name="GAMEID" value="lnwy_m"/>
-		<param name="VAS_DEBUG" value="true"/>
-		<param name="VAS_GAMEID" value="1332"/>
-		<param name="VAS_PLATFORMID" value="85"/>
-		<param name="VAS_SUBPLATFORMID" value="0"/>
-		<param name="VAS_CHANNELID" value="1"/>
-		<param name="VAS_SUBCHANNEL_ID" value="1"/>
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
 		
-		<meta-data name="xiantu2_appid_test" android:value="123456"/>
-        <meta-data name="xiantu2_appkey_test" android:value="abcdefg"/>
+		<param name="UB_PlatformID" value="1" />
+		<param name="UB_PlatformName" value="baidu"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+        
+        <!--注意：下面4个meta-data一定要添加到application节点内） -->
+       	<!-- dksdk_appid表示从开发者平台申请的APPID，一定要填写正确 -->
+		<meta-data android:name="dksdk_appid" android:value="11125131" />
+		<!-- dksdk_appkey表示从开发者平台申请的APPKEY，一定要填写正确 -->
+		<meta-data android:name="dksdk_appkey" android:value="uDxP9u9InnhH1DzDHsGXofVT" />
+		<!-- dksdk_appsecret表示从开发者平台申请的APPSECRET，一定要填写正确 -->
+		<meta-data android:name="dksdk_appsecret" android:value="P0LM1GLG3Bz4tdxcLVri3snC18HF5QRj" />
+		<!-- dksdk_channel表示渠道,百度手机助手13744，百度多酷12999，91（福建博锐）14076，百度贴吧14146 -->
+		<meta-data android:name="dksdk_channel" android:value="13744"/>
+		<!-- dksdk_ver表示sdk版本,此版本为 221 -->
+		<meta-data android:name="dksdk_ver" android:value="221" />
+		
+<!-- 		<plugins>
+			<plugin name="ad_baidu"/>
+		</plugins> -->
 	</channel>
-	<channel id="vivo"  name="vivo-露娜物语"  suffix=".vivo" splash="true" icon="rb">
-		<param name="XianTu2_PayRate" value="100"/>
-		<param name="XianTu2_ChannelId" value="0"/>
-		<param name="XianTu2_ChannelName" value="自然注册"/>
-		<param name="XianTu2_GameId" value="1235"/>
-		<param name="XianTu2_GameName" value="露娜物语"/>
-		<param name="XianTu2_GameAppId" value="A1664BD14153B80CD"/>
-		<param name="XianTu2_SDKSecretKey" value="CR8SHV8LVBQWHg8EGlVGAhoQDA4="/>
-		<param name="XianTu2_SDKAddress" value="http://www.jmsdk.net/sdk.php/"/>
+	
+	<channel id="2"  name="meizu" game="ubsdkdemo" suffix=".mz" splash="false" script="false" keystore="false">
+		<param name="MeiZu_AppID" value="3194768" />
+		<param name="MeiZu_AppKey" value="799dbf67e35841028df83495a1eb84e4" />
+		<param name="MeiZu_AppSecret" value="7Oknf5UaAlUce0JPnk0dgChQW2jnRP8v"/>
+	
+		<param name="BaiDu_Game_Orientation" value="portrait"/>
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
 		
-		<param name="GAMEID" value="lnwy_m"/>
-		<param name="VAS_DEBUG" value="true"/>
-		<param name="VAS_GAMEID" value="1332"/>
-		<param name="VAS_PLATFORMID" value="85"/>
-		<param name="VAS_SUBPLATFORMID" value="0"/>
-		<param name="VAS_CHANNELID" value="1"/>
-		<param name="VAS_SUBCHANNEL_ID" value="1"/>
-		
-		<meta-data android:name="xiantu2_appid_test" android:value="123456"/>
-        <meta-data android:name="xiantu2_appkey_test" android:value="abcdefg"/>
+		<param name="UB_PlatformID" value="2" />
+		<param name="UB_PlatformName" value="meizu"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+
+		<plugins>
+			<plugin name="ad_meizu"/>
+		</plugins>
 	</channel>
+
 </channels>

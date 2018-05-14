@@ -543,7 +543,7 @@ public class UBTool {
 		String ubsdkConfigPath=TEMP_PATH+File.separator+"assets"+File.separator+"ubsdk_config_nomal.xml";
 //				13.对普通的ubsdk_config_nomal.xml进行加密
 		EncryptUtil.createEncryptConfigXml(TEMP_PATH+File.separator+"assets", ubsdkConfigPath);
-		FileUtil.delete(ubsdkConfigPath);//删除ubsdk_config_normal.xml
+//		FileUtil.delete(ubsdkConfigPath);//删除ubsdk_config_normal.xml
 		System.out.println("	16.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml----->成功！");
 		System.out.println("--------------"+LINE_SEPARATOR);
 	}
