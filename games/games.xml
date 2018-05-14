@@ -5,7 +5,7 @@
         name="ubsdkdemo"
         debug="true"
         script="false"
-        orientation="landscape"
+        orientation="portrait"
         apktoolVersion="2-3-0"
         gameMainName=""
         desc="游戏测试demo"

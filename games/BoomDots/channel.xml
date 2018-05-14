@@ -38,20 +38,21 @@
 		<param name="MeiZu_AppKey" value="799dbf67e35841028df83495a1eb84e4" />
 		<param name="MeiZu_AppSecret" value="7Oknf5UaAlUce0JPnk0dgChQW2jnRP8v"/>
 	
-		<param name="BaiDu_Game_Orientation" value="portrait"/>
+		<param name="MeiZu_Game_Orientation" value="portrait"/>
 		<param name="UB_GameID" value="1003" />
 		<param name="UB_GameDebug" value="true" />
 		<param name="UB_GameOrientation" value="portrait" />
-		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
 		
 		<param name="UB_PlatformID" value="2" />
 		<param name="UB_PlatformName" value="meizu"/>
 		<param name="UB_SubPlatformID" value="0" />
 		<param name="UB_ChannelID" value="1" />
 		<param name="UB_SubChannelID" value="1" />
-<!-- 		<plugins>
-			<plugin name="ad_baidu"/>
-		</plugins> -->
+		
+		<plugins>
+			<plugin name="ad_meizu"/>
+		</plugins>
+		
 	</channel>
-
 </channels>
