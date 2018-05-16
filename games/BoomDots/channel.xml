@@ -49,10 +49,9 @@
 		<param name="UB_SubPlatformID" value="0" />
 		<param name="UB_ChannelID" value="1" />
 		<param name="UB_SubChannelID" value="1" />
-
 		<plugins>
 			<plugin name="ad_meizu"/>
 		</plugins>
-		
+
 	</channel>
 </channels>
