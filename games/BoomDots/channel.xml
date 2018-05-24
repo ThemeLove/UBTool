@@ -33,7 +33,7 @@
 		</plugins> -->
 	</channel>
 	
-	<channel id="2"  name="meizu" game="BoomDots" suffix=".mz" splash="false" script="false" keystore="false">
+	<channel id="2"  name="meizu" game="BoomDots" suffix=".mz" splash="false" script="true" keystore="false">
 		<param name="MeiZu_AppID" value="3194768" />
 		<param name="MeiZu_AppKey" value="799dbf67e35841028df83495a1eb84e4" />
 		<param name="MeiZu_AppSecret" value="7Oknf5UaAlUce0JPnk0dgChQW2jnRP8v"/>
