@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<permissionConfig>
+		<uses-permission android:name="android.permission.INTERNET" />
+	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	
+	    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+	   
+	    <uses-permission android:name="android.permission.WAKE_LOCK" />
+	    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+	    
+	    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+	    <uses-permission android:name="android.permission.CAMERA" />
+	</permissionConfig>
+
+	<applicationConfig>
+        <activity
+            android:name="com.ubsdk.ad.lenovo.plugin.ADLenovoSplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        
+        <!-- ad_lenovo   start -->
+        <service
+            android:name="com.qq.e.comm.DownloadService"
+            android:exported="false" >
+        </service>
+
+        <activity
+            android:name="com.qq.e.ads.ADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" >
+        </activity>
+        
+        <activity android:name="com.chance.ads.AdActivity" >
+        </activity>
+        
+        <activity
+            android:name="com.chance.ads.VideoAdActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
+        <!-- 与下载 apk 的功能相关 -->
+ 
+        <service android:name="com.chance.engine.ChanceAdService" />    
+	</applicationConfig>
+</manifest>

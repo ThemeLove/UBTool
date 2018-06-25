@@ -1,157 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 	<permissionConfig>
-   		<!-- SDK 相关 start -->
-	    <!-- 添加必要的权限支持 -->
-	    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-	    <uses-permission android:name="android.permission.INTERNET" />
-	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-	    <!-- 添加必要的权限支持 -->
-	    <!-- 悬浮窗权限 -->
-	    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-	    <!-- 在SDCard中创建与删除文件权限 -->
-	    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-	    <!-- 往SDCard 读写入数据权限 -->
-	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	    <!-- 关闭应用用 -->
-	    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-	    <!-- 反射根据包名强制关闭应用 -->
-	    <uses-permission android:name="android.permission.GET_TASKS" />
-	    <!-- 聚宝云 -->
-	    <uses-permission android:name="android.permission.WAKE_LOCK" />
+	    <uses-permission android:name="vivo.game.permission.OPEN_JUMP_INTENTS" />
 	    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-	    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-	    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-	    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
-	    <uses-permission android:name="android.webkit.permission.PLUGIN" />
+	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	    <uses-permission android:name="android.permission.INTERNET" />
+	    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+	    <uses-permission android:name="android.permission.SEND_SMS" />
+	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	    <uses-permission android:name="android.permission.GET_TASKS" />
+	    <uses-permission android:name="com.bbk.account.permission.READ_ACCOUNTINFO" />
+	    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 	</permissionConfig>
 
 	<applicationConfig>
-         <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="{PACKAGENAME}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true" >
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/filepaths" />
-        </provider>
-
-        <service
-            android:name="com.mchsdk.paysdk.utils.Lolly"
-            android:enabled="true"
-            android:exported="false"
-            android:process=":remote" />
-       <!--  <activity android:name="com.example.xiantu2.TestActivity" /> -->
-       <!--  <activity android:name="com.example.xiantu2.ShowLogActivity" /> -->
-        <!-- <activity android:name="com.mchsdk.paysdk.activity.InitialActivity" -->
-        <!-- android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" -->
-        <!-- android:configChanges="orientation|keyboardHidden|screenSize"></activity> -->
-
-
-        <!-- SDK相关 start -->
-        <!-- com.unity3d.player.UnityPlayerActivity在原生安卓中 -->
-        <!--
-         <activity android:name="com.unity3d.player.UnityPlayerActivity" >
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-         </activity>
-
-        -->
-        <activity
-            android:name="com.mchsdk.paysdk.activity.MCChoosePayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="behind"
-            android:launchMode="singleTop" >
-        </activity>
-        <activity
-            android:name="com.mchsdk.paysdk.activity.PTBPayResultActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="behind"
-            android:theme="@style/MCHControlTransparent" >
-        </activity>
-        <!-- <activity -->
-        <!-- android:name="com.example.sdk_test_demo.wxapi.WXPayEntryActivity" -->
-        <!-- android:exported="true" -->
-        <!-- android:launchMode="singleTop" -->
-        <!-- android:screenOrientation="portrait" -->
-        <!-- android:theme="@android:style/Theme.Translucent" > -->
-        <!-- </activity> -->
-        <activity
-            android:name="com.mchsdk.paysdk.activity.MCPacksActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-             android:screenOrientation="behind"
-            android:launchMode="singleInstance" >
-        </activity>
-        <activity
-            android:name="com.mchsdk.paysdk.activity.MCPersonalInfoActivity"
-            android:launchMode="singleTask" >
-
-            <!-- android:screenOrientation="portrait" -->
-        </activity>
-        <activity
-            android:name="com.mchsdk.paysdk.activity.MCChangePasswordActivity"
-            android:launchMode="singleTop" >
-        </activity>
-        <activity
-            android:name="com.mchsdk.paysdk.activity.MCMoneyRecordActivity"
-            android:launchMode="singleTop" >
-        </activity>
-        <activity
-            android:name="com.mchsdk.paysdk.activity.MCGameRecordActivity"
-            android:launchMode="singleTop" >
-        </activity>
-        <activity
-            android:name="com.mchsdk.paysdk.activity.MCAddPtbMoneyActivity"
-            android:launchMode="singleTop" 
-             android:screenOrientation="behind">
-        </activity>
-        <activity
-            android:name="com.mchsdk.paysdk.activity.MCBindPhoneActivity"
-            android:launchMode="singleTop"
-             android:screenOrientation="behind" >
-        </activity>
-        <activity android:name="com.mchsdk.paysdk.activity.MCVisitorUpdateInfo"
-         android:screenOrientation="behind" >
-        </activity>
-
-        <service android:name="com.mchsdk.paysdk.server.MCHFloatService" >
-        </service>
-
-        <activity
-            android:name="com.mchsdk.paysdk.activity.MCForgetPasswordActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-             android:screenOrientation="behind"
-            android:launchMode="singleTop" >
-        </activity>
-        <activity android:name="com.mchsdk.paysdk.activity.MCSocialActivity" 
-         android:screenOrientation="behind">
-        </activity>
-        <activity android:name="com.mchsdk.paysdk.activity.MCListViewActivity" android:screenOrientation="behind" >
-        </activity>
-        <activity android:name="com.mchsdk.paysdk.activity.MCCommunicateActivity" android:screenOrientation="behind" >
-        </activity>
-        <activity
-            android:name="com.mchsdk.paysdk.activity.TransparencyActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" 
-            android:screenOrientation="behind"
-            android:theme="@style/myTransparent" >
-        </activity>
-        <activity
-            android:name="com.mchsdk.paysdk.activity.MCControlResActivity"
-            android:exported="true"
-             android:screenOrientation="behind"
-            android:launchMode="singleTask" >
+	    <meta-data
+            android:name="APP_MONITOR_APPID"
+            android:value="b1002c" />
+        <meta-data
+            android:name="vivo_union_sdk"
+            android:value="2.2.41" />
+         <activity
+            android:name="com.vivo.unionsdk.ui.UnionActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:theme="@android:style/Theme.Dialog" >
             <intent-filter>
-                <action android:name="{PACKAGENAME}.controlresback" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="union.vivo.com"
+                    android:path="/openjump"
+                    android:scheme="vivounion" />
             </intent-filter>
         </activity>
+
+        <!-- 微信支付回调Activity -->
+        <activity
+            android:name="{PACKAGENAME}.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- QQ钱包支付回调Activity,data属性中的scheme需要替换为qwallet+包名 -->
+        <activity
+            android:name="com.vivo.sdkplugin.payment.qqpay.VivoQQPayResultActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="qwallet{PACKAGENAME}" />
+            </intent-filter>
+        </activity>
+
+        <!-- 银联支付的Activity -->
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.unionpay.UPPayWapActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <uses-library
+            android:name="org.simalliance.openmobileapi"
+            android:required="false" />
+
+        <!-- 支付宝支付的H5 Activity -->
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
@@ -159,42 +90,15 @@
             android:screenOrientation="behind"
             android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
+
+        <!-- 支付宝支付的Activity -->
         <activity
             android:name="com.alipay.sdk.auth.AuthActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
             android:screenOrientation="behind" >
         </activity>
-
-        <!-- 聚宝云 -->
-        <activity
-            android:name="com.fanwei.bluearty.pluginmgr.DynamicActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
-        <activity android:name="com.mchsdk.paysdk.activity.MCJBYPayActivity" >
-        </activity>
-        <!-- SDK客户端和SDK服务器针对不同游戏验签的key,对接之前联运提供给CP -->
-        <!-- CgsPEgsLEg8LCg== -->
-        <!--
-              <meta-data
-            android:name="paysdk_signkey"
-            android:value="CgsPEgsLEg8LCg==" />
-        -->
-        <!-- 联运SDK服务器接口地址的前面通用部分,对接前联运提供给CP -->
-        <!--
-              <meta-data
-            android:name="paysdk_ipaddress"
-            android:value="http://www.jm3011.cn/sdk.php/" />
-        -->
-        <!-- android:value="http://a2.vlcms.com/sdk.php" /> -->
-
-        <activity android:name="com.mchsdk.paysdk.activity.ToCertificateActivity"  android:screenOrientation="behind">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="ToCertificateActivity.ToCertificate"/> -->
-            <!-- </intent-filter> -->
-        </activity>
-
+        <!-- vivo sdk componets end -->
+        
 	</applicationConfig>
 </manifest>

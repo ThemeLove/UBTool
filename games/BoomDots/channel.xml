@@ -28,9 +28,9 @@
 		<!-- dksdk_ver表示sdk版本,此版本为 221 -->
 		<meta-data android:name="dksdk_ver" android:value="221" />
 		
-<!-- 		<plugins>
-			<plugin name="ad_baidu"/>
-		</plugins> -->
+		<plugins>
+			<!-- <plugin name="ad_baidu"/> -->
+		</plugins>
 	</channel>
 	
 	<channel id="2"  name="meizu" game="BoomDots" suffix=".mz" splash="false" script="true" keystore="false">
@@ -52,6 +52,106 @@
 		<plugins>
 			<plugin name="ad_meizu"/>
 		</plugins>
-
+	</channel>
+	
+	<channel id="3"  name="vivo" game="BoomDots" suffix=".vivo" splash="false" script="true" keystore="false">
+		<param name="VIVO_AppID" value="2fc58425695e5ab299ebee06af69d1d9" />
+		<param name="VIVO_CPID" value="a51760bca8dd54e66f80" />
+		<param name="VIVO_AppKey" value="04c927301e6bb056c02d7836791ef408" />
+		<param name="VIVO_Pay_Version" value="1.0.0"/>
+	
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
+		
+		<param name="UB_PlatformID" value="3" />
+		<param name="UB_PlatformName" value="vivo"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+<!-- 		<plugins>
+			<plugin name="ad_meizu"/>
+		</plugins> -->
+	</channel>
+	
+	<channel id="4"  name="lenovo" game="BoomDots" suffix=".lenovo" splash="false" script="true" keystore="false">
+		<param name="Lenovo_AppID" value="3019854556" />
+		<param name="Lenovo_PrivateKey" value="MIICXQIBAAKBgQC4S9LMXMTGgNFuySrjhBAFtWBTRkQ0veuPaJLBT2pklYd+jjCyfWu5W9BiVuRtdh8UDFxBDtbIb1wAMp0lJZ7DfXrQ39V1WUGGUuzmQRGiAPIaAxzxGJyePme3phIMvGl2K8WbLz2x8mJzrEUPr6uNQrt23lkBoA1Y6RFbzJXdbwIDAQABAoGAMOCDHon38gFWCgC2LDLpIOpyioNXMXmxEI6WZUhPmi+CCNFjHuNef4FXKc2LtXAfW+zPRr3Nvsix6KeDv8dTbGeuYahYRwhvzJnkae4T0GFBKAIBUHlVILX57PBt/tP+OeU5Yk8jbnHzX+U5q5+Rzxs7jFlHFEuIl1pVKY5XK3ECQQDr8PfDplik6L3YgYj1W4XiPD2fRli2OcKf5PzX4g6KzmERdrha36j/WhFQ5ziSXaK6XIQMUc/b3Gcq190AWVs3AkEAx/bZtAnE7OwdMAoCmo7Z3n/+fA/xHYkE9hBGJg9dcdJ+WP1PfYuY1+e0E+i/x9eICoTdzhqc975P8vmtaCTbiQJBAMyUoqE5Cb/kN0kV+KWW+F4UkfIbUyyepM10BnFCiA1/qdc0s+HH8YeIl18pPnpbSpCBS9ZK0gr371TM28pDsL0CQHJqaVjduiMCWxUQtTqwgDMSs49TI9iNfRw6ZZkDc6lcEtViY6hnRtZLCrvVkl6LkZjLO4rhqW0MJPzXJgSQClkCQQCEJjm8Z7A2jHVD/RTKwYjbFfIa8hmR+ZYVy2/vxYogJ+7XEZZyVZl8xI1cdMa40f9h0OjK771SKWZu2KKknIjW"/>
+		<param name="Lenovo_PublicKey" value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCTTKSRyNZZyt9LI9N7cdEDt24xKqke0SHEBCREj0e4mQjLIDHQDBpRzv+DHULkvWCVH+dbhblfoeTt+RYwQy9JEy0p16N5m2IZuaHAdHO9sr0aO5ca9oQSz7UUWUK6VXQKsT53zg4+jzDkunPolb89ns2XRVx4Od4cl8U2ENsKAQIDAQAB"/>
+	
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
+		
+		<param name="UB_PlatformID" value="4" />
+		<param name="UB_PlatformName" value="lenovo"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+		
+		<meta-data
+            android:name="lenovo.open.appid"
+            android:value="1806010562504.app.ln" />
+		
+		<plugins>
+			<plugin name="ad_lenovo"/>
+		</plugins>
+	</channel>
+	
+	<channel id="5"  name="oppo" game="BoomDots" suffix=".nearme.gamecenter" splash="false" script="true" keystore="false">
+		
+<!-- 		appID sdk客户端里用不到 和 appKey配置在AndroidManifest.xml中
+		<param name="OPPO_AppID" value="3681224" />
+		<param name="OPPO_AppKey" value="9olqCZyPaccgw0sg88k8O40kW" /> -->
+		
+		<param name="OPPO_Pay_Rate" value="100"/>
+		<param name="OPPO_AppSecret" value="6a18A5089bf4aeF7Be1c0dc2190acbA2"/>
+		<param name="OPPO_IsShowCpSmsChannel" value="false"/>
+		<param name="OPPO_IsUseCachedChannel" value="false"/>
+		
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
+		
+		<param name="UB_PlatformID" value="5" />
+		<param name="UB_PlatformName" value="oppo"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+		
+		<meta-data android:name="app_key" android:value="9olqCZyPaccgw0sg88k8O40kW" />
+		
+		<plugins>
+<!-- 			<plugin name="ad_oppo"/> -->
+		</plugins>
+		
+	</channel>
+	<channel id="6"  name="xiaomi" game="BoomDots" suffix=".mi" splash="false" script="true" keystore="false">
+		
+<!-- 	AppSecret sdk客户端里用不到
+		<param name="XiaoMi_AppSecret" value="BdKSyuOQQD5OcpoDhRhGcg=="/>
+		 -->
+		 
+		<param name="XiaoMi_AppID" value="2882303761517707344" />
+		<param name="XiaoMi_AppKey" value="5961770733344" />
+		
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
+		
+		<param name="UB_PlatformID" value="5" />
+		<param name="UB_PlatformName" value="xiaomi"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+		
+		<plugins>
+<!-- 			<plugin name="ad_xiaomi"/> -->
+		</plugins>
+		
 	</channel>
 </channels>

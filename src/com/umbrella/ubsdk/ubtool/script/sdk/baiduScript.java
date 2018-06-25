@@ -15,15 +15,15 @@ import com.umbrella.ubsdk.ubtool.utils.FileUtil;
 public class baiduScript extends  BaseScript{
 	private static final String TAG=baiduScript.class.getSimpleName();
 	/**
-	 * 百度渠道要将game/sdk/baidu/baidu_pay.xml中的计费点配置文件copy到打包过程中的Temp/assets/目录下
+	 * 百度渠道要将game/sdk/baidu/payConfig.xml中的计费点配置文件copy到打包过程中的Temp/assets/目录下
 	 * @param game
 	 * @param channel
 	 * @throws IOException 
 	 */
 	public void execute(Game game,Channel channel) throws IOException{
 		System.out.println(TAG+"----->execute");
-		String sourcePath=GAMES_PATH+File.separator+game.getName()+File.separator+"sdk"+File.separator+"baidu"+File.separator+"baidu_pay.xml";
-		String targetPath=TEMP_PATH+File.separator+"assets"+File.separator+"baidu_pay.xml";
+		String sourcePath=GAMES_PATH+File.separator+game.getName()+File.separator+"sdk"+File.separator+"baidu"+File.separator+"payConfig.xml";
+		String targetPath=TEMP_PATH+File.separator+"assets"+File.separator+"payConfig.xml";
 		File sourceFile = new File(sourcePath);
 		if (!sourceFile.exists()) {
 			String parent = sourceFile.getParent();

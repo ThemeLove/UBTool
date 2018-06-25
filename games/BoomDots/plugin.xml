@@ -7,5 +7,43 @@
 		<param name="AD_MeiZu_Splash_ID" value="8b7bcc89a946b6ef5bf5b7210d76c4b8"/>
 		<param name="AD_MeiZu_Banner_Position" value="1"/>
 	</plugin>
+	<plugin id="4" name="ad_baidu" game="BoomDots" script="true">
+<!-- 		<param name="AD_BaiDu_Banner_ID" value="2050839" />
+		<param name="AD_BaiDu_Interstitial_ID" value="2050840" />
+		<param name="AD_BaiDu_Splash_ID" value="2050841" />
+		<param name="AD_BaiDu_RewardVideo_ID" value="2050842" />
+		<param name="AD_BaiDu_Banner_Position" value="1" />
+		
+		<meta-data name="DUOKU_AD_APPKEY" value="11125131"/>
+        DUOKU_AD_PRODUCT_KEY：填写 productKey信息 
+        <meta-data name="DUOKU_AD_PRODUCT_KEY" value="uDxP9u9InnhH1DzDHsGXofVT"/>
+        DUOKU_AD_VERSION：填写sdk 版本
+        <meta-data name="DUOKU_AD_VERSION" value="3.1.0"/> -->
+        
+        <param name="AD_BaiDu_Banner_ID" value="1000000" />
+		<param name="AD_BaiDu_Interstitial_ID" value="1000001" />
+		<param name="AD_BaiDu_Splash_ID" value="1000002" />
+		<param name="AD_BaiDu_RewardVideo_ID" value="1000003" />
+		<param name="AD_BaiDu_Banner_Position" value="1" />
+		
+		<meta-data android:name="DUOKU_AD_APPKEY" value="50040"/>
+        <!-- DUOKU_AD_PRODUCT_KEY：填写 productKey信息  -->
+        <meta-data android:name="DUOKU_AD_PRODUCT_KEY" value="OWNDEV_w6FRJc4aTw2oCPxyj"/>
+        <!--DUOKU_AD_VERSION：填写sdk 版本-->
+        <meta-data android:name="DUOKU_AD_VERSION" value="3.1.0"/>
+	</plugin>
+	
+	<plugin id="4" name="ad_lenovo" game="BoomDots" script="false">
+		<param name="AD_Lenovo_Banner_ID" value="1806010562504.app.lnjibovllf" />
+		<param name="AD_Lenovo_Interstitial_ID" value="1806010562504.app.lnjibpzwn6" />
+		<param name="AD_Lenovo_Splash_ID" value="" />
+		<param name="AD_Lenovo_RewardVideo_ID" value="1806010562504.app.lnjibq1rtf" />
+		<param name="AD_Lenovo_Banner_Position" value="1" />
+
+<!--         <meta-data
+            android:name="lenovo.open.appid"
+            android:value="1806010562504.app.ln" /> -->
+        <!-- value=" 在此处填入申请的 lenovo open AppID" 渠道sdk中已经配置 -->
+	</plugin>
 
 </plugins>
