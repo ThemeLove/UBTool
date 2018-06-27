@@ -46,4 +46,12 @@
         <!-- value=" 在此处填入申请的 lenovo open AppID" 渠道sdk中已经配置 -->
 	</plugin>
 
+	<plugin id="6" name="ad_xiaomi" game="BoomDots" script="false">
+		<param name="AD_XiaoMi_APP_ID" value="2882303761517707344"/>
+		<param name="AD_XiaoMi_Banner_ID" value="6a5ec9ac8263788400c141b4f22cea48" />
+		<param name="AD_XiaoMi_Interstitial_ID" value="5a069dfa53b3f2303b271818210dac51" />
+		<param name="AD_XiaoMi_Splash_ID" value="2ee681c365d4e588bb31b28ac3bdad3a"/>
+		<param name="AD_XiaoMi_RewardVideo_ID" value="c073eb92f9357a8fd6531e71a6513a6e"/>
+		<param name="AD_XiaoMi_Banner_Position" value="1"/>
+	</plugin>
 </plugins>
