@@ -71,7 +71,7 @@
 		<param name="UB_ChannelID" value="1" />
 		<param name="UB_SubChannelID" value="1" />
 <!-- 		<plugins>
-			<plugin name="ad_meizu"/>
+			<plugin name="ad_vivo"/>
 		</plugins> -->
 	</channel>
 	
