@@ -125,7 +125,7 @@
 		<meta-data android:name="app_key" android:value="9olqCZyPaccgw0sg88k8O40kW" />
 		
 		<plugins>
-<!-- 			<plugin name="ad_oppo"/> -->
+			<plugin name="ad_oppo"/>
 		</plugins>
 		
 	</channel>

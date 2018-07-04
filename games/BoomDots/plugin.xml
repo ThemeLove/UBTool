@@ -45,6 +45,21 @@
             android:value="1806010562504.app.ln" /> -->
         <!-- value=" 在此处填入申请的 lenovo open AppID" 渠道sdk中已经配置 -->
 	</plugin>
+	
+	<plugin id="5" name="ad_oppo" game="BoomDots" script="false">
+		<param name="OPPO_AppID" value="3681224"/>
+		<param name="AD_OPPO_Splash_App_Name" value="碰碰球" />
+		<param name="AD_OPPO_Splash_App_Desc" value="休闲益智首选" />
+		
+		<param name="AD_OPPO_Banner_Position" value="1"/>
+		<param name="AD_OPPO_Banner_ID" value="15356" />
+		<param name="AD_OPPO_Interstitial_ID" value="15357" />
+		
+		<!-- 暂时不支持这2种广告 -->
+<!-- 		<param name="AD_OPPO_Splash_ID" value="331"/>
+		<param name="AD_OPPO_RewardVideo_ID" value="332"/> -->
+
+	</plugin>
 
 	<plugin id="6" name="ad_xiaomi" game="BoomDots" script="false">
 		<param name="AD_XiaoMi_APP_ID" value="2882303761517707344"/>
