@@ -36,7 +36,7 @@
         <!--Demo 分渠道打包渠道号-->
         <meta-data
             android:name="OPPO_CHANNEL"
-            android:value="123" />
+            android:value="oppo" />
         <!--适配异形屏-->
         <meta-data
             android:name="android.max_aspect"
