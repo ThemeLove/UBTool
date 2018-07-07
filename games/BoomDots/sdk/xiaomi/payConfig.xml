@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payconfig>
+    <product productID="boomdots.remove_ads"  productName="去除广告" amount="4.9" payType="3">
+	    <billing billingID="remove_ads" billingName="去除广告"  billingPrice="4.9"/>
+	    <paymethoditems>
+	    	<paymethoditem payID="1" payName="支付宝"  payDesc="" isSelect="true"/>
+	    	<paymethoditem payID="2" payName="微信支付"  payDesc=""/>
+	    	<paymethoditem payID="3" payName="QQ支付"  payDesc=""/>
+	    </paymethoditems>   
+	    <orderinfo orderID="1000" amount="4.9" productName="去除广告" productDesc="去除广告"  ext="ext" />     
+	</product>
+</payconfig>

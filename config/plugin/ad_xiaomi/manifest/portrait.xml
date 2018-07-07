@@ -1,28 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 	<permissionConfig>
-		<uses-permission android:name="android.permission.INTERNET" />
-		<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-		<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-		<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+	    <uses-permission android:name="android.permission.INTERNET"/>
+		<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+		<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+		<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+		<uses-permission android:name="android.permission.GET_TASKS"/>
+		<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+		<uses-permission android:name="android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS"/>
+		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 	</permissionConfig>
 
 	<applicationConfig>
-		<activity android:name="com.shenqi.video.VideoAdActivity"
-			android:theme="@android:style/Theme.Translucent"
-			android:configChanges="keyboardHidden|orientation|screenSize" />
-		<!-- android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize" -->
-		<activity android:name="com.shenqi.video.AdActivity"
-			android:configChanges="keyboard|keyboardHidden|orientation">
-		</activity>
-		<service android:name="com.shenqi.video.DownloadService" />
-		<receiver android:name="com.shenqi.video.VideoAdReceiver">
-			<intent-filter android:priority="2147483647">
-				<action android:name="android.intent.action.PACKAGE_ADDED" />
-				<data android:scheme="package" />
-			</intent-filter>
-		</receiver>
+		       
+        <activity
+            android:name="com.ubsdk.ad.xiaomi.plugin.ADXiaoMiRewardVideoActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ubsdk.ad.xiaomi.plugin.ADXiaoMiSplashActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        
+        <activity
+            android:name="com.xiaomi.ad.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        
+         <activity
+            android:name="com.miui.zeus.mimo.sdk.activityProxy.ProxyActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"></activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="{PACKAGENAME}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 	</applicationConfig>
 </manifest>

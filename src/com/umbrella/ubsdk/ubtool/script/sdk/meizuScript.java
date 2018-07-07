@@ -8,8 +8,15 @@ import com.umbrella.ubsdk.ubtool.bean.Game;
 import com.umbrella.ubsdk.ubtool.script.BaseScript;
 import com.umbrella.ubsdk.ubtool.utils.FileUtil;
 
+/**
+ * 魅族渠道自定义插件
+ * @author qingshanliao
+ */
 public class meizuScript extends BaseScript{
 	private static final String TAG=meizuScript.class.getSimpleName();
+	/**
+	 * 魅族渠道要将game/sdk/meizu/payConfig.xml中的计费点配置文件copy到打包过程中的Temp/assets/目录下
+	 */
 	@Override
 	public void execute(Game game, Channel channel) throws IOException {
 		System.out.println(TAG+"----->execute");

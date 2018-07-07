@@ -7,5 +7,66 @@
 		<param name="AD_MeiZu_Splash_ID" value="8b7bcc89a946b6ef5bf5b7210d76c4b8"/>
 		<param name="AD_MeiZu_Banner_Position" value="1"/>
 	</plugin>
+	<plugin id="4" name="ad_baidu" game="BoomDots" script="true">
+<!-- 		<param name="AD_BaiDu_Banner_ID" value="2050839" />
+		<param name="AD_BaiDu_Interstitial_ID" value="2050840" />
+		<param name="AD_BaiDu_Splash_ID" value="2050841" />
+		<param name="AD_BaiDu_RewardVideo_ID" value="2050842" />
+		<param name="AD_BaiDu_Banner_Position" value="1" />
+		
+		<meta-data name="DUOKU_AD_APPKEY" value="11125131"/>
+        DUOKU_AD_PRODUCT_KEY：填写 productKey信息 
+        <meta-data name="DUOKU_AD_PRODUCT_KEY" value="uDxP9u9InnhH1DzDHsGXofVT"/>
+        DUOKU_AD_VERSION：填写sdk 版本
+        <meta-data name="DUOKU_AD_VERSION" value="3.1.0"/> -->
+        
+        <param name="AD_BaiDu_Banner_ID" value="1000000" />
+		<param name="AD_BaiDu_Interstitial_ID" value="1000001" />
+		<param name="AD_BaiDu_Splash_ID" value="1000002" />
+		<param name="AD_BaiDu_RewardVideo_ID" value="1000003" />
+		<param name="AD_BaiDu_Banner_Position" value="1" />
+		
+		<meta-data android:name="DUOKU_AD_APPKEY" value="50040"/>
+        <!-- DUOKU_AD_PRODUCT_KEY：填写 productKey信息  -->
+        <meta-data android:name="DUOKU_AD_PRODUCT_KEY" value="OWNDEV_w6FRJc4aTw2oCPxyj"/>
+        <!--DUOKU_AD_VERSION：填写sdk 版本-->
+        <meta-data android:name="DUOKU_AD_VERSION" value="3.1.0"/>
+	</plugin>
+	
+	<plugin id="4" name="ad_lenovo" game="BoomDots" script="false">
+		<param name="AD_Lenovo_Banner_ID" value="1806010562504.app.lnjibovllf" />
+		<param name="AD_Lenovo_Interstitial_ID" value="1806010562504.app.lnjibpzwn6" />
+		<param name="AD_Lenovo_Splash_ID" value="" />
+		<param name="AD_Lenovo_RewardVideo_ID" value="1806010562504.app.lnjibq1rtf" />
+		<param name="AD_Lenovo_Banner_Position" value="1" />
 
+<!--         <meta-data
+            android:name="lenovo.open.appid"
+            android:value="1806010562504.app.ln" /> -->
+        <!-- value=" 在此处填入申请的 lenovo open AppID" 渠道sdk中已经配置 -->
+	</plugin>
+	
+	<plugin id="5" name="ad_oppo" game="BoomDots" script="false">
+		<param name="OPPO_AppID" value="3681224"/>
+		<param name="AD_OPPO_Splash_App_Name" value="碰碰球" />
+		<param name="AD_OPPO_Splash_App_Desc" value="休闲益智首选" />
+		
+		<param name="AD_OPPO_Banner_Position" value="1"/>
+		<param name="AD_OPPO_Banner_ID" value="15356" />
+		<param name="AD_OPPO_Interstitial_ID" value="15357" />
+		
+		<!-- 暂时不支持这2种广告 -->
+<!-- 		<param name="AD_OPPO_Splash_ID" value="331"/>
+		<param name="AD_OPPO_RewardVideo_ID" value="332"/> -->
+
+	</plugin>
+
+	<plugin id="6" name="ad_xiaomi" game="BoomDots" script="false">
+		<param name="AD_XiaoMi_APP_ID" value="2882303761517707344"/>
+		<param name="AD_XiaoMi_Banner_ID" value="6a5ec9ac8263788400c141b4f22cea48" />
+		<param name="AD_XiaoMi_Interstitial_ID" value="5a069dfa53b3f2303b271818210dac51" />
+		<param name="AD_XiaoMi_Splash_ID" value="2ee681c365d4e588bb31b28ac3bdad3a"/>
+		<param name="AD_XiaoMi_RewardVideo_ID" value="c073eb92f9357a8fd6531e71a6513a6e"/>
+		<param name="AD_XiaoMi_Banner_Position" value="1"/>
+	</plugin>
 </plugins>

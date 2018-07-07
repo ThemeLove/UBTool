@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payconfig>
+	<product productID="boomdots.remove_ads"  productName="去除广告" amount="4.9" payType="3">
+	    <paymethoditems>
+	    	<paymethoditem payID="1" payName="支付宝"  payDesc="安全可靠\r\n支付快速便捷" isSelect="true"/>
+	    	<paymethoditem payID="2" payName="微信支付"  payDesc="无需开通网银\r\n轻松支付"/>
+	    </paymethoditems>   
+	</product>
+</payconfig>

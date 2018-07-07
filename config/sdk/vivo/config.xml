@@ -2,13 +2,16 @@
 <config>
 	<operations>
 		<operation step="1" type="merge" from="manifest" to="AndroidManifest.xml"/>
-		<operation step="2" type="copy"  from="libs" to="libs"/>
+		<operation step="2" type="copy"  from="libs" to="lib"/>
 		<operation step="3" type="copy"  from="assets" to="assets"/>
-		<operation step="4" type="copy"  from="res"    to="res"/>
+		<operation step="4" type="copy"  from="res" to="res"/>
 	</operations>
 	<plugins>
-		<plugin name="com.vas.xiantu2.plugin.XianTu2UserPlugin" type="1"/>
-		<plugin name="com.vas.xiantu2.plugin.XianTu2PayPlugin" type="2"/>
-		<plugin name="com.vas.xiantu2.plugin.XianTu2SettingPlugin" type="3"/>
+		<plugin name="com.ubsdk.vivo.plugin.VIVOUserPlugin" type="1"/>
+		<plugin name="com.ubsdk.vivo.plugin.VIVOPayPlugin" type="2"/>
+		<plugin name="com.ubsdk.vivo.plugin.VIVOSettingPlugin" type="3"/>
 	</plugins>
+	<applications>
+		<application name="com.ubsdk.vivo.plugin.VIVOApplication"></application>
+	</applications>
 </config>
