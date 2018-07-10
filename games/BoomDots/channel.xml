@@ -8,7 +8,7 @@
 		<param name="UB_GameID" value="1003" />
 		<param name="UB_GameDebug" value="true" />
 		<param name="UB_GameOrientation" value="portrait" />
-		<param name="UB_GameMainActivityName" value="com.umbrella.downthemountain" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
 		
 		<param name="UB_PlatformID" value="1" />
 		<param name="UB_PlatformName" value="baidu"/>
@@ -29,7 +29,7 @@
 		<meta-data android:name="dksdk_ver" android:value="221" />
 		
 		<plugins>
-			<!-- <plugin name="ad_baidu"/> -->
+			<plugin name="ad_baidu"/>
 		</plugins>
 	</channel>
 	

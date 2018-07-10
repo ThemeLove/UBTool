@@ -71,6 +71,7 @@ public class UBTool {
 	private static String LINE_SEPARATOR=System.getProperty("line.separator");
 	private static Map<String,Plugin> pluginMap;//当前渠道配置的插件集合
 	private static Map<String,ChannelOrPluginConfig> pluginConfigMap;//当前渠道配置的插件配置集合
+	private static boolean isDeleteNormalConfigFile=false;//是否删除未加密的配置文件ubsdk_config_normal.xml
 	
 	public static void main(String[] args) throws Exception {
 		//***************************交互部分*******************************//
@@ -543,7 +544,9 @@ public class UBTool {
 		String ubsdkConfigPath=TEMP_PATH+File.separator+"assets"+File.separator+"ubsdk_config_nomal.xml";
 //				13.对普通的ubsdk_config_nomal.xml进行加密
 		EncryptUtil.createEncryptConfigXml(TEMP_PATH+File.separator+"assets", ubsdkConfigPath);
-		FileUtil.delete(ubsdkConfigPath);//删除ubsdk_config_normal.xml
+		if (isDeleteNormalConfigFile) {
+			FileUtil.delete(ubsdkConfigPath);//删除ubsdk_config_normal.xml
+		}
 		System.out.println("	16.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml----->成功！");
 		System.out.println("--------------"+LINE_SEPARATOR);
 	}
