@@ -71,7 +71,7 @@ public class UBTool {
 	private static String LINE_SEPARATOR=System.getProperty("line.separator");
 	private static Map<String,Plugin> pluginMap;//当前渠道配置的插件集合
 	private static Map<String,ChannelOrPluginConfig> pluginConfigMap;//当前渠道配置的插件配置集合
-	private static boolean isDeleteNormalConfigFile=true;//是否删除未加密的配置文件ubsdk_config_normal.xml
+	private static boolean isDeleteNormalConfigFile=false;//是否删除未加密的配置文件ubsdk_config_normal.xml
 	
 	public static void main(String[] args) throws Exception {
 		//***************************交互部分*******************************//
@@ -909,11 +909,15 @@ public class UBTool {
 		 newGamePackageName=oldGamePackageName;
 		 
 		 if (!TextUtil.isEmpty(channel.getSuffix())) {
-			 int lastDotIndex = oldGamePackageName.lastIndexOf(".");
+			 if (channel.getSuffix().startsWith("com.")) {//如果suffix是以com.开头的，则表示配置的全包名，比如应用宝渠道
+				newGamePackageName=channel.getSuffix();
+			}else{
+				int lastDotIndex = oldGamePackageName.lastIndexOf(".");
 //			 String prefixPackageName = oldGamePackageName.substring(0, lastDotIndex);
-			 String lastPackageName = oldGamePackageName.substring(lastDotIndex);
-			 if (!TextUtil.equalsIgnoreCase(lastPackageName,channel.getSuffix())) {//如果和当前渠道配置不相同
-				 newGamePackageName=oldGamePackageName+channel.getSuffix();
+				String lastPackageName = oldGamePackageName.substring(lastDotIndex);
+				if (!TextUtil.equalsIgnoreCase(lastPackageName,channel.getSuffix())) {//如果和当前渠道配置不相同
+					newGamePackageName=oldGamePackageName+channel.getSuffix();
+				}
 			}
 			 System.out.println("	newGamePackageName:"+newGamePackageName);
 			 System.out.println("		5.1替换新包名和替换{PACKAGENAME}");

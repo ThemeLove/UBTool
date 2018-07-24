@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<keystore name="BoomDots" password="android">
+<alias name="androiddebugkey" password="android"/>
+</keystore>
