@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#a0000000"
+              tools:context="com.qq.e.union.demo.NativeVideoPreMovieActivity">
+
+    <!-- 前贴广告父容器 高度不要写死，否则竖屏旋转到横屏之后可能无法铺满全屏 -->
+    <FrameLayout
+        android:id="@+id/ad_yyb_video_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_centerVertical="true"
+        >
+        <com.qq.e.ads.nativ.MediaView
+            android:id="@+id/ad_yyb_video_media_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <!-- 自定义倒计时 -->
+        <TextView
+            android:id="@+id/ad_yyb_video_count_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:background="#60000000"
+            android:paddingBottom="4dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="4dp"
+            android:textSize="15sp"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/ad_yyb_video_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="36dp"
+            android:background="#60000000"
+            android:paddingBottom="4dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="4dp"
+            android:text="了解更多"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:visibility="visible"/>
+        <!-- 预加载视频前，先展示广告的大图素材 -->
+        <ImageView
+            android:id="@+id/ad_yyb_video_holder"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY" 
+            android:contentDescription="@string/app_name"/>
+    </FrameLayout>
+</RelativeLayout>

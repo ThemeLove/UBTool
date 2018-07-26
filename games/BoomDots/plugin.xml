@@ -7,6 +7,7 @@
 		<param name="AD_MeiZu_Splash_ID" value="8b7bcc89a946b6ef5bf5b7210d76c4b8"/>
 		<param name="AD_MeiZu_Banner_Position" value="1"/>
 	</plugin>
+	
 	<plugin id="4" name="ad_baidu" game="BoomDots" script="true">
 		<param name="AD_BaiDu_Banner_ID" value="2050839" />
 		<param name="AD_BaiDu_Interstitial_ID" value="2050840" />
@@ -68,5 +69,17 @@
 		<param name="AD_XiaoMi_Splash_ID" value="2ee681c365d4e588bb31b28ac3bdad3a"/>
 		<param name="AD_XiaoMi_RewardVideo_ID" value="c073eb92f9357a8fd6531e71a6513a6e"/>
 		<param name="AD_XiaoMi_Banner_Position" value="1"/>
+	</plugin>
+	
+	<plugin id="7" name="ad_yyb" game="BoomDots" script="false">
+		<param name="AD_YYB_Banner_Position" value="1"/>
+		
+		<!-- 测试数据 -->
+		<param name="AD_YYB_APP_ID" value="1101152570"/>
+		<param name="AD_YYB_Banner_ID" value="9079537218417626401" />
+		<param name="AD_YYB_Interstitial_ID" value="8575134060152130849" />
+		<param name="AD_YYB_Splash_ID" value="8863364436303842593"/>
+		<param name="AD_YYB_RewardVideo_ID" value="5090421627704602"/>
+		
 	</plugin>
 </plugins>
