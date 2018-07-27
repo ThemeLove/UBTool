@@ -1108,6 +1108,10 @@ public class UBTool {
 			case "copy":
 				String sourcePath=operationPath+File.separator+operation.getFrom();
 				String targetPath=TEMP_PATH+File.separator+operation.getTo();
+				File sourceFile = new File(sourcePath);
+				File targetFile = new File(targetPath);
+				if (!sourceFile.exists()) continue;
+				
 				System.out.println("		copy:"+sourcePath+"----->"+targetPath);
 				
 				File[] gameJniFilesCopyBefore = null;
@@ -1128,10 +1132,19 @@ public class UBTool {
 				}
 				
 				final File[] gameJniFilesCopyBeforeTemp=gameJniFilesCopyBefore;
-//						先全部拷贝
-				FileUtil.copyDirectiory(sourcePath, targetPath);
-				System.out.println("		copy:"+sourcePath+"----->"+targetPath+"----->成功！");
+//				先全部拷贝
+				if (sourceFile.isDirectory()) {//源文件时目录
+					FileUtil.copyDirectiory(sourcePath, targetPath);
+				}else{//源文件时文件
+					if (!targetFile.exists()) {
+						String parent = targetFile.getParent();
+						new File(parent).mkdirs();
+						targetFile.createNewFile();
+					}
+					FileUtil.copyFile(sourceFile, targetFile);
+				}
 				
+				System.out.println("		copy:"+sourcePath+"----->"+targetPath+"----->成功！");
 				
 //						如果是拷贝的libs目录，则删除多余的jni配置，保持适配
 				if (TextUtil.equals("libs", operation.getFrom())) {
