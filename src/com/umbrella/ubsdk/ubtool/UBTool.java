@@ -71,7 +71,7 @@ public class UBTool {
 	private static String LINE_SEPARATOR=System.getProperty("line.separator");
 	private static Map<String,Plugin> pluginMap;//当前渠道配置的插件集合
 	private static Map<String,ChannelOrPluginConfig> pluginConfigMap;//当前渠道配置的插件配置集合
-	private static boolean isDeleteNormalConfigFile=true;//是否删除未加密的配置文件ubsdk_config_normal.xml
+	private static boolean isDeleteNormalConfigFile=false;//是否删除未加密的配置文件ubsdk_config_normal.xml
 	
 	public static void main(String[] args) throws Exception {
 		//***************************交互部分*******************************//
