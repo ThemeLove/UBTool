@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <payconfig>
-    <product productID="boomdots.remove_ads1"  productName="去除广告" amount="4.9" payType="1">
+    <product productID="boomdots.remove_ads"  productName="去除广告" amount="4.9" payType="1">
 	    <billing billingID="1" billingName="去除广告"  billingPrice="4.9"/>
 	    <paymethoditems>
 	    	<paymethoditem payID="2" payName="微信支付"  payDesc=""/>

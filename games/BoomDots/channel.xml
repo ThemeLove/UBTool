@@ -66,7 +66,7 @@
 		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
 		
 		<param name="UB_PlatformID" value="3" />
-		<param name="UB_PlatformName" value="vivo;NoRV;NoIAP"/>
+		<param name="UB_PlatformName" value="vivo"/>
 		<param name="UB_SubPlatformID" value="0" />
 		<param name="UB_ChannelID" value="1" />
 		<param name="UB_SubChannelID" value="1" />
@@ -188,7 +188,7 @@
 		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
 		
 		<param name="UB_PlatformID" value="7" />
-		<param name="UB_PlatformName" value="yyb;NoRV"/>
+		<param name="UB_PlatformName" value="yyb"/>
 		<param name="UB_SubPlatformID" value="0" />
 		<param name="UB_ChannelID" value="1" />
 		<param name="UB_SubChannelID" value="1" />
