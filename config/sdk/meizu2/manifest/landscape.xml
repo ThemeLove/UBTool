@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<permissionConfig>
+	    <uses-permission android:name="android.permission.INTERNET" />
+	    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	    <uses-permission android:name="android.permission.READ_SMS" />
+	    <uses-permission android:name="android.permission.GET_TASKS" />
+	</permissionConfig>
+
+	<applicationConfig>
+               <!--
+        注意：魅族游戏SDK 采用插件机制，需要预声明大量占坑Activity、Provider，请务必按照要求进行配置，并且对包名进行替换，
+        直接将{PACKAGENAME} 一键全部替换为游戏的packagename (使用androidstudio 编译的游戏 {PACKAGENAME} 默认为packagename，可不修改 )
+        -->
+        <!-- ======================================================================== -->
+        <!-- 开始 -->
+
+        <activity
+            android:name="com.ipaynow.wechatpay.plugin.inner_plugin.wechat_plugin.activity.WeChatNotifyActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <service
+            android:name="com.qihoo360.replugin.component.service.server.PluginPitServiceP0"
+            android:exported="false"
+            android:process=":p0" />
+            
+        <!--  下面要替换动态替换PACKAGENAME  -->
+        <provider
+            android:name="com.qihoo360.replugin.component.process.ProcessPitProviderPersist"
+            android:authorities="{PACKAGENAME}.loader.p.main"
+            android:exported="false"
+            android:process="{PACKAGENAME}" />
+        <provider
+            android:name="com.qihoo360.replugin.component.provider.PluginPitProviderPersist"
+            android:authorities="{PACKAGENAME}.Plugin.NP.PSP"
+            android:exported="false"
+            android:process="{PACKAGENAME}" />
+        <provider
+            android:name="com.qihoo360.mobilesafe.svcmanager.ServiceProvider"
+            android:authorities="{PACKAGENAME}.svcmanager"
+            android:exported="false"
+            android:multiprocess="false"
+            android:process="{PACKAGENAME}" />
+        <service
+            android:name="com.qihoo360.replugin.component.service.server.PluginPitServiceGuard"
+            android:process="{PACKAGENAME}" />
+        <provider
+            android:name="com.qihoo360.replugin.component.provider.PluginPitProviderP0"
+            android:authorities="{PACKAGENAME}.Plugin.NP.0"
+            android:exported="false"
+            android:process=":p0" />
+        <provider
+            android:name="com.qihoo360.replugin.component.process.ProcessPitProviderP0"
+            android:authorities="{PACKAGENAME}.loader.p.mainN100"
+            android:exported="false"
+            android:process=":p0" />
+            
+            
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1NRTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1NRTS1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+ 		<activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1NRTS2"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1STPTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1STTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1SITS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1TA0NRTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1TA0NRTS1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1TA0STPTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1TA0STTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0NRTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0NRTS1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0STPTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0STTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0SITS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0TA0NRTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0TA0NRTS1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0TA0STPTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0TA0STTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+            
+            
+        <!-- 下面的是由原sdk配置android:theme="@style/Theme.AppCompat"手动修改为
+        	android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"的所有Activity，经过测试没有问题
+        -->
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1NRNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1NRNTS1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+		<activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1NRNTS2"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+             />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1STPNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="behind"
+			android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1STNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+             />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1SINTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1TA0NRNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1TA0NRNTS1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+             />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1TA0STPNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityN1TA0STNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0NRNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0NRNTS1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0STPNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0STNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0SINTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+             />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0TA0NRNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0TA0NRNTS1"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0TA0STPNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+            />
+        <activity
+            android:name="{PACKAGENAME}.loader.a.ActivityP0TA0STNTS0"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:process=":p0"
+            android:screenOrientation="behind"
+            android:taskAffinity=":t0"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" 
+             />
+	</applicationConfig>
+</manifest>
