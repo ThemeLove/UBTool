@@ -70,9 +70,9 @@
 		<param name="UB_SubPlatformID" value="0" />
 		<param name="UB_ChannelID" value="1" />
 		<param name="UB_SubChannelID" value="1" />
-<!-- 		<plugins>
+		<plugins>
 			<plugin name="ad_vivo"/>
-		</plugins> -->
+		</plugins>
 	</channel>
 	
 	<channel id="4"  name="lenovo" game="BoomDots" suffix=".lenovo" splash="false" script="true" keystore="false">
@@ -173,7 +173,7 @@
 	   8.打包时要特别注意处理jni的目录，xxxx.so的一定要在armeabi或者armeabi-v7a目录中， 
 		  且最终的游戏包一定要有这2个目录的至少其中一个，否则可能出问题 
 	-->
-	<channel id="7"  name="yyb2" game="BoomDots" suffix="com.tencent.tmgp.umbrella.boomdots" splash="false" script="true" keystore="false">
+	<channel id="7"  name="yyb2" game="BoomDots" suffix="com.tencent.tmgp.umbrella.boomdots" splash="false"  script="true" keystore="false">
 		
 		<!-- 米大师支付比例为1元/10  -->
 		<param name="Midas_Pay_Rate" value="10"/>
