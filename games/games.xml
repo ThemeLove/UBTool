@@ -31,12 +31,14 @@
         apktoolVersion="2-3-0"
         gameMainName=""
 	  />
+	  
+	  <!-- BoomDots 打应用宝渠道的时候需要注意修改keystore="true" ,其他渠道修改为keystore="false" -->
 	  <game
 	    id="1003"
 	    name="BoomDots"
 	    debug="true"
 	    script="false"
-	    keystore="true"
+	    keystore="false"
 	    orientation="portrait"
 	    apktoolVersion="2-3-0"
 	    gameMainName=""
