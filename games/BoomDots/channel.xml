@@ -210,4 +210,45 @@
 <!-- 			<plugin name="ad_yyb"/> -->
 		</plugins>
 	</channel>
+	
+	<channel id="8"  name="huawei" game="BoomDots" suffix=".huawei" splash="false"  script="true" keystore="false">
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
+		
+		<param name="UB_PlatformID" value="8" />
+		<param name="UB_PlatformName" value="huawei;NoRV;NoIAP"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+		
+		<plugins>
+<!-- 			<plugin name="ad_huawei"/> -->
+		</plugins>
+	</channel>
+	
+	<channel id="9"  name="muzhiwan" game="BoomDots" suffix=".mzw" splash="true" script="true" keystore="false">
+	
+		<param name="UB_GameID" value="1003" />
+		<param name="UB_GameDebug" value="true" />
+		<param name="UB_GameOrientation" value="portrait" />
+		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
+		
+		<param name="UB_PlatformID" value="9" />
+		<param name="UB_PlatformName" value="muzhiwan;NoRV;NoIAP"/>
+		<param name="UB_SubPlatformID" value="0" />
+		<param name="UB_ChannelID" value="1" />
+		<param name="UB_SubChannelID" value="1" />
+		
+        <meta-data
+            android:name="mzw_sdk"
+            android:value="3381" />
+        <meta-data
+            android:name="MZWAPPKEY"
+            android:value="f1436ab48781" />
+		<plugins>
+<!-- 			<plugin name="ad_muzhiwan"/> -->
+		</plugins>
+	</channel>
 </channels>

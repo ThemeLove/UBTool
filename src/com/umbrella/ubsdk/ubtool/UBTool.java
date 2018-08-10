@@ -71,7 +71,7 @@ public class UBTool {
 	private static String LINE_SEPARATOR=System.getProperty("line.separator");
 	private static Map<String,Plugin> pluginMap;//当前渠道配置的插件集合
 	private static Map<String,ChannelOrPluginConfig> pluginConfigMap;//当前渠道配置的插件配置集合
-	private static boolean isDeleteNormalConfigFile=true;//是否删除未加密的配置文件ubsdk_config_normal.xml
+	private static boolean isDeleteNormalConfigFile=false;//是否删除未加密的配置文件ubsdk_config_normal.xml
 	
 	public static void main(String[] args) throws Exception {
 		//***************************交互部分*******************************//
@@ -569,15 +569,19 @@ public class UBTool {
 		Map<String, String> channelParams = channel.getChannelParamMap();
 		if (channelParams.size()>0) {
 			for (Entry<String,String> entry : channelParams.entrySet()) {
+//				这里对UB_GameMainActivityName做特殊判断，如果配置了也不加入，因为是UB_GameMainActivityName是后面动态添加的
+				if (TextUtil.equalsIgnoreCase("UB_GameMainActivityName",entry.getKey())) {
+					continue;
+				}
 				Element param = DocumentHelper.createElement("param");
 				param.addAttribute("name",entry.getKey());
 				param.addAttribute("value",entry.getValue());
 				ubsdkConfigRootElement.add(param);
 			}
 		}
-//				添加game的MainActivity，用来在UBSplashActivity跳转到游戏的MainActivity
+//		添加game的MainActivity，用来在UBSplashActivity跳转到游戏的MainActivity，先删除原来<param name="UB_GameMainActivityName" value=""/>节点
 		Element param = DocumentHelper.createElement("param");
-		param.addAttribute("name","MAIN_ACTIVITY_NAME");
+		param.addAttribute("name","UB_GameMainActivityName");
 		param.addAttribute("value",gameOldMainActivityFullName);
 		System.out.println("		gameOldMainActivityFullName:"+gameOldMainActivityFullName);
 		ubsdkConfigRootElement.add(param);
@@ -1038,9 +1042,9 @@ public class UBTool {
 						default:
 							break;
 						}
-						Thumbnails.of(iconMarkFile).size(iconSize, iconSize).keepAspectRatio(true).toFile(iconMarkFile);
+						Thumbnails.of(iconMarkFile).size(iconSize, iconSize).keepAspectRatio(true).toFile(iconMarkFile.getPath());
 						Thread.sleep(500);
-						Thumbnails.of(iconFile).size(iconSize, iconSize).watermark(iconPosition,ImageIO.read(iconMarkFile),1f).toFile(iconFile);
+						Thumbnails.of(iconFile.getPath()).size(iconSize, iconSize).watermark(iconPosition,ImageIO.read(iconMarkFile),1f).toFile(iconFile.getPath());
 						Thread.sleep(500);
 						System.out.println("	合并成功!");
 						System.out.println("---------------------------");
