@@ -1042,7 +1042,7 @@ public class UBTool {
 						default:
 							break;
 						}
-						Thumbnails.of(iconMarkFile).size(iconSize, iconSize).keepAspectRatio(true).toFile(iconMarkFile.getPath());
+						Thumbnails.of(iconMarkFile.getPath()).size(iconSize, iconSize).keepAspectRatio(true).toFile(iconMarkFile.getPath());
 						Thread.sleep(500);
 						Thumbnails.of(iconFile.getPath()).size(iconSize, iconSize).watermark(iconPosition,ImageIO.read(iconMarkFile),1f).toFile(iconFile.getPath());
 						Thread.sleep(500);
