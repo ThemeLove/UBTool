@@ -72,6 +72,8 @@ public class UBTool {
 	private static Map<String,Plugin> pluginMap;//当前渠道配置的插件集合
 	private static Map<String,ChannelOrPluginConfig> pluginConfigMap;//当前渠道配置的插件配置集合
 	private static boolean isDeleteNormalConfigFile=false;//是否删除未加密的配置文件ubsdk_config_normal.xml
+	private static boolean isDeleteNormalPayConfigFile=false;//是否删除支付配置文件payConfig_normal.xml
+	
 	
 	public static void main(String[] args) throws Exception {
 		//***************************交互部分*******************************//
@@ -235,11 +237,11 @@ public class UBTool {
 				System.out.println("	14.MulDex分dex操作----->成功！");
 				System.out.println("--------------"+LINE_SEPARATOR);
 				
-//				15.首先创建未加密ubsdk_config_nomal.xml，首先创建DOM文档，然后在写入配置文件中
-				generateNormalUBSDKConfigFile(channel, channelConfig,pluginsMap);
+//				15.创建未加密ubsdk_config_nomal.xml并加密为ubsdk_config.xml
+				generateNormalUBSDKConfigFileAndDesEncrypt(channel, channelConfig,pluginsMap);
 				
-//				16.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml
-				generateEncryptUBSDKConfigFile();
+//				16.copy渠道支付配置文件payConfig.xml为payConfig_normal.xml并加密为payConfig.xml
+				copyChannelPayConfigFile2Assets(game,channel);
 				
 //				17.执行渠道和插件自定义脚本
 				executeChannelAndPluginScript(game,channel);
@@ -259,6 +261,37 @@ public class UBTool {
 			System.out.println(game.toString()+"----->"+"所有渠道包打包完成！"+LINE_SEPARATOR+LINE_SEPARATOR);
 		}
 		System.out.println("所有渠道包打包完成！");
+	}
+
+	/**
+	 * copy渠道支付配置文件payConfig.xml，并根据配置进行加密
+	 * @throws IOException 
+	 */
+	private static void copyChannelPayConfigFile2Assets(Game game,Channel channel) throws IOException {
+		System.out.println("	16.copy渠道支付配置文件payConfig.xml为payConfig_normal.xml并加密为payConfig.xml");
+		String sourcePath=GAMES_PATH+File.separator+game.getName()+File.separator+"sdk"+File.separator+channel.getName()+File.separator+"payConfig.xml";
+		String targetPath=TEMP_PATH+File.separator+"assets"+File.separator+"payConfig_normal.xml";
+		File sourceFile = new File(sourcePath);
+		if (!sourceFile.exists()) {
+			String parent = sourceFile.getParent();
+			new File(parent).mkdirs();
+			sourceFile.createNewFile();
+		}
+		File targetFile = new File(targetPath);
+		if (!targetFile.exists()) {
+			String parent = targetFile.getParent();
+			new File(parent).mkdirs();
+			targetFile.createNewFile();
+		}
+		FileUtil.copyFile(sourceFile, targetFile);
+		
+//		加密payConfig_normal.xml
+		String targetEncryptPayConfigPath=TEMP_PATH+File.separator+"assets"+File.separator+"payConfig.xml";
+		isDeleteNormalPayConfigFile = false;
+		EncryptUtil.createEncryptConfigXml(targetPath, targetEncryptPayConfigPath,isDeleteNormalPayConfigFile);
+		
+		System.out.println("	16.copy渠道支付配置文件payConfig.xml为payConfig_normal.xml并加密为payConfig.xml----->成功！");
+		System.out.println("--------------"+LINE_SEPARATOR);
 	}
 
 	/**
@@ -537,29 +570,14 @@ public class UBTool {
 	}
 
 	/**
-	 * 对ubsdk_config_nomal.xml进行加密
-	 */
-	private static void generateEncryptUBSDKConfigFile() {
-		System.out.println("	16.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml");
-		String ubsdkConfigPath=TEMP_PATH+File.separator+"assets"+File.separator+"ubsdk_config_nomal.xml";
-//				13.对普通的ubsdk_config_nomal.xml进行加密
-		EncryptUtil.createEncryptConfigXml(TEMP_PATH+File.separator+"assets", ubsdkConfigPath);
-		if (isDeleteNormalConfigFile) {
-			FileUtil.delete(ubsdkConfigPath);//删除ubsdk_config_normal.xml
-		}
-		System.out.println("	16.对ubsdk_config_nomal.xml进行加密为ubsdk_config.xml----->成功！");
-		System.out.println("--------------"+LINE_SEPARATOR);
-	}
-
-	/**
-	 * 15.首先创建未加密ubsdk_config_nomal.xml
+	 * 15.创建未加密ubsdk_config_nomal.xml并加密为ubsdk_config.xml
 	 * @param channel
 	 * @param channelConfig
 	 * @throws IOException
 	 */
-	private static void generateNormalUBSDKConfigFile(Channel channel, ChannelOrPluginConfig channelConfig,Map<String,Plugin> pluginsMap)
+	private static void generateNormalUBSDKConfigFileAndDesEncrypt(Channel channel, ChannelOrPluginConfig channelConfig,Map<String,Plugin> pluginsMap)
 			throws IOException {
-		System.out.println("	15.首先创建未加密ubsdk_config_nomal.xml");
+		System.out.println("	15.创建未加密ubsdk_config_nomal.xml并加密为ubsdk_config.xml");
 		String ubsdkConfigPath=TEMP_PATH+File.separator+"assets"+File.separator+"ubsdk_config_nomal.xml";
 		Element ubsdkConfigRootElement = DocumentHelper.createElement("config");
 		Document ubsdkConfigDOM = DocumentHelper.createDocument(ubsdkConfigRootElement);
@@ -668,7 +686,14 @@ public class UBTool {
 		xmlWriter.write(ubsdkConfigDOM);
 		xmlWriter.flush();
 		xmlWriter.close();
-		System.out.println("	15.首先创建未加密ubsdk_config_nomal.xml----->成功！");
+		
+//		加密ubsdk_config_normal.xml为ubsdk_config.xml
+		System.out.println("		15.3加密ubsdk_config_normal.xml为ubsdk_config.xml");
+		String targetEncryptUBSDKConfigPath=TEMP_PATH+File.separator+"assets"+File.separator+"ubsdk_config.xml";
+		EncryptUtil.createEncryptConfigXml(ubsdkConfigPath, targetEncryptUBSDKConfigPath, isDeleteNormalConfigFile);
+		System.out.println("		15.3加密ubsdk_config_normal.xml为ubsdk_config.xml----->成功！");
+		
+		System.out.println("	15.创建未加密ubsdk_config_nomal.xml并加密为ubsdk_config.xml----->成功！");
 		System.out.println("--------------"+LINE_SEPARATOR);
 	}
 
