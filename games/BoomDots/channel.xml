@@ -66,12 +66,12 @@
 		<param name="UB_GameMainActivityName" value="com.umbrella.boomdots" />
 		
 		<param name="UB_PlatformID" value="3" />
-		<param name="UB_PlatformName" value="vivo;NoRV;NoIAP"/>
+		<param name="UB_PlatformName" value="vivo;NoRV"/>
 		<param name="UB_SubPlatformID" value="0" />
 		<param name="UB_ChannelID" value="1" />
 		<param name="UB_SubChannelID" value="1" />
 		<plugins>
-<!-- 			<plugin name="ad_vivo"/> -->
+			<plugin name="ad_vivo"/>
 		</plugins>
 	</channel>
 	

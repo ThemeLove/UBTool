@@ -71,8 +71,8 @@ public class UBTool {
 	private static String LINE_SEPARATOR=System.getProperty("line.separator");
 	private static Map<String,Plugin> pluginMap;//当前渠道配置的插件集合
 	private static Map<String,ChannelOrPluginConfig> pluginConfigMap;//当前渠道配置的插件配置集合
-	private static boolean isDeleteNormalConfigFile=false;//是否删除未加密的配置文件ubsdk_config_normal.xml
-	private static boolean isDeleteNormalPayConfigFile=false;//是否删除支付配置文件payConfig_normal.xml
+	private static boolean isDeleteNormalConfigFile=true;//是否删除未加密的配置文件ubsdk_config_normal.xml
+	private static boolean isDeleteNormalPayConfigFile=true;//是否删除支付配置文件payConfig_normal.xml
 	
 	
 	public static void main(String[] args) throws Exception {
@@ -85,15 +85,15 @@ public class UBTool {
 //		选择游戏
 		HashMap<Game, ArrayList<Channel>> gameChannelsMap = new HashMap<Game,ArrayList<Channel>>();
 		for(int i=1;i<=gameList.size();i++){
-			String gameID = KeyBoardUtil.keyBoardIn("请选择第《"+i+"》个要打包的游戏id");
-			if ("all".equalsIgnoreCase(gameID)) {
+			String gameID = KeyBoardUtil.keyBoardIn("请选择第《"+i+"》个要打包的游戏id,字符串“end”结束选择：");
+			if ("end".equalsIgnoreCase(gameID)) {
 				System.out.println("所有游戏选择完毕!");
 				break;
 			}
 			Game game=gameList.get(gameID);
 			while(game==null){
-				gameID=KeyBoardUtil.keyBoardIn("您输入的游戏id不存在，请重新输入：");
-				if ("all".equalsIgnoreCase(gameID)) {
+				gameID=KeyBoardUtil.keyBoardIn("您输入的游戏id不存在，请重新输入，字符串“end”结束选择：");
+				if ("end".equalsIgnoreCase(gameID)) {
 					System.out.println("所有游戏选择完毕!");
 					break;
 				}
@@ -108,17 +108,22 @@ public class UBTool {
 			Map<String, Channel> channelMap = ChannelXMLParser.parser(gameChannelXmlPath);//TODO 这里可以用ArrayList代替
 			
 //			根据加载的渠道列表提示用户选择渠道
-			String gameChannelsStr = KeyBoardUtil.keyBoardIn("请选择渠道，多个渠道以“,”分割");
-			for (int j=1;j<=gameChannelsStr.split(",").length;j++) {
-				Channel gameChannel = channelMap.get(gameChannelsStr.split(",")[j-1]);
-				if (gameChannel==null) {
-					gameChannelsStr=KeyBoardUtil.keyBoardIn("渠道："+gameChannelsStr.split(",")[j-1]+" 不存在，请重新输入，多个渠道以“,”分割");
-					gameChannelList.clear();
-					j=0;
-					continue;
+			String gameChannelsStr = KeyBoardUtil.keyBoardIn("请选择渠道，多个渠道以“,”分割，字符串“all”表示所有渠道，按回车键【enter】结束：");
+			if ("all".equalsIgnoreCase(gameChannelsStr)) {
+				gameChannelList.addAll(channelMap.values());
+			}else{
+				for (int j=1;j<=gameChannelsStr.split(",").length;j++) {
+					Channel gameChannel = channelMap.get(gameChannelsStr.split(",")[j-1]);
+					if (gameChannel==null) {
+						gameChannelsStr=KeyBoardUtil.keyBoardIn("渠道："+gameChannelsStr.split(",")[j-1]+" 不存在，请重新输入，多个渠道以“,”分割，字符串“all”表示所有渠道，按回车键【enter】结束：");
+						gameChannelList.clear();
+						j=0;
+						continue;
+					}
+					gameChannelList.add(gameChannel);
 				}
-				gameChannelList.add(gameChannel);
 			}
+			
 			if (gameChannelList!=null&&gameChannelList.size()>0) {
 				gameChannelsMap.put(game, gameChannelList);
 			}
@@ -287,7 +292,6 @@ public class UBTool {
 		
 //		加密payConfig_normal.xml
 		String targetEncryptPayConfigPath=TEMP_PATH+File.separator+"assets"+File.separator+"payConfig.xml";
-		isDeleteNormalPayConfigFile = false;
 		EncryptUtil.createEncryptConfigXml(targetPath, targetEncryptPayConfigPath,isDeleteNormalPayConfigFile);
 		
 		System.out.println("	16.copy渠道支付配置文件payConfig.xml为payConfig_normal.xml并加密为payConfig.xml----->成功！");
@@ -300,7 +304,7 @@ public class UBTool {
 	 * @param channel
 	 */
 	private static void executeGameScript(final Game game,final Channel channel){
-		System.out.println("	2:执行游戏自定义脚本");
+		System.out.println("	2.执行游戏自定义脚本");
 		boolean isExecuteSuccess=false;
 		String script=game.getScript();
 		boolean isSupportScript=TextUtil.equals("true",script);
@@ -309,7 +313,7 @@ public class UBTool {
 			try {
 				Class<?> gameScriptClass = Class.forName(gameScriptClassPath);
 				if (gameScriptClass!=null) {
-					System.out.println("成功获取到游戏自定义脚本----->"+gameScriptClassPath);
+					System.out.println("	成功获取到游戏自定义脚本----->"+gameScriptClassPath);
 					Method method = gameScriptClass.getMethod("execute",new Class[]{Game.class,Channel.class});
 					if (method!=null) {
 						method.setAccessible(true);
@@ -323,9 +327,9 @@ public class UBTool {
 		}
 		
 		if (isExecuteSuccess) {
-			System.out.println("	2:执行游戏自定义脚本----->成功！");
+			System.out.println("	2.执行游戏自定义脚本----->成功！");
 		}else{
-			System.out.println("	2:该游戏不用执行游戏自定义脚本! ");
+			System.out.println("	2.该游戏不用执行游戏自定义脚本! ");
 		}
 		System.out.println("--------------"+LINE_SEPARATOR);
 	}
@@ -335,7 +339,7 @@ public class UBTool {
 	 */
 	private static void executeChannelAndPluginScript(Game game,Channel channel) {
 		System.out.println("	17.执行渠道和插件自定义脚本");
-		System.out.println("	17.1执行插件自定义脚本");
+		System.out.println("		17.1执行插件自定义脚本");
 //		执行渠道插件自定义脚本
 		if (pluginMap!=null&&pluginMap.size()>0) {
 			Collection<Plugin> pluginList = pluginMap.values();
@@ -349,7 +353,7 @@ public class UBTool {
 						String pluginScriptClassPath="com.umbrella.ubsdk.ubtool.script.plugin."+pluginName+"Script";
 						try {
 							Class<?> pluginScriptClass = Class.forName(pluginScriptClassPath);
-							System.out.println("	成功获取到插件自定义脚本----->"+pluginScriptClass);
+							System.out.println("		成功获取到插件自定义脚本----->"+pluginScriptClass);
 							if (pluginScriptClass!=null) {
 								Method method = pluginScriptClass.getMethod("execute",new Class[]{Game.class,Channel.class});
 								if (method!=null) {
@@ -363,19 +367,19 @@ public class UBTool {
 						}
 					}
 					if (isExecuteSuccess) {
-						System.out.println("	执行----->"+plugin.getName()+"----->插件自定义脚本----->成功！");
+						System.out.println("		执行----->"+plugin.getName()+"----->插件自定义脚本----->成功！");
 					}else{
-						System.out.println("	插件----->"+plugin.getName()+"----->不用执行自定义脚本！");
+						System.out.println("		插件----->"+plugin.getName()+"----->不用执行自定义脚本！");
 					}
 				}
 			}
-			System.out.println("	17.1执行插件自定义脚本----->成功！");
+			System.out.println("		17.1执行所有插件自定义脚本----->成功！");
 		}else{
-			System.out.println("	该渠道没有配置插件!!!");	
+			System.out.println("		渠道----->"+channel.getName()+"----->没有配置插件!!!");	
 		}
 		System.out.println("--------------"+LINE_SEPARATOR);
 		
-		System.out.println("	17.2执行渠道自定义脚本");
+		System.out.println("		17.2执行渠道自定义脚本");
 //		执行渠道自定义脚本
 		boolean isChannelExecuteSuccess=false;
 		String channelScript = channel.getScript();
@@ -386,7 +390,7 @@ public class UBTool {
 			try {
 				Class<?> channelScriptClass = Class.forName(channelScriptClassPath);
 				if (channelScriptClass!=null) {
-					System.out.println("	成功获取到渠道自定义脚本----->"+channelScriptClass);
+					System.out.println("		成功获取到渠道自定义脚本----->"+channelScriptClass);
 					Method method = channelScriptClass.getMethod("execute",new Class[]{Game.class,Channel.class});
 					if (method!=null) {
 						method.setAccessible(true);
@@ -399,11 +403,11 @@ public class UBTool {
 			}
 		}
 		if (isChannelExecuteSuccess) {
-			System.out.println("	执行渠道自定义脚本----->成功！");
+			System.out.println("		执行渠道自定义脚本----->成功！");
 		}else{
-			System.out.println("	该渠道不用执行自定义脚本");
+			System.out.println("		渠道----->"+channel.getName()+"----->不用执行自定义脚本");
 		}
-		System.out.println("执行渠道和插件自定义脚本----->成功！");
+		System.out.println("	17.执行渠道和插件自定义脚本----->成功！");
 		System.out.println("--------------"+LINE_SEPARATOR);
 	}
 
@@ -417,7 +421,7 @@ public class UBTool {
 	 * @throws Exception
 	 */
 	private static Map<String,Plugin> loadPluginsConfigAndOperatePluginsRes(Game game, Channel channel) throws DocumentException, IOException, Exception {
-		System.out.println("	3:加载所有插件配置文件并根据插件配置copy、merge渠道相关资源到temp目录");
+		System.out.println("	3.加载所有插件配置文件并根据插件配置copy、merge渠道相关资源到temp目录");
 		ArrayList<String> pluginList = channel.getPluginList();
 		pluginConfigMap = new HashMap<String,ChannelOrPluginConfig>();
 		pluginMap = new HashMap<String,Plugin>();
@@ -437,9 +441,9 @@ public class UBTool {
 					System.out.println("	合并----->"+pluginName+"----->插件的资源----->成功!");
 				}
 			}
-			System.out.println("	3:加载所有插件配置文件并根据插件配置copy、merge渠道相关资源到temp目录----->成功！");
+			System.out.println("	3.加载所有插件配置文件并根据插件配置copy、merge渠道相关资源到temp目录----->成功！");
 		}else{
-			System.out.println("	3:游戏="+game.getName()+"----->对应----->渠道="+channel.getName()+"----->没有配置插件！！！");
+			System.out.println("	3.游戏="+game.getName()+"----->对应----->渠道="+channel.getName()+"----->没有配置插件！！！");
 		}
 		System.out.println("--------------"+LINE_SEPARATOR);
 		return pluginMap;
@@ -455,14 +459,14 @@ public class UBTool {
 	 * @throws Exception
 	 */
 	private static ChannelOrPluginConfig loadChannelConfigAndOperateChannelRes(Game game,Channel channel) throws DocumentException, IOException, Exception{
-		System.out.println("	4:加载渠道配置文件并根据渠道配置copy、merge渠道相关资源到temp目录");
+		System.out.println("	4.加载渠道配置文件并根据渠道配置copy、merge渠道相关资源到temp目录");
 		String operationPath=CONFIG_PATH+File.separator+"sdk"+File.separator+channel.getName();
 		String channelConfigXMLPATH=operationPath+File.separator+"config.xml";
 		ChannelOrPluginConfig channelConfig = ChannelOrPluginConfigXMLParser.parser(channelConfigXMLPATH);
 		System.out.println("	合并----->"+channel.getName()+"----->渠道的资源");
 		operateChannelOrPluginRes(game, operationPath, channelConfig);
 		System.out.println("	合并----->"+channel.getName()+"----->渠道的资源----->成功！");
-		System.out.println("	4:加载渠道配置文件并根据渠道配置copy、merge渠道相关资源到temp目录----->成功！");
+		System.out.println("	4.加载渠道配置文件并根据渠道配置copy、merge渠道相关资源到temp目录----->成功！");
 		System.out.println("--------------"+LINE_SEPARATOR);
 		return channelConfig;
 	}
@@ -1088,14 +1092,14 @@ public class UBTool {
 	 * @throws Exception
 	 */
 	private static void copyBak2Temp() throws Exception {
-		System.out.println("	1:拷贝work/bak----->work/temp目录");
+		System.out.println("	1.拷贝work/bak----->work/temp目录");
 		
 		FileUtil.delete(TEMP_PATH);
 		File tempFile = new File(TEMP_PATH);
 		tempFile.mkdirs();
 		FileUtil.copyDirectiory(BAK_PATH, TEMP_PATH);
 		
-		System.out.println("	1:拷贝work/bak----->work/temp----->成功!");
+		System.out.println("	1.拷贝work/bak----->work/temp----->成功!");
 		System.out.println("--------------"+LINE_SEPARATOR);
 	}
 
