@@ -166,8 +166,8 @@
 		  并且配置米大师后台分区回调，还需要将appID发给应用宝的人配置才能生效，否则Q币、Q卡、手机充值卡会有弹框错误 
 		  沙箱：http://10.175.133.101:80/v3/r/pay/pdc_gateway_dummy 
 		  现网：http://10.223.30.52:8090/v3/r/pay/pdc_gateway_dummy 
-	   5.BoomDots这个游戏的签名要用debug签名，fingerprint:71:5D:C9:EC:BE:70:2A:DC:73:54:5F:8F:CA:81:5C:00
-	   6.YSDK_Android_1.39_917.jar中有包含assets目录，要将其解压之后放到assets目录下，并将jar中的assets目录删除
+	   5.BoomDots这个游戏的签名要用特殊签名，fingerprint:71:5D:C9:EC:BE:70:2A:DC:73:54:5F:8F:CA:81:5C:00
+	   6.YSDK_Android_1.4.2_1002_186.jar中有包含assets目录，要将其解压之后放到assets目录下，并将jar中的assets目录删除
 	   7.目前不同的游戏打包时需要单独build的一个ubsdk_yyb_xxxxx.jar，因为要适配WXEntryActivity.java的包名， 
 		  后期可以完善在UBTool打包脚本里
 	   8.打包时要特别注意处理jni的目录，xxxx.so的一定要在armeabi或者armeabi-v7a目录中， 
@@ -207,7 +207,7 @@
             android:value="1234567" />
         <!-- TODO GAME SDK 推送能力接入配置 End -->
 		<plugins>
-<!-- 			<plugin name="ad_yyb"/> -->
+			<plugin name="ad_yyb"/>
 		</plugins>
 	</channel>
 	

@@ -38,7 +38,7 @@
 	    name="BoomDots"
 	    debug="true"
 	    script="false"
-	    keystore="false"
+	    keystore="true"
 	    orientation="portrait"
 	    apktoolVersion="2-3-0"
 	    gameMainName=""
